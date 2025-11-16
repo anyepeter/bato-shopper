@@ -715,8 +715,8 @@ export function ProductDetailsPage({ product, onNavigateBack, onAddToCart, onNav
             <button
               onClick={handleToggleProductDetails}
               className="w-full py-3 px-4 backdrop-blur-sm border border-white/20 text-white font-medium hover:bg-white/10 transition-all duration-200 flex items-center justify-center gap-2"
-              style={{ backgroundColor: 'transparent !important' }}
               style={{
+                backgroundColor: 'transparent',
                 borderRadius: isMobile ? '8px' : '9999px' // 8px on mobile, rounded-full on desktop
               }}
             >

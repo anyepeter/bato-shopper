@@ -780,23 +780,6 @@ export function AppRouter({ onCurrentProductChange }: AppRouterProps = {}) {
           </Suspense>
         );
 
-      case 'reviews':
-      case 'product-reviews':
-        return (
-          <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: 'var(--light-gray)' }}>
-            <div className="text-center p-8">
-              <h2 className="text-xl font-heading mb-4">Product Reviews</h2>
-              <p className="text-medium-gray font-body mb-4">Product reviews feature coming soon!</p>
-              <button 
-                onClick={() => actions.navigateToPage('home')}
-                className="btn-moema-primary"
-              >
-                Back to Home
-              </button>
-            </div>
-          </div>
-        );
-      
       // Duplicate product-details case removed
       
       case 'share':

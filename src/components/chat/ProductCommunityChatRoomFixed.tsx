@@ -1107,7 +1107,6 @@ export function ProductCommunityChatRoomFixed({
                   onReactionButtonClick={handleReactionButtonClick}
                   onHover={(messageId) => setHoveredMessageId(messageId)}
                   onHoverLeave={() => setHoveredMessageId(null)}
-                  onReactionButtonClick={handleReactionButtonClick}
                   onMessageReaction={handleMessageReaction}
                   onMouseEnter={() => setHoveredMessageId(msg.id)}
                   onMouseLeave={() => setHoveredMessageId(null)}

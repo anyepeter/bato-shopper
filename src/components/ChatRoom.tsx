@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { X, Send, Smile, Paperclip, Phone, Video } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { AdminChatRoom } from "./AdminChatRoom";
+import { AdminChatRoom } from "./admin/AdminChatRoom";
 import { EmojiPicker } from "./EmojiPicker";
 import { ModernEmojiPicker } from "./ModernEmojiPicker";
 import { MessageBubble } from "./chat/MessageBubble";
@@ -602,14 +602,13 @@ export function ChatRoom({ isOpen, onClose, currentUser }: ChatRoomProps) {
                     transition={{ type: "spring", duration: 0.3 }}
                     className={`absolute bottom-0 ${isMobile ? 'left-4' : 'left-8'} mb-4 p-4 rounded-2xl shadow-lg z-30 overflow-y-auto`}
                     style={{
-                      backgroundColor: 'var(--pure-white)',
                       boxShadow: '0 -4px 20px rgba(0, 0, 0, 0.15)',
                       width: isMobile ? '320px' : '300px', // 🔥 MOBILE: Wider for better UX
                       maxHeight: '350px',
-                      border: isMobile 
-                        ? '1px solid rgba(255, 255, 255, 0.2)' 
+                      border: isMobile
+                        ? '1px solid rgba(255, 255, 255, 0.2)'
                         : '0.5px solid var(--border)',
-                      backgroundColor: isMobile 
+                      backgroundColor: isMobile
                         ? 'rgba(17, 17, 17, 0.95)' // 🔥 DARK GLASS
                         : 'var(--pure-white)',
                       backdropFilter: isMobile ? 'blur(20px)' : 'none'
@@ -659,21 +658,19 @@ export function ChatRoom({ isOpen, onClose, currentUser }: ChatRoomProps) {
                       {['👑', '🌍', '🦁', '🐘', '🌺', '👸🏾', '🤴🏾', '💃🏾', '🕺🏾', '👶🏾', '👧🏾', '👦🏾'].map((emoji, index) => (
                         <motion.button
                           key={index}
-                          whileHover={{ scale: 1.2 }}
-                          whileTap={{ scale: 0.9 }}
                           onClick={() => handleEmojiClick(emoji)}
                           className="w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300"
-                          style={{ 
+                          style={{
                             fontSize: isMobile ? '24px' : '20px', // 🔥 LARGER ON MOBILE
                             backgroundColor: 'transparent',
                             border: isMobile ? '1px solid rgba(255, 255, 255, 0.1)' : 'none'
                           }}
                           whileHover={{
                             scale: 1.2,
-                            backgroundColor: isMobile 
-                              ? 'rgba(88, 37, 239, 0.2)' 
+                            backgroundColor: isMobile
+                              ? 'rgba(88, 37, 239, 0.2)'
                               : 'rgba(0, 0, 0, 0.1)',
-                            boxShadow: isMobile 
+                            boxShadow: isMobile
                               ? '0 0 20px rgba(88, 37, 239, 0.4)'
                               : 'none'
                           }}
