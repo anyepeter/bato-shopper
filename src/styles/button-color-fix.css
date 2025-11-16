@@ -1,0 +1,77 @@
+/**
+ * BATO - TARGETED BUTTON COLOR CONSISTENCY FIX
+ * 
+ * This file ensures ONLY specific button classes use the blue color #5825efff
+ * while preserving normal background colors for other elements.
+ */
+
+/* ==========================================================================
+   🎯 TARGETED BUTTON COLOR FIXES - ONLY AFFECT INTENDED BUTTONS
+   ========================================================================== */
+
+/* Moema Button System - Primary Buttons Only */
+.btn-moema-primary,
+.btn-moema-gradient-orange {
+  background: #5825efff !important;
+  background-color: #5825efff !important;
+}
+
+/* Tab Components - Active States Only */
+.trending-tab-button.active,
+.tabs-trigger[data-state="active"],
+.tab-button.active {
+  background: #5825efff !important;
+  background-color: #5825efff !important;
+}
+
+/* Select Components - Highlighted States Only */
+.select-item-indicator,
+.select-item[data-highlighted] {
+  color: #5825efff !important;
+}
+
+/* Specific Named Button Classes */
+.admin-button-primary,
+.vendor-button-primary,
+.chat-send-button,
+.form-submit-button,
+.checkout-button,
+.floating-chat-button,
+.add-to-cart-button,
+.watch-stream-button {
+  background: #5825efff !important;
+  background-color: #5825efff !important;
+}
+
+/* Pagination - Active States Only */
+.pagination-link[data-active="true"],
+.pagination-item.active {
+  background: #5825efff !important;
+  background-color: #5825efff !important;
+}
+
+/* Specific Primary Background Classes */
+.bg-primary {
+  background: #5825efff !important;
+  background-color: #5825efff !important;
+}
+
+/* ==========================================================================
+   🎯 HOVER AND FOCUS STATES - ONLY FOR BLUE BUTTONS
+   ========================================================================== */
+
+/* Hover States - Only for targeted buttons */
+.btn-moema-primary:hover,
+.bg-primary:hover,
+.chat-send-button:hover,
+.add-to-cart-button:hover {
+  background: #6e29f6 !important;
+  background-color: #6e29f6 !important;
+}
+
+/* Focus States - Only for targeted buttons */
+.btn-moema-primary:focus-visible,
+.bg-primary:focus-visible {
+  outline: 2px solid #5825efff;
+  outline-offset: 2px;
+}

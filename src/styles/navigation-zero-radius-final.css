@@ -1,0 +1,177 @@
+/**
+ * 🔥 FINAL ENFORCEMENT: NAVIGATION BARS ZERO BORDER-RADIUS
+ * 
+ * Ultra-high specificity CSS to absolutely ensure that both
+ * top and bottom navigation bars have 0px border-radius
+ * regardless of any other CSS rules or TikTok mobile overrides.
+ * 
+ * This file has the highest possible CSS specificity to
+ * override ALL other border-radius rules for navigation.
+ */
+
+/* 🎯 NUCLEAR OPTION: MAXIMUM SPECIFICITY ENFORCEMENT */
+html body[class*="mobile"] header[class*="header-main"],
+html body.mobile header[class*="header-main"],
+html body[class*="mobile"] .header[class*="header-main"],
+html body.mobile .header[class*="header-main"],
+html body[class*="mobile"] header,
+html body.mobile header,
+html body[class*="mobile"] .header,
+html body.mobile .header,
+html body[class*="mobile"] nav,
+html body.mobile nav,
+html body[class*="mobile"] .mobile-bottom-nav,
+html body.mobile .mobile-bottom-nav,
+html body[class*="mobile"] .mobile-bottom-nav-container,
+html body.mobile .mobile-bottom-nav-container,
+html body[class*="mobile"] .force-navigation-zero-radius,
+html body.mobile .force-navigation-zero-radius,
+html body header[class*="header-main"],
+html body .header[class*="header-main"],
+html body header,
+html body .header,
+html body nav,
+html body .mobile-bottom-nav,
+html body .mobile-bottom-nav-container,
+html body .force-navigation-zero-radius,
+body[class*="mobile"] header[class*="header-main"],
+body.mobile header[class*="header-main"],
+body[class*="mobile"] .header[class*="header-main"],
+body.mobile .header[class*="header-main"],
+body[class*="mobile"] header,
+body.mobile header,
+body[class*="mobile"] .header,
+body.mobile .header,
+body[class*="mobile"] nav,
+body.mobile nav,
+body[class*="mobile"] .mobile-bottom-nav,
+body.mobile .mobile-bottom-nav,
+body[class*="mobile"] .mobile-bottom-nav-container,
+body.mobile .mobile-bottom-nav-container,
+body[class*="mobile"] .force-navigation-zero-radius,
+body.mobile .force-navigation-zero-radius,
+body header[class*="header-main"],
+body .header[class*="header-main"],
+body header,
+body .header,
+body nav,
+body .mobile-bottom-nav,
+body .mobile-bottom-nav-container,
+body .force-navigation-zero-radius,
+header[class*="header-main"],
+.header[class*="header-main"],
+header,
+.header,
+nav,
+.mobile-bottom-nav,
+.mobile-bottom-nav-container,
+.force-navigation-zero-radius {
+  border-radius: 0px !important;
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+/* 🔥 OVERRIDE ANY TAILWIND OR CSS VARIABLE USAGE */
+html body[class*="mobile"] header[style*="borderRadius"],
+html body.mobile header[style*="borderRadius"],
+html body[class*="mobile"] .header[style*="borderRadius"],
+html body.mobile .header[style*="borderRadius"],
+html body[class*="mobile"] nav[style*="borderRadius"],
+html body.mobile nav[style*="borderRadius"],
+html body[class*="mobile"] .mobile-bottom-nav[style*="borderRadius"],
+html body.mobile .mobile-bottom-nav[style*="borderRadius"],
+html body[class*="mobile"] .mobile-bottom-nav-container[style*="borderRadius"],
+html body.mobile .mobile-bottom-nav-container[style*="borderRadius"],
+html body header[style*="borderRadius"],
+html body .header[style*="borderRadius"],
+html body nav[style*="borderRadius"],
+html body .mobile-bottom-nav[style*="borderRadius"],
+html body .mobile-bottom-nav-container[style*="borderRadius"],
+body[class*="mobile"] header[style*="borderRadius"],
+body.mobile header[style*="borderRadius"],
+body[class*="mobile"] .header[style*="borderRadius"],
+body.mobile .header[style*="borderRadius"],
+body[class*="mobile"] nav[style*="borderRadius"],
+body.mobile nav[style*="borderRadius"],
+body[class*="mobile"] .mobile-bottom-nav[style*="borderRadius"],
+body.mobile .mobile-bottom-nav[style*="borderRadius"],
+body[class*="mobile"] .mobile-bottom-nav-container[style*="borderRadius"],
+body.mobile .mobile-bottom-nav-container[style*="borderRadius"],
+body header[style*="borderRadius"],
+body .header[style*="borderRadius"],
+body nav[style*="borderRadius"],
+body .mobile-bottom-nav[style*="borderRadius"],
+body .mobile-bottom-nav-container[style*="borderRadius"],
+header[style*="borderRadius"],
+.header[style*="borderRadius"],
+nav[style*="borderRadius"],
+.mobile-bottom-nav[style*="borderRadius"],
+.mobile-bottom-nav-container[style*="borderRadius"] {
+  border-radius: 0px !important;
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+/* 🎯 MOBILE-SPECIFIC ULTRA-HIGH SPECIFICITY */
+@media (max-width: 767px) {
+  html body[class*="mobile"][class*="mobile-bottom-nav-enabled"] header[class*="header-main"][class*="sticky"],
+  html body.mobile.mobile-bottom-nav-enabled header.header-main.sticky,
+  html body[class*="mobile"][class*="mobile-bottom-nav-enabled"] .header[class*="header-main"][class*="sticky"],
+  html body.mobile.mobile-bottom-nav-enabled .header.header-main.sticky,
+  html body[class*="mobile"][class*="mobile-bottom-nav-enabled"] header[class*="force-navigation-zero-radius"],
+  html body.mobile.mobile-bottom-nav-enabled header.force-navigation-zero-radius,
+  html body[class*="mobile"][class*="mobile-bottom-nav-enabled"] .header[class*="force-navigation-zero-radius"],
+  html body.mobile.mobile-bottom-nav-enabled .header.force-navigation-zero-radius,
+  html body[class*="mobile"][class*="mobile-bottom-nav-enabled"] nav[class*="force-navigation-zero-radius"],
+  html body.mobile.mobile-bottom-nav-enabled nav.force-navigation-zero-radius,
+  html body[class*="mobile"][class*="mobile-bottom-nav-enabled"] .mobile-bottom-nav[class*="force-navigation-zero-radius"],
+  html body.mobile.mobile-bottom-nav-enabled .mobile-bottom-nav.force-navigation-zero-radius,
+  html body[class*="mobile"][class*="mobile-bottom-nav-enabled"] .mobile-bottom-nav-container[class*="force-navigation-zero-radius"],
+  html body.mobile.mobile-bottom-nav-enabled .mobile-bottom-nav-container.force-navigation-zero-radius,
+  html body[class*="mobile"] header[class*="header-main"][class*="sticky"],
+  html body.mobile header.header-main.sticky,
+  html body[class*="mobile"] .header[class*="header-main"][class*="sticky"],
+  html body.mobile .header.header-main.sticky,
+  html body[class*="mobile"] header[class*="force-navigation-zero-radius"],
+  html body.mobile header.force-navigation-zero-radius,
+  html body[class*="mobile"] .header[class*="force-navigation-zero-radius"],
+  html body.mobile .header.force-navigation-zero-radius,
+  html body[class*="mobile"] nav[class*="force-navigation-zero-radius"],
+  html body.mobile nav.force-navigation-zero-radius,
+  html body[class*="mobile"] .mobile-bottom-nav[class*="force-navigation-zero-radius"],
+  html body.mobile .mobile-bottom-nav.force-navigation-zero-radius,
+  html body[class*="mobile"] .mobile-bottom-nav-container[class*="force-navigation-zero-radius"],
+  html body.mobile .mobile-bottom-nav-container.force-navigation-zero-radius {
+    border-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+  }
+}
+
+/* 🔥 OVERRIDE CSS VARIABLES THAT MIGHT AFFECT NAVIGATION */
+@media (max-width: 767px) {
+  html body[class*="mobile"] header,
+  html body.mobile header,
+  html body[class*="mobile"] .header,
+  html body.mobile .header,
+  html body[class*="mobile"] nav,
+  html body.mobile nav,
+  html body[class*="mobile"] .mobile-bottom-nav,
+  html body.mobile .mobile-bottom-nav,
+  html body[class*="mobile"] .mobile-bottom-nav-container,
+  html body.mobile .mobile-bottom-nav-container {
+    --radius-sm: 0px !important;
+    --radius-md: 0px !important;
+    --radius-lg: 0px !important;
+    --radius-xl: 0px !important;
+    --mobile-border-radius: 0px !important;
+    --radius: 0px !important;
+    --border-radius: 0px !important;
+  }
+}

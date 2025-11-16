@@ -1,0 +1,565 @@
+/* 🎨 ENHANCED COLOR SELECTION COMPONENT - BATO DESIGN SYSTEM */
+/* Comprehensive styling inspired by sophisticated design patterns */
+
+/* ================================
+   BASE CONTAINER STYLING
+   ================================ */
+
+.color-selection-container {
+  position: relative;
+  margin: 20px 0;
+  z-index: 1;
+}
+
+.color-selection-label {
+  color: var(--black);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.color-selection-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  position: relative;
+}
+
+.color-option-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ================================
+   COLOR OPTION BUTTON - ENHANCED
+   ================================ */
+
+.color-option-button {
+  width: 48px;
+  height: 48px;
+  border-radius: 45% !important;
+  border: 2px solid #d1d5db;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background: none;
+  outline: none;
+  aspect-ratio: 1;
+  will-change: transform, box-shadow, border-color;
+  backface-visibility: hidden;
+  transform-style: flat;
+  contain: layout style;
+}
+
+.color-option-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-color: var(--primary-light-blue);
+  animation: gentle-spin 2s linear infinite;
+}
+
+.color-option-button:focus {
+  box-shadow: 0 0 0 2px var(--pure-white), 0 0 0 4px var(--primary-blue);
+  outline: none;
+}
+
+.color-option-button.selected {
+  border-color: var(--primary-blue);
+  transform: scale(1.1);
+  box-shadow: 0 4px 16px rgba(88, 37, 239, 0.3);
+  animation: selected-pulse-spin 3s ease-in-out infinite;
+}
+
+.color-option-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  transform: none !important;
+  animation: none !important;
+}
+
+/* ================================
+   INNER CIRCLE - ENHANCED
+   ================================ */
+
+.color-inner-circle {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  border-radius: 45% !important;
+  transition: all 0.2s ease;
+  aspect-ratio: 1;
+  will-change: transform, box-shadow;
+}
+
+.selected .color-inner-circle {
+  box-shadow: inset 0 0 0 2px var(--pure-white);
+}
+
+/* ================================
+   CHECKMARK SYSTEM - ENHANCED
+   ================================ */
+
+.checkmark-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 45% !important;
+  background-color: var(--pure-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  animation: checkmark-spin-in 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.checkmark {
+  color: var(--primary-blue);
+  font-size: 10px;
+  font-weight: bold;
+}
+
+/* ================================
+   TOOLTIP SYSTEM - ENHANCED
+   ================================ */
+
+.color-tooltip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 8px;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.color-option-wrapper:hover .color-tooltip,
+.selected .color-tooltip {
+  opacity: 1;
+}
+
+.color-tooltip > div {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: var(--pure-white);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: var(--font-body);
+  white-space: nowrap;
+  position: relative;
+}
+
+.color-tooltip > div::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-bottom-color: rgba(0, 0, 0, 0.9);
+}
+
+/* ================================
+   SELECTED COLOR DISPLAY
+   ================================ */
+
+.selected-color-display {
+  margin-top: 16px;
+  padding: 12px;
+  background-color: var(--light-gray);
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: var(--font-body);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ================================
+   SIZE VARIATIONS
+   ================================ */
+
+.size-sm .color-option-button { 
+  width: 32px; 
+  height: 32px; 
+  min-width: 32px;
+  min-height: 32px;
+}
+
+.size-lg .color-option-button { 
+  width: 64px; 
+  height: 64px; 
+  min-width: 64px;
+  min-height: 64px;
+}
+
+.size-lg .checkmark-background { 
+  width: 20px; 
+  height: 20px; 
+}
+
+.size-lg .checkmark { 
+  font-size: 12px; 
+}
+
+/* Also support w-8, w-12, w-16 Tailwind classes */
+.color-option-button.w-8 {
+  min-width: 32px;
+  min-height: 32px;
+}
+
+.color-option-button.w-12 {
+  min-width: 48px;
+  min-height: 48px;
+}
+
+.color-option-button.w-16 {
+  min-width: 64px;
+  min-height: 64px;
+}
+
+/* ================================
+   SPINNING ANIMATIONS
+   ================================ */
+
+@keyframes gentle-spin {
+  0% { 
+    transform: scale(1.05) rotate(0deg); 
+    border-radius: 45%;
+  }
+  100% { 
+    transform: scale(1.05) rotate(360deg); 
+    border-radius: 45%;
+  }
+}
+
+@keyframes selected-pulse-spin {
+  0% { 
+    transform: scale(1.1) rotate(0deg); 
+    box-shadow: 0 4px 16px rgba(88, 37, 239, 0.3);
+    border-radius: 45%;
+  }
+  50% { 
+    transform: scale(1.15) rotate(180deg); 
+    box-shadow: 0 6px 20px rgba(88, 37, 239, 0.5);
+    border-radius: 45%;
+  }
+  100% { 
+    transform: scale(1.1) rotate(360deg); 
+    box-shadow: 0 4px 16px rgba(88, 37, 239, 0.3);
+    border-radius: 45%;
+  }
+}
+
+@keyframes checkmark-spin-in {
+  0% { 
+    opacity: 0; 
+    transform: translate(-50%, -50%) scale(0.5) rotate(-180deg); 
+    border-radius: 45%;
+  }
+  70% { 
+    opacity: 1; 
+    transform: translate(-50%, -50%) scale(1.1) rotate(0deg); 
+    border-radius: 45%;
+  }
+  100% { 
+    opacity: 1; 
+    transform: translate(-50%, -50%) scale(1) rotate(0deg); 
+    border-radius: 45%;
+  }
+}
+
+@keyframes loading-spin {
+  0% { 
+    transform: rotate(0deg); 
+    border-radius: 45%;
+  }
+  100% { 
+    transform: rotate(360deg); 
+    border-radius: 45%;
+  }
+}
+
+/* ================================
+   LOADING STATE
+   ================================ */
+
+.color-option-button.loading {
+  animation: loading-spin 1s linear infinite;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* ================================
+   ACCESSIBILITY SUPPORT
+   ================================ */
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .color-option-button {
+    border-width: 3px;
+  }
+  
+  .color-option-button:focus {
+    border-color: Highlight;
+    box-shadow: 0 0 0 2px Highlight;
+  }
+}
+
+/* ================================
+   MOBILE OPTIMIZATIONS
+   ================================ */
+
+@media (max-width: 767px) {
+  .color-selection-grid { 
+    gap: 16px; 
+  }
+  
+  .color-option-button {
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 45% !important; /* Force 45% on mobile, override global 8px rule */
+  }
+  
+  .color-inner-circle {
+    border-radius: 45% !important; /* Force 45% on mobile, override global 8px rule */
+  }
+  
+  .checkmark-background {
+    border-radius: 45% !important; /* Force 45% on mobile, override global 8px rule */
+  }
+  
+  .color-tooltip { 
+    display: none; 
+  }
+  
+  /* Mobile-specific animation adjustments */
+  .color-option-button:hover {
+    animation: none; /* Disable hover animations on mobile */
+    transform: scale(1.05);
+  }
+  
+  .color-option-button.selected {
+    animation: selected-pulse-spin 4s ease-in-out infinite; /* Slower on mobile */
+  }
+  
+  .color-option-button:active:not(:disabled) {
+    transform: scale(0.95);
+    transition-duration: 0.1s;
+    animation: none;
+  }
+}
+
+/* ================================
+   DESKTOP ENHANCEMENTS
+   ================================ */
+
+@media (min-width: 768px) {
+  .color-option-button:hover:not(:disabled) {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-light-blue);
+    animation: gentle-spin 2s linear infinite;
+  }
+  
+  .color-option-button:active:not(:disabled) {
+    transform: scale(0.95);
+    transition-duration: 0.1s;
+    animation: none;
+  }
+}
+
+/* ================================
+   REDUCED MOTION SUPPORT
+   ================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .color-option-button:hover,
+  .color-option-button.selected,
+  .checkmark-background,
+  .color-option-button.loading {
+    animation: none !important;
+  }
+  
+  .color-option-button:hover {
+    transform: scale(1.05);
+  }
+  
+  .color-option-button.selected {
+    transform: scale(1.1);
+  }
+  
+  .color-option-button.loading {
+    opacity: 0.7;
+  }
+}
+
+/* ================================
+   DARK MODE SUPPORT
+   ================================ */
+
+@media (prefers-color-scheme: dark) {
+  .color-selection-label {
+    color: var(--pure-white);
+  }
+  
+  .color-tooltip > div {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--black);
+  }
+  
+  .color-tooltip > div::before {
+    border-bottom-color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .selected-color-display {
+    color: var(--pure-white);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* ================================
+   GRADIENT & PATTERN SUPPORT
+   ================================ */
+
+/* Gradient color support */
+.color-option-button[data-gradient="true"] .color-inner-circle {
+  background: linear-gradient(135deg, var(--color-1, #ff6b6b), var(--color-2, #ff8e53));
+}
+
+/* Special color patterns */
+.color-option-button[data-pattern="stripe"] .color-inner-circle::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 255, 255, 0.3) 2px,
+    rgba(255, 255, 255, 0.3) 4px
+  );
+  border-radius: 45%;
+}
+
+/* ================================
+   PRINT STYLES
+   ================================ */
+
+@media print {
+  .color-selection-container {
+    display: none;
+  }
+}
+
+/* ================================
+   ARIA STATE SUPPORT
+   ================================ */
+
+.color-option-button[aria-checked="true"] {
+  border-color: var(--primary-blue);
+  transform: scale(1.1);
+  box-shadow: 0 4px 16px rgba(88, 37, 239, 0.3);
+  animation: selected-pulse-spin 3s ease-in-out infinite;
+}
+
+.color-option-button[aria-checked="true"] .color-inner-circle {
+  box-shadow: inset 0 0 0 2px var(--pure-white);
+}
+
+/* ================================
+   UTILITY CLASSES
+   ================================ */
+
+.demo-section {
+  margin: 40px 0;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: var(--pure-white);
+}
+
+.demo-card {
+  background: var(--pure-white);
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border: 1px solid #e5e7eb;
+  margin-bottom: 24px;
+}
+
+/* ================================
+   PERFORMANCE OPTIMIZATIONS
+   ================================ */
+
+.color-option-button,
+.color-inner-circle,
+.checkmark-background {
+  will-change: transform, box-shadow;
+  backface-visibility: hidden;
+  transform-style: flat;
+  contain: layout style;
+}
+
+/* ================================
+   MAXIMUM SPECIFICITY ENFORCEMENT - MOBILE AND DESKTOP
+   ================================ */
+
+/* Force 45% border-radius with maximum specificity to override ANY global rules */
+html body .color-option-button,
+html body.mobile .color-option-button,
+html body.mobile-bottom-nav-enabled .color-option-button,
+body .color-option-button,
+body.mobile .color-option-button,
+body.mobile-bottom-nav-enabled .color-option-button,
+.color-option-button {
+  border-radius: 45% !important;
+}
+
+html body .color-inner-circle,
+html body.mobile .color-inner-circle,
+html body.mobile-bottom-nav-enabled .color-inner-circle,
+body .color-inner-circle,
+body.mobile .color-inner-circle,
+body.mobile-bottom-nav-enabled .color-inner-circle,
+.color-inner-circle {
+  border-radius: 45% !important;
+}
+
+html body .checkmark-background,
+html body.mobile .checkmark-background,
+html body.mobile-bottom-nav-enabled .checkmark-background,
+body .checkmark-background,
+body.mobile .checkmark-background,
+body.mobile-bottom-nav-enabled .checkmark-background,
+.checkmark-background {
+  border-radius: 45% !important;
+}

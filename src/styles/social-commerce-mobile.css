@@ -1,0 +1,337 @@
+/* ========================================
+   BATO - SOCIAL COMMERCE MOBILE STYLES
+   E-commerce as a Social Experience
+   ======================================== */
+
+/* Smooth animations for social elements */
+@keyframes social-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes social-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(88, 37, 239, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(88, 37, 239, 0.6);
+  }
+}
+
+@keyframes slide-in-notification {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Social activity feed enhancements */
+.social-activity-item {
+  animation: slide-in-notification 0.4s ease-out;
+  will-change: transform, opacity;
+}
+
+/* Live viewer badges */
+.live-viewer-badge {
+  animation: social-pulse 2s ease-in-out infinite;
+}
+
+/* Reaction buttons */
+.reaction-button {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.reaction-button:active {
+  transform: scale(0.85);
+}
+
+.reaction-button:hover {
+  transform: scale(1.1);
+}
+
+/* Social proof badges */
+.social-proof-badge {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Community reviews container */
+.community-reviews-container {
+  max-height: 400px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(88, 37, 239, 0.5) transparent;
+}
+
+.community-reviews-container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.community-reviews-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.community-reviews-container::-webkit-scrollbar-thumb {
+  background: rgba(88, 37, 239, 0.5);
+  border-radius: 2px;
+}
+
+/* Quick social actions */
+.quick-social-actions {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.5rem;
+}
+
+/* Verified badge animation */
+@keyframes verified-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.verified-badge {
+  animation: verified-pulse 2s ease-in-out infinite;
+}
+
+/* Social interaction ripple effect */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.social-ripple::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(88, 37, 239, 0.4);
+  border-radius: 50%;
+  animation: ripple 0.6s ease-out;
+  pointer-events: none;
+}
+
+/* Trending indicator */
+.trending-indicator {
+  position: relative;
+  overflow: hidden;
+}
+
+.trending-indicator::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* User avatar stack */
+.user-avatar-stack {
+  display: flex;
+  margin-left: -0.5rem;
+}
+
+.user-avatar-stack > * {
+  margin-left: -0.5rem;
+  border: 2px solid #000;
+  transition: transform 0.2s ease;
+}
+
+.user-avatar-stack > *:hover {
+  transform: translateY(-2px) scale(1.1);
+  z-index: 10;
+}
+
+/* Social engagement metrics */
+.engagement-metric {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+/* Live indicator pulse */
+@keyframes live-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+}
+
+.live-indicator-dot {
+  animation: live-pulse 1.5s ease-in-out infinite;
+}
+
+/* Comment bubble */
+.comment-bubble {
+  position: relative;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.comment-bubble::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 20px;
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  transform: rotate(45deg);
+}
+
+/* Social action button group */
+.social-action-group {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Reaction picker */
+.reaction-picker {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+}
+
+.reaction-emoji {
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.reaction-emoji:hover {
+  transform: scale(1.3);
+}
+
+.reaction-emoji:active {
+  transform: scale(0.9);
+}
+
+/* Activity notification */
+.activity-notification {
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 0.75rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Social stats counter */
+.social-stat-counter {
+  font-variant-numeric: tabular-nums;
+  transition: all 0.3s ease;
+}
+
+.social-stat-counter.updating {
+  animation: stat-update 0.5s ease;
+}
+
+@keyframes stat-update {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+    color: #5825efff;
+  }
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 767px) {
+  .social-action-group {
+    flex-wrap: wrap;
+  }
+
+  .reaction-picker {
+    flex-wrap: wrap;
+    max-width: 90vw;
+  }
+
+  .community-reviews-container {
+    max-height: 300px;
+  }
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+  .social-proof-badge {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .engagement-metric {
+    background: rgba(0, 0, 0, 0.7);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .social-activity-item,
+  .live-viewer-badge,
+  .verified-badge,
+  .trending-indicator::before,
+  .live-indicator-dot,
+  .social-stat-counter {
+    animation: none;
+  }
+
+  .reaction-button,
+  .user-avatar-stack > *,
+  .reaction-emoji {
+    transition: none;
+  }
+}

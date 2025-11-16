@@ -1,0 +1,563 @@
+/**
+ * 🎯 MOBILE LIVE STREAMS - ENHANCED STYLES
+ * 
+ * Additional styles for mobile live streaming experience
+ * with proper border radius handling and TikTok-style animations
+ */
+
+@media (max-width: 767px) {
+  
+  /* 🎯 MOBILE LIVE STREAMS SPECIFIC STYLES */
+  .mobile-live-stream-container {
+    position: fixed;
+    inset: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #000000, #1a1a1a, #000000);
+    overflow: hidden;
+    z-index: 1;
+    padding-top: 64px; /* Account for main Header */
+  }
+
+  /* 🎯 ELECTRIC BACKGROUND PARTICLES */
+  .mobile-stream-electric-particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  /* 🎯 PRODUCT THUMBNAILS IN MOBILE STREAMS */
+  .mobile-stream-product-thumbnail {
+    flex-shrink: 0;
+    width: 160px;
+    min-width: 160px;
+  }
+
+  .mobile-stream-product-card {
+    max-width: 160px;
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .mobile-stream-product-card:hover {
+    transform: translateY(-2px) scale(1.02) !important;
+  }
+
+  /* 🎯 STREAM INFO OVERLAY */
+  .mobile-stream-info-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 90;
+    background: transparent;
+    backdrop-filter: none;
+    border-radius: 0px;
+    border: none;
+    box-shadow: none;
+    padding-bottom: 40px;
+  }
+
+  /* 🎯 WATCH STREAM BUTTON - MOBILE SPECIFIC */
+  .mobile-stream-watch-button {
+    width: 100% !important;
+    padding: 16px 24px !important;
+    font-family: var(--font-body) !important;
+    font-weight: bold !important;
+    color: white !important;
+    background: var(--primary-blue) !important;
+    border-radius: 8px !important;
+    border: none !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    font-size: 14px !important;
+    box-shadow: 0 8px 32px rgba(88, 37, 239, 0.4) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    margin-top: 24px !important;
+    padding-top: 16px !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .mobile-stream-watch-button:hover {
+    transform: scale(1.02) !important;
+  }
+
+  .mobile-stream-watch-button:active {
+    transform: scale(0.98) !important;
+  }
+
+  /* 🎯 STREAM META BADGES */
+  .mobile-stream-meta-badges {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  .mobile-stream-category-badge {
+    padding: 4px 12px;
+    border-radius: 8px !important;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .mobile-stream-products-badge {
+    padding: 4px 12px;
+    backdrop-filter: blur(10px);
+    background: rgba(88, 37, 239, 0.2);
+    border: 1px solid rgba(88, 37, 239, 0.3);
+    border-radius: 8px !important;
+  }
+
+  /* 🎯 PRODUCT NAVIGATION CONTROLS */
+  .mobile-stream-product-nav-button {
+    width: 32px !important;
+    height: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.3s ease !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border-radius: 8px !important;
+  }
+
+  .mobile-stream-product-nav-button:hover {
+    transform: scale(1.05) !important;
+  }
+
+  .mobile-stream-product-nav-button:active {
+    transform: scale(0.95) !important;
+  }
+
+  /* 🎯 STREAM NAVIGATION INDICATORS */
+  .mobile-stream-nav-indicators {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .mobile-stream-nav-dot {
+    width: 4px;
+    height: 32px;
+    border-radius: 2px;
+    transition: background-color 0.3s ease;
+  }
+
+  .mobile-stream-nav-dot.active {
+    background-color: var(--primary-blue);
+  }
+
+  .mobile-stream-nav-dot.inactive {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  /* 🎯 TOGGLE STREAM INFO BUTTON */
+  .mobile-stream-toggle-button {
+    position: absolute;
+    top: 80px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 100;
+  }
+
+  .mobile-stream-toggle-button:hover {
+    transform: scale(1.05);
+  }
+
+  .mobile-stream-toggle-button:active {
+    transform: scale(0.95);
+  }
+
+  /* 🎯 LIVE INDICATOR */
+  .mobile-stream-live-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .mobile-stream-live-dot {
+    width: 12px;
+    height: 12px;
+    background: #ef4444;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+    box-shadow: 0 0 10px #ef4444;
+  }
+
+  .mobile-stream-live-text {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: #ef4444;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+
+  .mobile-stream-viewer-count {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: 8px;
+  }
+
+  .mobile-stream-viewer-count-text {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* 🎯 STREAM TITLE AND META */
+  .mobile-stream-title {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: white;
+    font-weight: bold;
+    line-height: 1.2;
+  }
+
+  .mobile-stream-streamer-name {
+    font-family: var(--font-body);
+    font-size: 18px;
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: var(--primary-blue);
+  }
+
+  .mobile-stream-description {
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+    margin-bottom: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* 🎯 PRODUCTS SECTION */
+  .mobile-stream-products-section {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 16px;
+    border-radius: 0px;
+    background: transparent;
+    border: none;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .mobile-stream-products-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .mobile-stream-products-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .mobile-stream-products-title-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--primary-blue);
+    filter: drop-shadow(0 0 4px rgba(88, 37, 239, 0.5));
+  }
+
+  .mobile-stream-products-title-text {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--primary-blue);
+    text-shadow: 0 0 8px rgba(88, 37, 239, 0.3);
+  }
+
+  .mobile-stream-products-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* 🎯 PRODUCTS CAROUSEL */
+  .mobile-stream-products-carousel {
+    position: relative;
+  }
+
+  .mobile-stream-products-scroll {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  .mobile-stream-products-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* 🎯 FLOATING BUTTONS OVERRIDES */
+  .mobile-stream-floating-buttons {
+    position: fixed;
+    right: 16px;
+    top: 80px;
+    z-index: 50;
+  }
+
+  .mobile-stream-floating-buttons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .mobile-stream-floating-button {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px !important;
+  }
+
+  .mobile-stream-floating-button.active {
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark-blue)) !important;
+    box-shadow: 0 4px 15px rgba(88, 37, 239, 0.4) !important;
+  }
+
+  .mobile-stream-floating-button.inactive {
+    background: rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .mobile-stream-floating-button:hover {
+    transform: scale(1.1) !important;
+  }
+
+  .mobile-stream-floating-button:active {
+    transform: scale(0.95) !important;
+  }
+
+  /* 🎯 FLOATING BUTTON BADGE */
+  .mobile-stream-button-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    border: 2px solid white;
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+    border-radius: 8px !important;
+  }
+
+  /* 🎯 EXPANDABLE SEARCH MENU */
+  .mobile-stream-search-menu {
+    position: absolute;
+    right: 64px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 45;
+    min-width: 280px;
+  }
+
+  .mobile-stream-search-input-container {
+    position: relative;
+  }
+
+  .mobile-stream-search-input {
+    width: 192px;
+    height: 48px;
+    padding: 0 16px;
+    padding-right: 40px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .mobile-stream-search-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    color: #6b7280;
+  }
+
+  .mobile-stream-category-filters {
+    display: flex;
+    gap: 8px;
+  }
+
+  .mobile-stream-category-button {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px !important;
+  }
+
+  .mobile-stream-category-button.selected {
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark-blue)) !important;
+    box-shadow: 0 4px 15px rgba(88, 37, 239, 0.4) !important;
+  }
+
+  .mobile-stream-category-button.unselected {
+    background: rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .mobile-stream-category-button:hover {
+    transform: scale(1.1) !important;
+  }
+
+  .mobile-stream-category-button:active {
+    transform: scale(0.95) !important;
+  }
+
+  .mobile-stream-category-icon {
+    width: 16px;
+    height: 16px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+  }
+
+  .mobile-stream-category-icon.selected {
+    color: white;
+  }
+
+  .mobile-stream-category-icon.unselected {
+    color: var(--primary-blue);
+  }
+}
+
+/* 🎯 ADDITIONAL UTILITY CLASSES FOR MOBILE STREAMS */
+@media (max-width: 767px) {
+  .mobile-stream-glass-effect {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  }
+
+  .mobile-stream-blue-glow {
+    box-shadow: 0 0 20px rgba(88, 37, 239, 0.4) !important;
+  }
+
+  .mobile-stream-text-shadow {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  .mobile-stream-transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+
+  /* 🎯 FORCE MOBILE BORDER RADIUS ON LIVE STREAMS COMPONENTS */
+  .mobile-live-stream-container *:not(.rounded-full):not([class*="featured-product"]),
+  .mobile-stream-viewer *:not(.rounded-full):not([class*="featured-product"]),
+  .mobile-stream-floating-buttons *:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+
+  .mobile-live-stream-container .rounded-full,
+  .mobile-stream-viewer .rounded-full,
+  .mobile-stream-floating-buttons .rounded-full {
+    border-radius: 50% !important;
+  }
+
+  /* 🎯 SPECIFIC OVERRIDES FOR PROBLEMATIC COMPONENTS */
+  .mobile-live-stream-container button:not(.rounded-full):not([class*="featured-product"]),
+  .mobile-stream-viewer button:not(.rounded-full):not([class*="featured-product"]),
+  .mobile-stream-floating-buttons button:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+
+  .mobile-live-stream-container input:not([class*="featured-product"]),
+  .mobile-stream-viewer input:not([class*="featured-product"]),
+  .mobile-stream-floating-buttons input:not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+
+  .mobile-live-stream-container div:not(.rounded-full):not([class*="featured-product"]),
+  .mobile-stream-viewer div:not(.rounded-full):not([class*="featured-product"]),
+  .mobile-stream-floating-buttons div:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+
+  /* 🎯 LIVE STREAM GRID SPECIFIC OVERRIDES */
+  .live-stream-grid *:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+
+  /* 🎯 MOBILE LIVE STREAM FLOATING BUTTONS SPECIFIC */
+  .mobile-live-stream-floating-buttons *:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+
+  /* 🎯 INLINE STYLE OVERRIDES */
+  [style*="borderRadius: '3px'"]:not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+
+  [style*="border-radius: 3px"]:not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+
+  /* 🎯 SPECIFIC OVERRIDE FOR TRADITIONAL-DESIGNS CATEGORY BUTTON */
+  button[data-category="traditional-designs"] {
+    border-radius: 8px !important;
+  }
+}

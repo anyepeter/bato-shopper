@@ -1,0 +1,4 @@
+/* 🔥 SELECT ANIMATIONS DISABLED */
+/* This file has been disabled to prevent conflicts with the Select component's built-in animations */
+/* All select animations are now handled directly in /components/ui/select.tsx */
+/* See /SELECT_FINAL_FIX_COMPLETE.md for details */

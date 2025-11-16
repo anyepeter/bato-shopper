@@ -1,0 +1,797 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel:wght@400&family=Ubuntu:wght@300;400;500;700&display=swap');
+@import './modern-dark-theme.css';
+@import './button-border-radius-enforcement.css';
+@import './tiktok-mobile.css';
+@import './mobile-live-streams.css';
+/* @import './mobile-border-radius-override.css'; */ /* 🎯 REMOVED: Global border-radius override was affecting navigation bars */
+/* @import './mobile-specific-fixes.css'; */ /* 🎯 REMOVED: Mobile-specific border-radius fixes were too aggressive */
+@import './mobile-header-zero-radius.css';
+@import './mobile-logistics-clean.css';
+@import './header-dropdown-overlay-fix.css';
+@import './mobile-bottom-navigation.css';
+@import './mobile-page-spacing.css';
+@import './mobile-profile.css';
+@import './mobile-product-reviews-floating-fix.css';
+@import './color-selection.css';
+@import './create-account-page.css';
+
+@import './desktop-overrides.css';
+@import './button-color-fix.css';
+/* @import './select-captivating-animations.css'; */ /* 🔥 DISABLED: Conflicts with Select component's built-in animations */
+@import './navigation-zero-radius-final.css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 14px;
+  
+  /* Design System Colors */
+  --primary-blue: #5825efff;
+  --primary-dark-blue: #5825efff;
+  --primary-light-blue: #5825efff;
+  --primary-extra-light-blue: rgba(88, 37, 239, 0.1);
+  
+  /* Secondary Colors */
+  --success-green: #028b31;
+  --success-light-green: #0fa342;
+  --error-red: #e74c3c;
+  --warning-yellow: #FFE087;
+  
+  /* Neutrals */
+  --pure-white: #ffffff;
+  --light-gray: #f0f4f9;
+  --medium-gray: #868686;
+  --dark-gray: #848584;
+  --black: #000000;
+  
+  /* Gradients */
+  --blue-gradient: linear-gradient(135deg, #5825efff 0%, #6e29f6 100%);
+  --green-gradient: linear-gradient(180deg, #0fa342, #028b31);
+  --vibrant-energy-gradient: linear-gradient(135deg, #e74c3c, #c0392b);
+  --gradient-button-color: #5825efff;
+  --gradient-button-hover-color: #6e29f6;
+  
+  /* 🎯 DESKTOP/TABLET UPDATED SHADOWS & BORDERS - MATCHING PROVIDED HTML */
+  --shadow-standard-desktop: 0 2px 4px hsla(205, 11%, 83%, 0.9);
+  --border-standard-desktop: 0.5px solid hsla(205, 11%, 83%, 0.9);
+  
+  /* Typography */
+  --font-heading: 'Ubuntu', sans-serif;
+  --font-body: 'Abel', sans-serif;
+  
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  
+  /* 🎯 BORDER RADIUS - MAXIMUM 3PX (8PX ON MOBILE) */
+  --radius-sm: 1px;
+  --radius-md: 2px;
+  --radius-lg: 3px;
+  --radius-xl: 3px;
+  --radius-full: 50%;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+  --transition-slow: 0.8s ease;
+
+  /* Tailwind Variables */
+  --background: #ffffff;
+  --foreground: oklch(0.145 0 0);
+  --card: #ffffff;
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: #5825efff;
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.95 0.0058 264.53);
+  --secondary-foreground: oklch(0.145 0 0);
+  --muted: #f0f4f9;
+  --muted-foreground: #868686;
+  --accent: rgba(88, 37, 239, 0.1);
+  --accent-foreground: #5825efff;
+  --destructive: #e74c3c;
+  --destructive-foreground: #ffffff;
+  --border: rgba(200, 200, 200, 0.3);
+  --input: transparent;
+  --input-background: #f0f4f9;
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #5825efff;
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 3px;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: #5825efff;
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: 1px;
+  --radius-md: 2px;
+  --radius-lg: 3px;
+  --radius-xl: 3px;
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply text-foreground;
+    background-color: var(--light-gray);
+    font-family: var(--font-body);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+  
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+  
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  input[type="text"]:not([class*="border-0"]):not([class*="border-none"]),
+  input[type="email"]:not([class*="border-0"]):not([class*="border-none"]), 
+  input[type="password"]:not([class*="border-0"]):not([class*="border-none"]),
+  input[type="number"]:not([class*="border-0"]):not([class*="border-none"]),
+  input[type="tel"]:not([class*="border-0"]):not([class*="border-none"]),
+  input[type="url"]:not([class*="border-0"]):not([class*="border-none"]),
+  input[type="search"]:not([class*="border-0"]):not([class*="border-none"]),
+  textarea:not([class*="border-0"]):not([class*="border-none"]),
+  .btn-moema-secondary,
+  .btn-moema-outline {
+    border-width: 0.5px;
+  }
+}
+
+/* Base typography */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 { font-size: var(--text-2xl); font-weight: var(--font-weight-medium); line-height: 1.5; }
+    h2 { font-size: var(--text-xl); font-weight: var(--font-weight-medium); line-height: 1.5; }
+    h3 { font-size: var(--text-lg); font-weight: var(--font-weight-medium); line-height: 1.5; }
+    h4 { font-size: var(--text-base); font-weight: var(--font-weight-medium); line-height: 1.5; }
+    p { font-size: var(--text-base); font-weight: var(--font-weight-normal); line-height: 1.5; }
+    label { font-size: var(--text-base); font-weight: var(--font-weight-medium); line-height: 1.5; }
+    button { font-size: var(--text-base); font-weight: var(--font-weight-medium); line-height: 1.5; }
+    input { font-size: var(--text-base); font-weight: var(--font-weight-normal); line-height: 1.5; }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+/* Utility animations and classes */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradient-loading {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Mobile Bottom Navigation Spacing Utilities */
+@media (max-width: 767px) {
+  .mobile-page-spacing {
+    padding-bottom: calc(80px - 8px + env(safe-area-inset-bottom)) !important;
+  }
+  
+  .mobile-page-spacing-content {
+    padding-bottom: calc(80px - 8px + env(safe-area-inset-bottom));
+    margin-bottom: 0;
+  }
+  
+  .mobile-safe-bottom {
+    padding-bottom: calc(-8px + env(safe-area-inset-bottom));
+  }
+}
+
+/* Moema Button System */
+.btn-moema {
+  position: relative;
+  padding: 15px;
+  height: 100px;
+  border-radius: var(--radius-sm);
+  background: #5825efff;
+  color: var(--pure-white);
+  font-family: var(--font-body);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  pointer-events: auto;
+  will-change: transform, background-color;
+  backface-visibility: hidden;
+}
+
+.btn-moema-primary {
+  background: #5825efff;
+  color: var(--pure-white);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  pointer-events: auto;
+}
+
+.btn-moema-secondary {
+  background: transparent;
+  border: 0.5px solid #5825efff;
+  color: #5825efff;
+  text-align: center;
+  pointer-events: auto;
+}
+
+.btn-moema-success {
+  background: var(--green-gradient);
+  color: var(--pure-white);
+  text-align: center;
+  pointer-events: auto;
+}
+
+.btn-moema-gradient-orange {
+  background: #5825efff;
+  color: var(--pure-white);
+  text-align: center;
+  pointer-events: auto;
+}
+
+.btn-moema-outline {
+  background: transparent;
+  border: 0.5px solid var(--light-gray);
+  color: var(--medium-gray);
+  text-align: center;
+  pointer-events: auto;
+}
+
+.btn-moema-icon {
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  pointer-events: auto;
+}
+
+.btn-moema-icon-sm {
+  padding: 8px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  pointer-events: auto;
+}
+
+.btn-moema-rounded-lg {
+  border-radius: 3px;
+  text-align: center;
+  pointer-events: auto;
+}
+
+/* Button interactions */
+@media (min-width: 768px) {
+  .btn-moema-primary {
+    box-shadow: var(--shadow-standard-desktop);
+    border-radius: 3px;
+  }
+
+  .btn-moema-secondary {
+    border: var(--border-standard-desktop);
+    border-radius: 3px;
+  }
+  
+  .btn-moema-secondary:hover {
+    box-shadow: var(--shadow-standard-desktop);
+  }
+
+  .btn-moema-success {
+    box-shadow: var(--shadow-standard-desktop);
+    border-radius: 3px;
+  }
+
+  .btn-moema-gradient-orange {
+    box-shadow: var(--shadow-standard-desktop);
+    border-radius: 3px;
+  }
+
+  .btn-moema-outline {
+    border: var(--border-standard-desktop);
+    border-radius: 3px;
+  }
+  
+  .btn-moema-outline:hover {
+    box-shadow: var(--shadow-standard-desktop);
+  }
+
+  button:hover:not(:disabled) {
+    transform: translate3d(0, -1px, 0) scale3d(1.01, 1.01, 1);
+  }
+  
+  button:active:not(:disabled) {
+    transform: translate3d(0, 0, 0) scale3d(0.98, 0.98, 1);
+    transition-duration: 0.1s;
+  }
+}
+
+/* Button base styles */
+button {
+  pointer-events: auto !important;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  text-align: center !important;
+}
+
+button:disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.6;
+  text-align: center !important;
+}
+
+/* Bootstrap Icons */
+.bi {
+  display: inline-block;
+  font-family: 'bootstrap-icons' !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: -0.125em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
+
+/* Custom scrollbars - hidden by default */
+::-webkit-scrollbar {
+  height: 0px;
+  width: 0px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 0px;
+}
+
+/* Utility class for hiding scrollbars */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Community Chat Room invisible scrollbars */
+.community-chat-scrollable {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overflow-y: auto;
+}
+
+.community-chat-scrollable::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.community-chat-scrollable::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+.community-chat-scrollable::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Mobile video support and border-radius override */
+@media (max-width: 767px) {
+  /* 🎯 MOBILE BACKGROUND - BLACK FOR ALL PAGES */
+  body {
+    background-color: #000000 !important;
+  }
+  
+  /* Ensure main app container also has black background on mobile */
+  body.mobile,
+  body.mobile-bottom-nav-enabled {
+    background-color: #000000 !important;
+  }
+  
+  /* Main app container black background for mobile */
+  body.mobile .min-h-screen,
+  body.mobile-bottom-nav-enabled .min-h-screen {
+    background-color: #000000 !important;
+  }
+  
+  /* 🎯 ALL MOBILE PAGES BLACK BACKGROUND ENFORCEMENT */
+  /* Home, Live Streams, Orders, Shop, Account, Profile, Contact Us, Shipping Info, Returns, Size Guide, Help & Support, View Product, Favorites, and Cart */
+  body.mobile div[class*="page"],
+  body.mobile main,
+  body.mobile .page-container,
+  body.mobile .mobile-page-container,
+  body.mobile .mobile-page-content,
+  body.mobile [class*="mobile-"]:not(.mobile-bottom-nav):not(.mobile-bottom-nav-container):not(.mobile-product-reviews-floating-sidebar),
+  body.mobile-bottom-nav-enabled div[class*="page"],
+  body.mobile-bottom-nav-enabled main,
+  body.mobile-bottom-nav-enabled .page-container,
+  body.mobile-bottom-nav-enabled .mobile-page-container,
+  body.mobile-bottom-nav-enabled .mobile-page-content {
+    background-color: transparent !important;
+  }
+  
+  /* Ensure no conflicting light backgrounds on mobile */
+  body.mobile *:not(.mobile-bottom-nav):not(.mobile-bottom-nav-container):not([class*="card"]):not([class*="modal"]):not([class*="popup"]):not([class*="dropdown"]):not([class*="tooltip"]):not(.product-reviews-modal-backdrop):not(.product-reviews-modal-container) {
+    background-color: inherit;
+  }
+  
+  /* 🔥 CRITICAL: MODAL EXCLUSIONS FROM MOBILE BACKGROUND INHERITANCE */
+  /* Product Reviews Modal must maintain its own background */
+  body.mobile .product-reviews-modal-backdrop,
+  body.mobile .product-reviews-modal-container,
+  body.mobile-bottom-nav-enabled .product-reviews-modal-backdrop,
+  body.mobile-bottom-nav-enabled .product-reviews-modal-container {
+    background-color: initial !important;
+  }
+  
+  /* 🎯 MOBILE BORDER-RADIUS OVERRIDE - 8PX FOR ALL ELEMENTS */
+  :root {
+    --radius-sm: 8px;
+    --radius-md: 8px;
+    --radius-lg: 8px;
+    --radius-xl: 8px;
+    /* Mobile Bottom Navigation spacing - 80px nav height - 8px overlap */
+    --mobile-bottom-nav-clearance: calc(80px - 8px + env(safe-area-inset-bottom));
+  }
+  
+  /* 🔥 CRITICAL: TOP AND BOTTOM NAVIGATION BARS MUST HAVE 0PX BORDER-RADIUS + BLACK BACKGROUND */
+  /* Maximum specificity enforcement for navigation bars */
+  header,
+  .header,
+  .header-main,
+  nav,
+  .mobile-bottom-nav,
+  .mobile-bottom-nav-container,
+  .force-navigation-zero-radius,
+  body.mobile header,
+  body.mobile .header,
+  body.mobile .header-main,
+  body.mobile nav,
+  body.mobile .mobile-bottom-nav,
+  body.mobile .mobile-bottom-nav-container,
+  body.mobile .force-navigation-zero-radius {
+    border-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+  }
+  
+  /* 🔥 TOP NAVIGATION BAR ONLY - SOLID BLACK BACKGROUND */
+  header,
+  .header,
+  .header-main,
+  body.mobile header,
+  body.mobile .header,
+  body.mobile .header-main {
+    background-color: #000000 !important;
+  }
+  
+  /* 🎯 UNIVERSAL MOBILE BOTTOM SPACING - 20px above bottom navigation */
+  body.mobile-bottom-nav-enabled {
+    padding-bottom: var(--mobile-bottom-nav-clearance) !important;
+  }
+  
+  /* Ensure all page content containers respect bottom navigation spacing */
+  body.mobile-bottom-nav-enabled > div,
+  body.mobile-bottom-nav-enabled .min-h-screen,
+  body.mobile-bottom-nav-enabled main,
+  body.mobile-bottom-nav-enabled .page-content,
+  body.mobile-bottom-nav-enabled .mobile-page-container,
+  body.mobile-bottom-nav-enabled [class*="page"]:not(.mobile-bottom-nav) {
+    padding-bottom: var(--mobile-bottom-nav-clearance);
+    margin-bottom: 0;
+  }
+  
+  /* Specific page content areas */
+  body.mobile-bottom-nav-enabled .px-4.py-6,
+  body.mobile-bottom-nav-enabled .p-4,
+  body.mobile-bottom-nav-enabled .p-6 {
+    padding-bottom: var(--mobile-bottom-nav-clearance);
+  }
+  
+  video {
+    -webkit-playsinline: true;
+    playsinline: true;
+  }
+  
+  iframe[src*="youtube.com"] {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  iframe[src*="youtube.com"]:not([data-loaded="true"]) {
+    background: linear-gradient(-45deg, #ffeee6, #f0f4f9, #ffeee6, #f0f4f9);
+    background-size: 400% 400%;
+    animation: gradient-loading 2s ease infinite;
+  }
+}
+
+/* Video loading states */
+video, iframe {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+iframe[src*="youtube.com"] {
+  background: linear-gradient(135deg, #ffeee6, #f0f4f9);
+  border: none;
+  outline: none;
+}
+
+/* 🎯 FINAL ENFORCEMENT: NAVIGATION BARS MUST HAVE 0PX BORDER-RADIUS */
+/* Universal rule with maximum specificity to ensure both navigation bars have 0px border-radius */
+html body header,
+html body .header,
+html body .header-main,
+html body nav,
+html body .mobile-bottom-nav,
+html body .mobile-bottom-nav-container,
+html body .force-navigation-zero-radius,
+body header,
+body .header,
+body .header-main,
+body nav,
+body .mobile-bottom-nav,
+body .mobile-bottom-nav-container,
+body .force-navigation-zero-radius,
+header,
+.header,
+.header-main,
+nav,
+.mobile-bottom-nav,
+.mobile-bottom-nav-container,
+.force-navigation-zero-radius {
+  border-radius: 0px !important;
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+/* 🔥 FINAL ENFORCEMENT: TOP NAVIGATION BAR - SOLID BLACK BACKGROUND */
+/* Universal rule to ensure header has solid black background without any opacity */
+html body header,
+html body .header,
+html body .header-main,
+body header,
+body .header,
+body .header-main,
+header,
+.header,
+.header-main {
+  background-color: #000000 !important;
+}
+
+/* 🔥 MOBILE-SPECIFIC ENFORCEMENT */
+@media (max-width: 767px) {
+  html body.mobile header,
+  html body.mobile .header,
+  html body.mobile .header-main,
+  html body.mobile nav,
+  html body.mobile .mobile-bottom-nav,
+  html body.mobile .mobile-bottom-nav-container,
+  html body.mobile .force-navigation-zero-radius,
+  body.mobile header,
+  body.mobile .header,
+  body.mobile .header-main,
+  body.mobile nav,
+  body.mobile .mobile-bottom-nav,
+  body.mobile .mobile-bottom-nav-container,
+  body.mobile .force-navigation-zero-radius {
+    border-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+  }
+  
+  /* 🔥 MOBILE-SPECIFIC: TOP NAVIGATION BAR - SOLID BLACK BACKGROUND */
+  html body.mobile header,
+  html body.mobile .header,
+  html body.mobile .header-main,
+  body.mobile header,
+  body.mobile .header,
+  body.mobile .header-main {
+    background-color: #000000 !important;
+  }
+}
+
+/* 🎯 PROGRESS BAR BORDER-RADIUS ENFORCEMENT - 3PX MAXIMUM */
+/* Ensure all progress bars follow the 3px border-radius guideline */
+[data-slot="progress"],
+[data-slot="progress-indicator"],
+.progress,
+.progress-bar,
+.progress-indicator,
+.progress-track,
+[class*="progress"] {
+  border-radius: 3px !important;
+}
+
+/* Specific progress bar elements that might use different classes */
+.w-full.h-2:not(.rounded-full):not([class*="rounded-full"]),
+.h-2.w-full:not(.rounded-full):not([class*="rounded-full"]) {
+  border-radius: 3px !important;
+}
+
+/* Progress bars within progress containers */
+[class*="progress"] > div,
+[data-slot="progress"] > div,
+.progress > div,
+.progress-container > div {
+  border-radius: 3px !important;
+}
+
+/* 🔥🔥🔥 ULTRA-FINAL ENFORCEMENT: MOBILE HEADER SOLID BLACK BACKGROUND 🔥🔥🔥 */
+/* This is the absolute final rule with maximum specificity to ensure solid black header on mobile */
+/* NO OPACITY, NO TRANSPARENCY, NO BACKDROP-FILTER - PURE SOLID BLACK #000000 */
+@media (max-width: 767px) {
+  header[class*="header-main"],
+  header.header-main,
+  header.sticky,
+  .header-main.sticky,
+  html body.mobile header,
+  html body.mobile .header-main,
+  html body.mobile header.sticky,
+  html body.mobile .header-main.sticky,
+  html body.mobile.mobile-bottom-nav-enabled header,
+  html body.mobile.mobile-bottom-nav-enabled .header-main,
+  html body.mobile.mobile-bottom-nav-enabled header.sticky,
+  html body.mobile.mobile-bottom-nav-enabled .header-main.sticky {
+    background-color: #000000 !important;
+    background: #000000 !important;
+    backdrop-filter: none !important;
+    opacity: 1 !important;
+  }
+  
+  /* Ensure no pseudo-elements add transparency */
+  header[class*="header-main"]::before,
+  header[class*="header-main"]::after,
+  header.header-main::before,
+  header.header-main::after,
+  .header-main::before,
+  .header-main::after {
+    display: none !important;
+  }
+}

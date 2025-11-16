@@ -1,0 +1,192 @@
+/**
+ * 🚚 MOBILE LOGISTICS PORTAL - CLEAN & EFFICIENT CSS
+ * 
+ * This file replaces the multiple conflicting CSS files with a cleaner,
+ * more efficient approach that prevents button interaction blocking
+ * while maintaining the TikTok-style dark theme.
+ */
+
+@media (max-width: 767px) {
+  
+  /* 🎯 BASE MOBILE LOGISTICS THEME */
+  body.mobile.logistics-portal,
+  body.tiktok-mobile-logistics {
+    background: #000000 !important;
+    color: #ffffff !important;
+  }
+
+  /* Main content container */
+  body.mobile.logistics-portal .min-h-screen,
+  body.tiktok-mobile-logistics .min-h-screen {
+    background: #000000 !important;
+  }
+
+  /* Logistics content areas */
+  .mobile-logistics-content,
+  .logistics-content {
+    background: #000000 !important;
+    color: #ffffff !important;
+    min-height: 100vh !important;
+  }
+
+  /* 🎯 BUTTON SYSTEM - SIMPLIFIED & FUNCTIONAL */
+  
+  /* Primary buttons - maintain full functionality */
+  .mobile-logistics-content button[style*="#5825ef"],
+  .mobile-logistics-content .btn-moema-primary,
+  .mobile-logistics-content .emergency-alert-button {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    border-radius: 8px !important;
+    font-family: var(--font-body) !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+  }
+
+  /* Emergency alert button specific styling */
+  .mobile-logistics-content .emergency-alert-button {
+    border: 1px solid rgba(255, 68, 68, 0.6) !important;
+    color: rgba(255, 68, 68, 0.9) !important;
+    background: transparent !important;
+  }
+
+  .mobile-logistics-content .emergency-alert-button:hover {
+    background: rgba(255, 68, 68, 0.1) !important;
+    border-color: rgba(255, 68, 68, 0.8) !important;
+    color: #ff4444 !important;
+    transform: translateY(-1px) !important;
+  }
+
+  /* 🎯 CARD COMPONENTS */
+  .mobile-logistics-content .border-0,
+  .mobile-logistics-content [class*="card"] {
+    background: rgba(30, 30, 30, 0.95) !important;
+    border: 1px solid rgba(88, 37, 239, 0.2) !important;
+    border-radius: 8px !important;
+    color: #ffffff !important;
+  }
+
+  /* 🎯 HEADER STYLING */
+  .mobile-logistics-content .logistics-header-zero-radius {
+    border-radius: 0px !important;
+    background: #5825efff !important;
+    color: #ffffff !important;
+  }
+
+  /* 🎯 INPUT FIELDS */
+  .mobile-logistics-content input {
+    background: rgba(26, 26, 26, 0.8) !important;
+    border: 1px solid rgba(88, 37, 239, 0.5) !important;
+    color: #ffffff !important;
+    border-radius: 8px !important;
+  }
+
+  .mobile-logistics-content input::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
+
+  .mobile-logistics-content input:focus {
+    border-color: #5825efff !important;
+    box-shadow: 0 0 0 2px rgba(88, 37, 239, 0.3) !important;
+  }
+
+  /* 🎯 TABS COMPONENT */
+  .mobile-logistics-content [data-slot="tabs-list"] {
+    background: rgba(20, 20, 20, 0.9) !important;
+    border: 1px solid rgba(88, 37, 239, 0.3) !important;
+    border-radius: 8px !important;
+  }
+
+  .mobile-logistics-content [data-slot="tabs-trigger"] {
+    color: rgba(255, 255, 255, 0.7) !important;
+    border-radius: 6px !important;
+    transition: all 0.2s ease !important;
+    pointer-events: auto !important;
+  }
+
+  .mobile-logistics-content [data-slot="tabs-trigger"]:hover {
+    background: rgba(88, 37, 239, 0.1) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+  }
+
+  .mobile-logistics-content [data-slot="tabs-trigger"][data-state="active"] {
+    background: #5825efff !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 15px rgba(88, 37, 239, 0.5) !important;
+  }
+
+  /* 🎯 PROGRESS BARS */
+  .mobile-logistics-content .progress,
+  .mobile-logistics-content [class*="progress"] {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+  }
+
+  .mobile-logistics-content [class*="progress"] > div {
+    background: linear-gradient(135deg, #4040f8ff, #5825efff) !important;
+    border-radius: 8px !important;
+  }
+
+  /* 🎯 BADGES */
+  .mobile-logistics-content .badge,
+  .mobile-logistics-content [class*="badge"] {
+    background: #5825efff !important;
+    color: #ffffff !important;
+    border-radius: 6px !important;
+  }
+
+  /* 🎯 SCROLLBARS */
+  .mobile-logistics-content *::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .mobile-logistics-content *::-webkit-scrollbar-track {
+    background: rgba(26, 26, 26, 0.5);
+    border-radius: 3px;
+  }
+
+  .mobile-logistics-content *::-webkit-scrollbar-thumb {
+    background: #5825efff;
+    border-radius: 3px;
+  }
+
+  /* 🎯 STATUS INDICATORS */
+  .mobile-logistics-content .status-success {
+    color: #00ff88 !important;
+  }
+
+  .mobile-logistics-content .status-warning {
+    color: #ffcc00 !important;
+  }
+
+  .mobile-logistics-content .status-error {
+    color: #ff4444 !important;
+  }
+
+  .mobile-logistics-content .status-info {
+    color: #5825efff !important;
+  }
+
+  /* 🎯 ENSURE ALL INTERACTIVE ELEMENTS WORK */
+  .mobile-logistics-content button,
+  .mobile-logistics-content [role="button"],
+  .mobile-logistics-content [onclick],
+  .mobile-logistics-content [data-slot="tabs-trigger"],
+  .mobile-logistics-content .emergency-alert-button {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    touch-action: manipulation !important;
+  }
+
+  /* 🎯 FORCE OVERRIDE LIGHT BACKGROUNDS */
+  .mobile-logistics-content [style*="background: white"],
+  .mobile-logistics-content [style*="background: #fff"],
+  .mobile-logistics-content [style*="background: #ffffff"],
+  .mobile-logistics-content [class*="bg-white"],
+  .mobile-logistics-content [class*="bg-muted"] {
+    background: rgba(30, 30, 30, 0.95) !important;
+    color: #ffffff !important;
+  }
+}

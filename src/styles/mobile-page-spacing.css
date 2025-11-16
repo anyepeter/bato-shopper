@@ -1,0 +1,130 @@
+/* Mobile Page Content Spacing - Ensures -8px clearance above bottom navigation (8px overlap) */
+
+@media (max-width: 767px) {
+  :root {
+    /* Define the exact spacing needed above mobile bottom navigation */
+    --mobile-nav-height: 80px;
+    --mobile-nav-clearance: -8px;
+    --mobile-safe-area: env(safe-area-inset-bottom, 0px);
+    --mobile-total-bottom-spacing: calc(var(--mobile-nav-height) + var(--mobile-nav-clearance) + var(--mobile-safe-area));
+  }
+
+  /* Universal mobile bottom spacing for all content when mobile bottom nav is enabled */
+  body.mobile-bottom-nav-enabled {
+    /* Prevent any default body margin/padding from interfering */
+    margin-bottom: 0 !important;
+  }
+
+  /* Apply bottom spacing to the main app container */
+  body.mobile-bottom-nav-enabled > div {
+    padding-bottom: var(--mobile-total-bottom-spacing) !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Ensure all major page containers have proper spacing */
+  body.mobile-bottom-nav-enabled .min-h-screen:not(.mobile-bottom-nav) {
+    padding-bottom: var(--mobile-total-bottom-spacing) !important;
+    box-sizing: border-box;
+  }
+
+  /* Specific page content containers */
+  body.mobile-bottom-nav-enabled main,
+  body.mobile-bottom-nav-enabled [class*="page"]:not(.mobile-bottom-nav),
+  body.mobile-bottom-nav-enabled .page-container,
+  body.mobile-bottom-nav-enabled .mobile-page-content,
+  body.mobile-bottom-nav-enabled .content-wrapper {
+    padding-bottom: var(--mobile-total-bottom-spacing);
+    margin-bottom: 0;
+  }
+
+  /* Handle nested page content spacing */
+  body.mobile-bottom-nav-enabled .px-4.py-6.space-y-6:last-child,
+  body.mobile-bottom-nav-enabled .p-4:last-child,
+  body.mobile-bottom-nav-enabled .p-6:last-child {
+    padding-bottom: calc(var(--spacing-xl) + var(--mobile-total-bottom-spacing));
+  }
+
+  /* Ensure ScrollArea components within pages also respect bottom spacing */
+  body.mobile-bottom-nav-enabled .scroll-area,
+  body.mobile-bottom-nav-enabled [data-radix-scroll-area-viewport] {
+    padding-bottom: var(--mobile-total-bottom-spacing);
+  }
+
+  /* Handle specific layout patterns used in Bato pages */
+  body.mobile-bottom-nav-enabled .space-y-6:last-child > *:last-child,
+  body.mobile-bottom-nav-enabled .space-y-4:last-child > *:last-child {
+    margin-bottom: var(--mobile-total-bottom-spacing);
+  }
+
+  /* Prevent double spacing on elements that already have bottom margin */
+  body.mobile-bottom-nav-enabled *[style*="padding-bottom"] {
+    padding-bottom: var(--mobile-total-bottom-spacing) !important;
+  }
+
+  /* Handle floating elements positioning relative to bottom nav - above overlapping content */
+  body.mobile-bottom-nav-enabled .floating-toggle-button,
+  body.mobile-bottom-nav-enabled .floating-chat-button,
+  body.mobile-bottom-nav-enabled .floating-categories {
+    bottom: calc(var(--mobile-nav-height) + 8px + var(--mobile-safe-area));
+  }
+
+  body.mobile-bottom-nav-enabled .mobile-incentive-balloon,
+  body.mobile-bottom-nav-enabled .floating-product-community-button {
+    bottom: calc(var(--mobile-nav-height) + 8px + var(--mobile-safe-area));
+  }
+
+  /* Special handling for stream pages that might have different nav heights */
+  body.mobile-bottom-nav-enabled.stream-viewer-page,
+  body.mobile-bottom-nav-enabled.live-streams-page {
+    --mobile-nav-height: 70px;
+  }
+
+  /* Handle modal and overlay positioning */
+  body.mobile-bottom-nav-enabled .modal-content,
+  body.mobile-bottom-nav-enabled .dialog-content,
+  body.mobile-bottom-nav-enabled .sheet-content {
+    max-height: calc(100vh - var(--mobile-total-bottom-spacing) - 60px);
+  }
+
+  /* Ensure chat rooms and overlays don't get cut off */
+  body.mobile-bottom-nav-enabled .chat-room,
+  body.mobile-bottom-nav-enabled .admin-chat-room {
+    bottom: var(--mobile-nav-height);
+    max-height: calc(100vh - var(--mobile-nav-height) - 60px);
+  }
+}
+
+/* High contrast and accessibility enhancements */
+@media (max-width: 767px) and (prefers-contrast: high) {
+  body.mobile-bottom-nav-enabled::after {
+    content: '';
+    position: fixed;
+    bottom: var(--mobile-nav-height);
+    left: 0;
+    right: 0;
+    height: var(--mobile-nav-clearance);
+    background: linear-gradient(to bottom, transparent, rgba(88, 37, 239, 0.1));
+    pointer-events: none;
+    z-index: 9997;
+  }
+}
+
+/* Debug mode - shows the clearance area (remove in production) */
+body.mobile-bottom-nav-enabled.debug-spacing::before {
+  content: '-8px overlap zone';
+  position: fixed;
+  bottom: calc(var(--mobile-nav-height) + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 8px;
+  background: rgba(255, 0, 0, 0.3);
+  color: white;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  pointer-events: none;
+  border: 1px dashed red;
+}

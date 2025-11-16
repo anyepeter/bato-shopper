@@ -1,0 +1,123 @@
+/* ==========================================================================
+   🎯 DESKTOP/TABLET STYLING OVERRIDES - 3PX MAX BORDER RADIUS
+   FIXED: Removed overly aggressive universal selectors that broke components
+   ========================================================================== */
+
+@media (min-width: 768px) {
+  /* ✅ SAFE: Override Tailwind rounded classes only */
+  .rounded:not(.rounded-full):not([data-radix-select-content]):not([data-radix-popover-content]):not([data-radix-dialog-content]),
+  .rounded-sm:not(.rounded-full):not([data-radix-select-content]):not([data-radix-popover-content]),
+  .rounded-md:not(.rounded-full):not([data-radix-select-content]):not([data-radix-popover-content]),
+  .rounded-lg:not(.rounded-full):not([data-radix-select-content]):not([data-radix-popover-content]),
+  .rounded-xl:not(.rounded-full):not([data-radix-select-content]):not([data-radix-popover-content]),
+  .rounded-2xl:not(.rounded-full):not([data-radix-select-content]):not([data-radix-popover-content]),
+  .rounded-3xl:not(.rounded-full):not([data-radix-select-content]):not([data-radix-popover-content]) {
+    border-radius: 3px !important;
+  }
+
+  /* ✅ SAFE: Circular elements preserved */
+  .rounded-full,
+  [class*="rounded-full"],
+  .aspect-square.rounded-full,
+  .notification-pulse,
+  .mobile-floating-chat-notification,
+  .color-selector,
+  .size-indicator {
+    border-radius: 50% !important;
+  }
+
+  /* ✅ SAFE: Apply standard shadow and border to specific components */
+  .card,
+  .panel,
+  .product-card,
+  .trending-card,
+  .filter-card,
+  .featured-collection-card,
+  .glass-card,
+  .glass-panel {
+    box-shadow: var(--shadow-standard-desktop) !important;
+    border: var(--border-standard-desktop) !important;
+    border-radius: 3px !important;
+  }
+
+  /* 🎯 REMOVE BORDERS: Panel containers and product container */
+  .shop-panel-card,
+  .shop-search-filter-card,
+  .shop-trending-card,
+  .shop-products-container {
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 3px !important;
+  }
+
+  /* ✅ SAFE: Hover states for cards */
+  .product-card:hover,
+  .trending-card:hover,
+  .card:hover,
+  .panel:hover,
+  .glass-card:hover,
+  .featured-collection-card:hover {
+    box-shadow: var(--shadow-standard-desktop) !important;
+    transform: translateY(-2px);
+  }
+
+  /* 🎯 REMOVE BORDERS: Panel hover states */
+  .shop-panel-card:hover,
+  .shop-search-filter-card:hover,
+  .shop-trending-card:hover {
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  /* ✅ SAFE: Product cards specific styling */
+  .group.product-card {
+    box-shadow: var(--shadow-standard-desktop) !important;
+    border: var(--border-standard-desktop) !important;
+    border-radius: 3px !important;
+  }
+
+  .group.product-card:hover {
+    box-shadow: var(--shadow-standard-desktop) !important;
+    transform: translateY(-2px) !important;
+  }
+
+  /* ✅ SAFE: Button shadows (Moema buttons only) */
+  button.btn-moema-primary,
+  button.btn-moema-success,
+  button.btn-moema-gradient-orange {
+    box-shadow: var(--shadow-standard-desktop) !important;
+    border-radius: 3px !important;
+  }
+
+  button.btn-moema-secondary:hover,
+  button.btn-moema-outline:hover {
+    box-shadow: var(--shadow-standard-desktop) !important;
+  }
+
+  /* ✅ SAFE: Search & filter and trending containers */
+  .shop-search-filter-container,
+  .shop-trending-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 1 !important;
+    box-shadow: var(--shadow-standard-desktop) !important;
+    border: var(--border-standard-desktop) !important;
+    border-radius: 3px !important;
+  }
+}
+
+/* 🔥 REMOVED: Overly aggressive rules that broke components */
+/* 
+ * REMOVED - These rules were breaking Radix UI and other components:
+ * 
+ * 1. Universal HTML element border-radius (div, section, article, etc.)
+ * 2. Universal pseudo-element removal (*::before, *::after)
+ * 3. Universal box-shadow removal
+ * 4. Inline style overrides that affected portal-based components
+ * 
+ * These rules were causing runtime errors by:
+ * - Breaking Select dropdown positioning
+ * - Removing component pseudo-elements needed for UI
+ * - Interfering with Radix UI's internal styling
+ * - Blocking portal-based component animations
+ */

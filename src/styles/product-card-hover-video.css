@@ -1,0 +1,195 @@
+/* 
+ * Product Card Hover-to-Video Animations
+ * Smooth transitions for video appearance on product card hover
+ */
+
+/* Fade in with subtle scale animation */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Simple fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Shimmer effect for video loading */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* Video loading skeleton */
+.video-loading-skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Smooth video container transition */
+.video-container-transition {
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Enhanced hover glow effect for video cards */
+.product-card-video-active {
+  box-shadow: 
+    0 4px 20px rgba(88, 37, 239, 0.15),
+    0 0 0 1px rgba(88, 37, 239, 0.1),
+    0 0 30px rgba(88, 37, 239, 0.05);
+}
+
+/* Play button pulse animation */
+@keyframes playPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.play-pulse {
+  animation: playPulse 2s ease-in-out infinite;
+}
+
+/* Video badge slide-in effect */
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.video-badge-slide {
+  animation: slideInFromBottom 0.4s ease-out forwards;
+}
+
+/* Prevent layout shift during transitions */
+.product-card-media-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.product-card-media-container > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Smooth transition for image-to-video crossfade */
+.media-crossfade-exit {
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.media-crossfade-exit-active {
+  opacity: 0;
+  transform: scale(1.05);
+}
+
+.media-crossfade-enter {
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.media-crossfade-enter-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Performance optimization - GPU acceleration */
+.product-card-video-optimized {
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  transform-style: flat;
+  contain: layout style paint;
+}
+
+/* Ensure action buttons always appear above video */
+.product-card-actions-overlay {
+  z-index: 100 !important;
+  pointer-events: none;
+}
+
+.product-card-actions-overlay button {
+  pointer-events: auto;
+  position: relative;
+  z-index: 101;
+}
+
+/* Button entrance animation */
+@keyframes buttonSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Add backdrop filter support for better button visibility */
+.btn-moema-icon,
+.btn-moema-secondary {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Hover overlay gradient effect */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.product-card-hover-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(88, 37, 239, 0.05),
+    rgba(88, 37, 239, 0.1),
+    rgba(88, 37, 239, 0.05)
+  );
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+}

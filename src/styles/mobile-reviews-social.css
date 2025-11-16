@@ -1,0 +1,494 @@
+/* ========================================
+   BATO - MOBILE REVIEWS SOCIAL EXPERIENCE
+   E-commerce as a Social Experience
+   ======================================== */
+
+/* Social review card animations */
+@keyframes shimmer-review {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes pulse-verified {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(88, 37, 239, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(88, 37, 239, 0.6);
+  }
+}
+
+@keyframes float-activity {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes stat-number-update {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+    color: #5825efff;
+  }
+}
+
+@keyframes slide-carousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Review activity feed */
+.review-activity-item {
+  animation: float-activity 3s ease-in-out infinite;
+}
+
+/* Social stats animations */
+.social-stat {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.social-stat:hover {
+  transform: scale(1.1);
+}
+
+.social-stat-number {
+  font-variant-numeric: tabular-nums;
+}
+
+.social-stat-number.updating {
+  animation: stat-number-update 0.5s ease;
+}
+
+/* Verified badge */
+.verified-badge {
+  animation: pulse-verified 2s ease-in-out infinite;
+}
+
+/* Review card hover effects */
+.review-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.review-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(88, 37, 239, 0.1),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.review-card:hover::before {
+  left: 100%;
+}
+
+/* Helpful vote button */
+.helpful-button {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.helpful-button:active {
+  transform: scale(0.9);
+}
+
+.helpful-button.voted {
+  background: linear-gradient(135deg, #5825efff, #6e29f6);
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Reaction picker */
+.reaction-picker {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.reaction-emoji {
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+.reaction-emoji:hover {
+  transform: scale(1.3) rotate(10deg);
+}
+
+.reaction-emoji:active {
+  transform: scale(0.9);
+}
+
+/* Trending reviews carousel */
+.trending-carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.trending-carousel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.trending-carousel-indicator {
+  transition: all 0.3s ease;
+}
+
+.trending-carousel-indicator.active {
+  background: linear-gradient(90deg, #5825efff, #6e29f6);
+  width: 20px;
+}
+
+/* Search bar animations */
+.search-bar-mobile {
+  transition: all 0.3s ease;
+}
+
+.search-bar-mobile:focus {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(88, 37, 239, 0.3);
+}
+
+/* Filter pills */
+.filter-pill {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.filter-pill:active {
+  transform: scale(0.95);
+}
+
+.filter-pill.active {
+  background: linear-gradient(135deg, #5825efff, #6e29f6);
+  box-shadow: 0 4px 15px rgba(88, 37, 239, 0.4);
+}
+
+/* Review images grid */
+.review-images {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.review-images::-webkit-scrollbar {
+  display: none;
+}
+
+.review-image {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.review-image:hover {
+  transform: scale(1.05);
+}
+
+/* Activity notification */
+.activity-notification {
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+.activity-notification-icon {
+  position: relative;
+}
+
+.activity-notification-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  animation: ripple-effect 1.5s ease-out infinite;
+}
+
+@keyframes ripple-effect {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+    box-shadow: 0 0 0 0 rgba(88, 37, 239, 0.4);
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+    box-shadow: 0 0 0 10px rgba(88, 37, 239, 0);
+  }
+}
+
+/* Social proof badges */
+.social-proof-badge {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.social-proof-badge:hover {
+  transform: translateY(-2px);
+}
+
+/* Review expand/collapse */
+.review-content {
+  transition: height 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+}
+
+/* Star rating animations */
+.star-rating {
+  display: inline-flex;
+  gap: 0.125rem;
+}
+
+.star-rating svg {
+  transition: all 0.2s ease;
+}
+
+.star-rating svg:hover {
+  transform: scale(1.2) rotate(15deg);
+}
+
+/* Floating action buttons */
+.floating-action-button {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.floating-action-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 30px rgba(88, 37, 239, 0.4);
+}
+
+.floating-action-button:active {
+  transform: scale(0.9);
+}
+
+/* Empty state */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  min-height: 400px;
+}
+
+.empty-state-icon {
+  animation: float-activity 3s ease-in-out infinite;
+}
+
+/* Loading skeleton */
+@keyframes skeleton-loading {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-loading {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1) 25%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+}
+
+/* User avatar ring */
+.user-avatar {
+  position: relative;
+  border: 2px solid rgba(88, 37, 239, 0.3);
+  transition: all 0.3s ease;
+}
+
+.user-avatar:hover {
+  border-color: rgba(88, 37, 239, 0.6);
+  transform: scale(1.1);
+}
+
+.user-avatar-online::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  border: 2px solid #000;
+  border-radius: 50%;
+  animation: pulse-verified 2s ease-in-out infinite;
+}
+
+/* Review timestamp */
+.review-timestamp {
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+}
+
+/* Helpful count badge */
+.helpful-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.helpful-count.highlighted {
+  background: linear-gradient(135deg, #5825efff, #6e29f6);
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Review size/color tags */
+.review-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.review-tag:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* Scrollbar styling for review list */
+.reviews-list {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(88, 37, 239, 0.5) transparent;
+}
+
+.reviews-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.reviews-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.reviews-list::-webkit-scrollbar-thumb {
+  background: rgba(88, 37, 239, 0.5);
+  border-radius: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .review-card {
+    border-radius: 8px;
+  }
+
+  .filter-pill {
+    white-space: nowrap;
+  }
+
+  .trending-carousel-track {
+    scroll-snap-type: x mandatory;
+  }
+
+  .trending-carousel-item {
+    scroll-snap-align: center;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .review-activity-item,
+  .verified-badge,
+  .social-stat,
+  .floating-action-button,
+  .empty-state-icon,
+  .user-avatar,
+  .skeleton-loading {
+    animation: none;
+  }
+
+  .review-card::before,
+  .reaction-emoji,
+  .review-image,
+  .star-rating svg {
+    transition: none;
+  }
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+  .review-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  }
+
+  .social-proof-badge {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .review-card {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .filter-pill.active {
+    border: 2px solid #fff;
+  }
+
+  .verified-badge {
+    border: 2px solid #10b981;
+  }
+}
+
+/* Print styles */
+@media print {
+  .floating-action-button,
+  .filter-pill,
+  .reaction-picker,
+  .activity-notification {
+    display: none;
+  }
+
+  .review-card {
+    page-break-inside: avoid;
+  }
+}

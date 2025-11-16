@@ -1,0 +1,48 @@
+/* Create Account Page Styles */
+
+/* Mobile Select Override */
+@media (max-width: 767px) {
+  .create-account-select-trigger {
+    width: 100%;
+    background-color: #1a1a1a !important;
+    border: 1px solid #333 !important;
+    border-radius: 8px !important;
+    color: white !important;
+    font-family: 'Abel', sans-serif !important;
+    font-size: 14px !important;
+    padding: 0.75rem !important;
+    height: auto !important;
+  }
+  
+  .create-account-select-trigger[data-placeholder] {
+    color: #666 !important;
+  }
+  
+  .create-account-select-trigger.error {
+    border-color: #ef4444 !important;
+  }
+  
+  .create-account-select-content {
+    background-color: #2a2a2a !important;
+    border: 1px solid #333 !important;
+    border-radius: 8px !important;
+  }
+  
+  .create-account-select-item {
+    color: white !important;
+    font-family: 'Abel', sans-serif !important;
+    font-size: 14px !important;
+  }
+  
+  .create-account-select-item:hover {
+    background-color: #3a3a3a !important;
+  }
+}
+
+/* Desktop Select Override */
+@media (min-width: 768px) {
+  .create-account-select-trigger {
+    font-family: 'Abel', sans-serif !important;
+    border-radius: 3px !important;
+  }
+}

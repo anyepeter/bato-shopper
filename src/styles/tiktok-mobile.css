@@ -1,0 +1,1148 @@
+/* ==========================================================================
+   🎯 TIKTOK-STYLE MOBILE DESIGN SYSTEM - CUSTOMER CARE PAGES
+   Contemporary, vibrant aesthetic with dark backgrounds and high contrast
+   ========================================================================== */
+
+@media (max-width: 767px) {
+  /* 🎯 TIKTOK-STYLE VARIABLES FOR MOBILE */
+  :root {
+    --tiktok-dark-bg: #0a0a0a;
+    --tiktok-card-bg: #1a1a1a;
+    --tiktok-accent-bg: #161823;
+    --tiktok-gradient-primary: linear-gradient(135deg, #5825efff, #6e29f6, #885cf8);
+    --tiktok-gradient-secondary: linear-gradient(135deg, #5825efff, #6e29f6, #885cf8);
+    --tiktok-gradient-accent: linear-gradient(135deg, #5825efff, #6e29f6);
+    --tiktok-text-primary: #ffffff;
+    --tiktok-text-secondary: #a1a1aa;
+    --tiktok-text-accent: #5825efff;
+    --tiktok-border: rgba(255, 255, 255, 0.1);
+    --tiktok-shadow: 0 8px 32px rgba(88, 37, 239, 0.15);
+    --tiktok-glow: 0 0 20px rgba(88, 37, 239, 0.3);
+    
+    /* 🎯 MOBILE BORDER RADIUS OVERRIDE - 24PX FOR CONTENT ELEMENTS ONLY (NOT NAVIGATION) */
+    --mobile-border-radius: 24px;
+    /* NOTE: Navigation bars maintain 0px border-radius via mobile-header-zero-radius.css and globals.css */
+  }
+
+  /* 🎯 TIKTOK-STYLE ANIMATIONS */
+  @keyframes tiktok-float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+
+  @keyframes tiktok-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.9; }
+  }
+
+  @keyframes tiktok-shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  @keyframes tiktok-gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* 🔥 CRITICAL: NAVIGATION BARS MUST ALWAYS HAVE 0PX BORDER-RADIUS */
+  /* Ultra-high specificity override to prevent TikTok styles from affecting navigation */
+  html body.mobile header,
+  html body.mobile .header,
+  html body.mobile .header-main,
+  html body.mobile nav,
+  html body.mobile .mobile-bottom-nav,
+  html body.mobile .mobile-bottom-nav-container,
+  html body.mobile .force-navigation-zero-radius,
+  body.mobile header,
+  body.mobile .header,
+  body.mobile .header-main,
+  body.mobile nav,
+  body.mobile .mobile-bottom-nav,
+  body.mobile .mobile-bottom-nav-container,
+  body.mobile .force-navigation-zero-radius,
+  header,
+  .header,
+  .header-main,
+  nav,
+  .mobile-bottom-nav,
+  .mobile-bottom-nav-container,
+  .force-navigation-zero-radius {
+    border-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+  }
+
+  @keyframes tiktok-slide-up {
+    0% { 
+      opacity: 0; 
+      transform: translateY(30px) scale(0.95); 
+    }
+    100% { 
+      opacity: 1; 
+      transform: translateY(0) scale(1); 
+    }
+  }
+
+  @keyframes tiktok-bounce-in {
+    0% { 
+      opacity: 0; 
+      transform: scale(0.3); 
+    }
+    50% { 
+      opacity: 0.8; 
+      transform: scale(1.05); 
+    }
+    70% { 
+      opacity: 0.9; 
+      transform: scale(0.95); 
+    }
+    100% { 
+      opacity: 1; 
+      transform: scale(1); 
+    }
+  }
+
+  @keyframes tiktok-neon-glow {
+    0%, 100% { 
+      box-shadow: 0 0 5px var(--tiktok-text-accent), 
+                  0 0 10px var(--tiktok-text-accent), 
+                  0 0 15px var(--tiktok-text-accent); 
+    }
+    50% { 
+      box-shadow: 0 0 10px var(--tiktok-text-accent), 
+                  0 0 20px var(--tiktok-text-accent), 
+                  0 0 30px var(--tiktok-text-accent); 
+    }
+  }
+
+  /* 🎯 TIKTOK-STYLE BASE CLASSES - ALL WITH 8PX MOBILE RADIUS */
+  .tiktok-mobile-page {
+    min-height: 100vh;
+    background: var(--tiktok-dark-bg);
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(88, 37, 239, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(110, 41, 246, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(0, 242, 234, 0.05) 0%, transparent 50%);
+    color: var(--tiktok-text-primary);
+    font-family: var(--font-body);
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  .tiktok-mobile-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 98px,
+        rgba(88, 37, 239, 0.03) 100px
+      );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .tiktok-mobile-container {
+    position: relative;
+    z-index: 2;
+    padding: 1rem;
+    max-width: 100%;
+  }
+
+  .tiktok-mobile-card {
+    background: var(--tiktok-card-bg);
+    border: 1px solid var(--tiktok-border);
+    border-radius: 24px;
+    padding: 2rem 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--tiktok-shadow);
+    backdrop-filter: blur(20px);
+    position: relative;
+    overflow: hidden;
+    animation: tiktok-slide-up 0.6s ease-out;
+  }
+
+  .tiktok-mobile-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: var(--tiktok-gradient-primary);
+    animation: tiktok-shimmer 2s infinite;
+  }
+
+  .tiktok-mobile-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: tiktok-bounce-in 0.8s ease-out;
+  }
+
+  .tiktok-mobile-title {
+    font-size: 2rem;
+    font-weight: 800;
+    font-family: var(--font-heading);
+    background: var(--tiktok-gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: tiktok-gradient-shift 3s ease infinite;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .tiktok-mobile-subtitle {
+    color: var(--tiktok-text-secondary);
+    font-size: 1rem;
+    line-height: 1.5;
+    font-family: var(--font-body);
+  }
+
+  .tiktok-mobile-input {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    background: var(--tiktok-accent-bg);
+    border: 2px solid var(--tiktok-border);
+    border-radius: 24px;
+    color: var(--tiktok-text-primary);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+
+  .tiktok-mobile-input::placeholder {
+    color: var(--tiktok-text-secondary);
+  }
+
+  .tiktok-mobile-input:focus {
+    outline: none;
+    border-color: var(--tiktok-text-accent);
+    box-shadow: 0 0 0 3px rgba(88, 37, 239, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .tiktok-mobile-button {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: var(--tiktok-gradient-primary);
+    background-size: 200% 200%;
+    border: none;
+    border-radius: 24px;
+    color: white;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    animation: tiktok-gradient-shift 3s ease infinite;
+  }
+
+  /* 🎯 BLUE BUTTONS - MOBILE LAYOUT STANDARDIZATION */
+  .tiktok-mobile-button-blue,
+  .mobile-blue-button,
+  button[style*="#5825ef"],
+  button[style*="var(--primary-blue)"] {
+    color: white !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+    border: none !important;
+    height: 3.5rem !important;
+    background-color: #4040f8ff !important;
+    background: #4040f8ff !important;
+    font-family: var(--font-body) !important;
+    border-radius: 8px !important;
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  }
+
+  .tiktok-mobile-button-blue:hover,
+  .mobile-blue-button:hover,
+  button[style*="#5825ef"]:hover,
+  button[style*="var(--primary-blue)"]:hover {
+    transform: translateY(-1px) scale(1.01) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  .tiktok-mobile-button-blue:active,
+  .mobile-blue-button:active,
+  button[style*="#5825ef"]:active,
+  button[style*="var(--primary-blue)"]:active {
+    transform: translateY(0) scale(0.98) !important;
+  }
+
+  .tiktok-mobile-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: var(--tiktok-glow);
+  }
+
+  .tiktok-mobile-button:active {
+    transform: translateY(-1px) scale(0.98);
+  }
+
+  .tiktok-mobile-button-secondary {
+    background: transparent;
+    border: 2px solid var(--tiktok-text-accent);
+    color: var(--tiktok-text-accent);
+  }
+
+  .tiktok-mobile-button-secondary:hover {
+    background: var(--tiktok-text-accent);
+    color: white;
+  }
+
+  .tiktok-mobile-back-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--tiktok-border);
+    border-radius: 24px;
+    color: var(--tiktok-text-primary);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    margin-bottom: 2rem;
+  }
+
+  .tiktok-mobile-back-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(-3px);
+  }
+
+  .tiktok-mobile-form-group {
+    margin-bottom: 1.5rem;
+    animation: tiktok-slide-up 0.4s ease-out;
+  }
+
+  .tiktok-mobile-label {
+    display: block;
+    color: var(--tiktok-text-primary);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .tiktok-mobile-error {
+    color: #ff3b5c;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    font-family: var(--font-body);
+    animation: tiktok-bounce-in 0.3s ease-out;
+  }
+
+  .tiktok-mobile-success {
+    background: var(--tiktok-card-bg);
+    border: 2px solid #00ff88;
+    border-radius: 24px;
+    padding: 2rem;
+    text-align: center;
+    animation: tiktok-bounce-in 0.8s ease-out;
+  }
+
+  .tiktok-mobile-success-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--tiktok-gradient-secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    animation: tiktok-pulse 2s infinite;
+  }
+
+  .tiktok-mobile-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--tiktok-border);
+    border-radius: 24px;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    animation: tiktok-slide-up 0.4s ease-out;
+  }
+
+  .tiktok-mobile-contact-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .tiktok-mobile-contact-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--tiktok-gradient-accent);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .tiktok-mobile-info-card {
+    background: linear-gradient(135deg, rgba(88, 37, 239, 0.1) 0%, rgba(110, 41, 246, 0.1) 100%);
+    border: 1px solid rgba(88, 37, 239, 0.2);
+    border-radius: 24px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    animation: tiktok-slide-up 0.5s ease-out;
+  }
+
+  .tiktok-mobile-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--tiktok-border), transparent);
+    margin: 2rem 0;
+  }
+
+  .tiktok-mobile-social-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .tiktok-mobile-social-button {
+    aspect-ratio: 1;
+    background: var(--tiktok-accent-bg);
+    border: 1px solid var(--tiktok-border);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--tiktok-text-primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: tiktok-float 3s ease-in-out infinite;
+  }
+
+  .tiktok-mobile-social-button:nth-child(2) {
+    animation-delay: 0.5s;
+  }
+
+  .tiktok-mobile-social-button:nth-child(3) {
+    animation-delay: 1s;
+  }
+
+  .tiktok-mobile-social-button:nth-child(4) {
+    animation-delay: 1.5s;
+  }
+
+  .tiktok-mobile-social-button:hover {
+    background: var(--tiktok-gradient-primary);
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: var(--tiktok-glow);
+  }
+
+  /* 🎯 TIKTOK-STYLE PASSWORD VISIBILITY TOGGLE */
+  .tiktok-mobile-password-toggle {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--tiktok-text-secondary);
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .tiktok-mobile-password-toggle:hover {
+    color: var(--tiktok-text-accent);
+    background: rgba(88, 37, 239, 0.1);
+  }
+
+  /* 🎯 TIKTOK-STYLE CHECKBOX */
+  .tiktok-mobile-checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+  }
+
+  .tiktok-mobile-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--tiktok-border);
+    border-radius: 24px;
+    background: transparent;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .tiktok-mobile-checkbox:checked {
+    background: var(--tiktok-gradient-primary);
+    border-color: var(--tiktok-text-accent);
+  }
+
+  .tiktok-mobile-checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  /* 🎯 TIKTOK-STYLE LOADING STATES */
+  .tiktok-mobile-loading {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .tiktok-mobile-loading-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* 🎯 TIKTOK-STYLE RESPONSIVE IMPROVEMENTS */
+  .tiktok-mobile-hero {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: var(--tiktok-gradient-primary);
+    margin: -1rem -1rem 2rem -1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tiktok-mobile-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    animation: tiktok-float 4s ease-in-out infinite;
+  }
+
+  .tiktok-mobile-hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .tiktok-mobile-hero-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    font-family: var(--font-heading);
+    color: white;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    animation: tiktok-pulse 3s ease-in-out infinite;
+  }
+
+  .tiktok-mobile-hero-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    font-family: var(--font-body);
+    line-height: 1.5;
+  }
+
+  /* 🎯 TIKTOK-STYLE STREAMING SPECIFIC CLASSES */
+  .tiktok-streaming-mobile {
+    background: linear-gradient(135deg, #5825efff, #6e29f6);
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tiktok-streaming-gradient-overlay {
+    background: linear-gradient(135deg, rgba(88, 37, 239, 0.8), rgba(110, 41, 246, 0.8));
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .tiktok-streaming-floating-element {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .tiktok-streaming-floating-element:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .tiktok-streaming-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: tiktok-slide-up 0.6s ease-out;
+  }
+
+  .tiktok-streaming-card:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  }
+
+  .tiktok-streaming-button {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    color: white;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .tiktok-streaming-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .tiktok-streaming-button:active {
+    transform: scale(0.95);
+  }
+
+  .tiktok-streaming-text-glow {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    color: white;
+  }
+
+  .tiktok-streaming-category-button {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    color: white;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .tiktok-streaming-category-button:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  .tiktok-streaming-category-button.selected {
+    background: white;
+    color: var(--primary-blue);
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3);
+  }
+
+  .tiktok-streaming-live-indicator {
+    background: rgba(239, 68, 68, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    animation: tiktok-pulse 2s infinite;
+  }
+
+  .tiktok-streaming-viewer-count {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+  }
+
+  @keyframes tiktok-streaming-float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-8px) rotate(1deg); }
+    66% { transform: translateY(4px) rotate(-1deg); }
+  }
+
+  .tiktok-streaming-floating-bg {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+    animation: tiktok-streaming-float 6s ease-in-out infinite;
+  }
+
+  .tiktok-streaming-floating-bg:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .tiktok-streaming-floating-bg:nth-child(2) {
+    animation-delay: 2s;
+  }
+
+  .tiktok-streaming-floating-bg:nth-child(3) {
+    animation-delay: 4s;
+  }
+
+  /* 🎯 ENHANCED TIKTOK STREAMING MOBILE ANIMATIONS */
+  @keyframes tiktok-electric-pulse {
+    0%, 100% { 
+      transform: scale(1); 
+      box-shadow: 0 0 10px rgba(0, 242, 234, 0.3);
+    }
+    50% { 
+      transform: scale(1.05); 
+      box-shadow: 0 0 25px rgba(0, 242, 234, 0.6);
+    }
+  }
+
+  @keyframes tiktok-neon-border {
+    0%, 100% { 
+      border-color: rgba(0, 242, 234, 0.3);
+      box-shadow: 0 0 15px rgba(0, 242, 234, 0.2);
+    }
+    50% { 
+      border-color: rgba(255, 0, 199, 0.5);
+      box-shadow: 0 0 30px rgba(255, 0, 199, 0.3);
+    }
+  }
+
+  @keyframes tiktok-particle-float {
+    0%, 100% { 
+      transform: translateY(0px) translateX(0px);
+      opacity: 0.3;
+    }
+    25% { 
+      transform: translateY(-10px) translateX(5px);
+      opacity: 0.6;
+    }
+    50% { 
+      transform: translateY(-5px) translateX(-3px);
+      opacity: 0.8;
+    }
+    75% { 
+      transform: translateY(-15px) translateX(8px);
+      opacity: 0.4;
+    }
+  }
+
+  @keyframes tiktok-text-glow {
+    0%, 100% { 
+      text-shadow: 0 0 10px rgba(0, 242, 234, 0.3);
+    }
+    50% { 
+      text-shadow: 0 0 20px rgba(0, 242, 234, 0.8), 0 0 30px rgba(255, 0, 199, 0.4);
+    }
+  }
+
+  @keyframes tiktok-button-electric {
+    0%, 100% { 
+      transform: scale(1);
+      box-shadow: 0 0 15px rgba(88, 37, 239, 0.3);
+    }
+    50% { 
+      transform: scale(1.02);
+      box-shadow: 0 0 25px rgba(88, 37, 239, 0.6), 0 0 35px rgba(88, 37, 239, 0.2);
+    }
+  }
+
+  /* Enhanced TikTok Streaming Classes */
+  .tiktok-streaming-electric-card {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(255, 0, 80, 0.1), rgba(0, 242, 234, 0.05));
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 242, 234, 0.2);
+    animation: tiktok-neon-border 3s ease-in-out infinite;
+  }
+
+  .tiktok-streaming-electric-button {
+    background: linear-gradient(45deg, #5825efff, #6e29f6);
+    animation: tiktok-button-electric 2s ease-in-out infinite;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .tiktok-streaming-electric-text {
+    animation: tiktok-text-glow 2.5s ease-in-out infinite;
+  }
+
+  .tiktok-streaming-particles {
+    animation: tiktok-particle-float 4s ease-in-out infinite;
+  }
+
+  .tiktok-streaming-pulse {
+    animation: tiktok-electric-pulse 2s ease-in-out infinite;
+  }
+
+  /* Floating Right Controls Specific Styles */
+  .tiktok-streaming-right-controls {
+    position: sticky;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 88;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: transparent;
+    border: none;
+  }
+
+  .tiktok-streaming-control-button {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .tiktok-streaming-control-button:hover {
+    transform: scale(1.1);
+  }
+
+  .tiktok-streaming-control-button:active {
+    transform: scale(0.95);
+  }
+
+  .tiktok-streaming-like-button {
+    background: linear-gradient(45deg, #5825efff, #6e29f6);
+    box-shadow: 0 0 20px rgba(88, 37, 239, 0.4);
+    animation: tiktok-electric-pulse 2s ease-in-out infinite;
+  }
+
+  .tiktok-streaming-shop-button {
+    background: linear-gradient(45deg, #00f2ea, #ff00c7);
+    box-shadow: 0 0 20px rgba(0, 242, 234, 0.4);
+  }
+
+  .tiktok-streaming-comment-button,
+  .tiktok-streaming-share-button,
+  .tiktok-streaming-music-button {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+  }
+
+  /* Electric Product Drawer Enhancements */
+  .tiktok-streaming-product-drawer {
+    background: linear-gradient(135deg, #000000, #1a1a1a);
+    border-top: 1px solid rgba(0, 242, 234, 0.3);
+    box-shadow: 0 -8px 32px rgba(0, 242, 234, 0.2);
+  }
+
+  .tiktok-streaming-product-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 242, 234, 0.05));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .tiktok-streaming-product-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 16px 64px rgba(0, 0, 0, 0.4);
+  }
+
+  .tiktok-streaming-electric-price {
+    background: linear-gradient(45deg, #00f2ea, #ff00c7);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: tiktok-text-glow 3s ease-in-out infinite;
+  }
+
+  .tiktok-streaming-add-to-cart {
+    background: linear-gradient(45deg, #5825efff, #6e29f6);
+    box-shadow: 0 8px 32px rgba(88, 37, 239, 0.3);
+    animation: tiktok-button-electric 3s ease-in-out infinite;
+  }
+
+  /* 🎯 WATCH STREAM BUTTON - UPDATED TO MATCH STANDARDS */
+  .tiktok-watch-stream-button {
+    background: #5825efff !important;
+    border-radius: 8px !important;
+    border: none !important;
+    color: white !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    height: 3.5rem !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    font-family: var(--font-body) !important;
+  }
+
+  .tiktok-watch-stream-button:hover {
+    background: #6e29f6 !important;
+    transform: translateY(-1px) scale(1.01) !important;
+  }
+
+  .tiktok-watch-stream-button:active {
+    transform: translateY(0) scale(0.98) !important;
+  }
+
+  /* 🎯 BATO SPLASH SCREEN ANIMATIONS */
+  @keyframes bato-logo-entrance {
+    0% { 
+      opacity: 0;
+      transform: scale(0.3) rotate(-180deg);
+    }
+    60% {
+      opacity: 1;
+      transform: scale(1.1) rotate(10deg);
+    }
+    100% { 
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+  }
+
+  @keyframes bato-text-reveal {
+    0% { 
+      opacity: 0;
+      transform: translateY(30px) scale(0.8);
+      letter-spacing: 0.5em;
+    }
+    70% {
+      opacity: 0.8;
+      transform: translateY(-5px) scale(1.05);
+      letter-spacing: 0.2em;
+    }
+    100% { 
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      letter-spacing: 0.1em;
+    }
+  }
+
+  @keyframes bato-african-pattern-draw {
+    0% { 
+      stroke-dasharray: 0, 100;
+      opacity: 0;
+    }
+    50% {
+      stroke-dasharray: 50, 50;
+      opacity: 0.6;
+    }
+    100% { 
+      stroke-dasharray: 100, 0;
+      opacity: 1;
+    }
+  }
+
+  @keyframes bato-floating-shapes {
+    0%, 100% { 
+      transform: translate(0, 0) rotate(0deg);
+      opacity: 0.3;
+    }
+    25% {
+      transform: translate(10px, -15px) rotate(90deg);
+      opacity: 0.6;
+    }
+    50% {
+      transform: translate(-5px, -25px) rotate(180deg);
+      opacity: 0.8;
+    }
+    75% {
+      transform: translate(-15px, -10px) rotate(270deg);
+      opacity: 0.4;
+    }
+  }
+
+  @keyframes bato-glow-pulse {
+    0%, 100% { 
+      filter: blur(15px);
+      transform: scale(1.2);
+      opacity: 0.2;
+    }
+    50% { 
+      filter: blur(25px);
+      transform: scale(1.8);
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes bato-loading-dots {
+    0%, 20% { 
+      transform: scale(1);
+      opacity: 0.5;
+    }
+    50% { 
+      transform: scale(1.5);
+      opacity: 1;
+    }
+    80%, 100% { 
+      transform: scale(1);
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes bato-border-lights {
+    0% { 
+      opacity: 0.3;
+      transform: scaleX(0);
+    }
+    50% {
+      opacity: 1;
+      transform: scaleX(1.2);
+    }
+    100% { 
+      opacity: 0.6;
+      transform: scaleX(1);
+    }
+  }
+
+  /* Enhanced Splash Screen Utility Classes */
+  .bato-splash-logo {
+    animation: bato-logo-entrance 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .bato-splash-text {
+    animation: bato-text-reveal 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) 0.3s both;
+  }
+
+  .bato-splash-pattern {
+    animation: bato-african-pattern-draw 1.5s ease-out;
+  }
+
+  .bato-splash-shapes {
+    animation: bato-floating-shapes 4s ease-in-out infinite;
+  }
+
+  .bato-splash-glow {
+    animation: bato-glow-pulse 2s ease-in-out infinite;
+  }
+
+  .bato-splash-loading {
+    animation: bato-loading-dots 1.2s ease-in-out infinite;
+  }
+
+  .bato-splash-border {
+    animation: bato-border-lights 1s ease-out 1.5s both;
+  }
+
+  /* 🎯 COMPREHENSIVE MOBILE BORDER-RADIUS OVERRIDES - 8PX FOR ALL ELEMENTS */
+  
+  /* 🎯 GLOBAL MOBILE BORDER-RADIUS OVERRIDE - CRITICAL */
+  /* Override all border-radius values to 8px for mobile */
+  *:not(.tiktok-streaming-button):not([class*="rounded-full"]):not([class*="rounded-none"]):not([class*="circle"]):not(.rounded-full):not(.circle) {
+    border-radius: 8px !important;
+  }
+  
+  /* Force border-radius on specific Tailwind classes */
+  [class*="rounded-"]:not([class*="rounded-full"]):not([class*="rounded-none"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* Specific mobile element overrides */
+  .btn-moema,
+  .btn-moema-primary,
+  .btn-moema-secondary, 
+  .btn-moema-success,
+  .btn-moema-outline,
+  .btn-moema-gradient-orange,
+  .btn-moema-rounded-lg {
+    border-radius: 8px !important;
+  }
+  
+  /* Input and form elements */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="tel"], 
+  input[type="url"],
+  input[type="search"],
+  textarea,
+  select {
+    border-radius: 8px !important;
+  }
+  
+  /* Card and container elements */
+  .card,
+  .product-card,
+  .floating-category,
+  .mobile-search-overlay,
+  .chat-bubble,
+  .modal,
+  .drawer,
+  .popover,
+  .tooltip,
+  .dropdown,
+  .alert,
+  .badge {
+    border-radius: 8px !important;
+  }
+  
+  /* Product and shopping elements */
+  .product-image,
+  .product-thumbnail,
+  .cart-item,
+  .checkout-step,
+  .price-tag,
+  .discount-badge {
+    border-radius: 8px !important;
+  }
+  
+  /* Navigation and UI elements */
+  .navigation-item,
+  .tab-panel,
+  .accordion-content,
+  .slider-track,
+  .progress-bar,
+  .status-indicator,
+  .loading-skeleton {
+    border-radius: 8px !important;
+  }
+  
+  /* Splash screen elements */
+  .splash-container,
+  .splash-logo-container,
+  .splash-text-container {
+    border-radius: 8px !important;
+  }
+  
+  /* Preserve circular elements (50% border-radius should remain) */
+  .rounded-full,
+  .circle,
+  .avatar,
+  .profile-picture,
+  [class*="circular"],
+  .tiktok-streaming-button,
+  .btn-moema-icon,
+  .btn-moema-icon-sm,
+  .floating-chat-button,
+  .floating-toggle-button {
+    border-radius: 50% !important;
+  }
+  
+  /* Preserve elements that should have no border-radius */
+  .rounded-none,
+  .square,
+  [class*="no-radius"] {
+    border-radius: 0 !important;
+  }
+}

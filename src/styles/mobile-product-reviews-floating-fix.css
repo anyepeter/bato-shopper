@@ -1,0 +1,34 @@
+/* Mobile Product Reviews Floating Fix */
+/* Ensures proper z-index and positioning for product review elements */
+
+@media (max-width: 767px) {
+  /* Product reviews container */
+  .product-reviews-container {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Floating elements in reviews */
+  .review-floating-button {
+    position: fixed;
+    z-index: 999;
+  }
+
+  /* Review modals and overlays */
+  .review-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .review-modal-content {
+    position: fixed;
+    z-index: 9999;
+  }
+
+  /* Prevent scroll issues with reviews */
+  .review-active {
+    overflow: hidden;
+  }
+}

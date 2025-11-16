@@ -1,0 +1,1641 @@
+/**
+ * BATO - SOPHISTICATED DESKTOP/TABLET SHOP PAGES CSS
+ * 
+ * Enhanced with cutting-edge design, fluid animations, and sophisticated styling
+ * Maintaining the blue-based color theme (#5825ef, #6e29f6, #885cf8)
+ * Features: Glass morphism, advanced animations, modern spacing, vibrant aesthetics
+ * 🎯 FIXED: Orange to blue color migration complete + duplicate CSS rules removed
+ */
+
+/* ==========================================================================
+   🎯 ULTRA-SMOOTH ANIMATION SYSTEM - OPTIMIZED FOR PERFORMANCE
+   ========================================================================== */
+
+/* 🚀 PERFORMANCE OPTIMIZATION BASE */
+.smooth-animated {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform-style: flat;
+  contain: layout style;
+}
+
+/* 🎯 SMOOTH PANEL ANIMATIONS */
+@keyframes panel-slide-in {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0) scale3d(0.98, 0.98, 1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+}
+
+@keyframes panel-float {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -4px, 0);
+  }
+}
+
+@keyframes shimmer-pulse {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 6px 15px rgba(88, 37, 239, 0.15);
+  }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes card-entrance {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 15px, 0) scale3d(0.98, 0.98, 1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+}
+
+/* 🎯 OPTIMIZED HOVER ANIMATIONS */
+@keyframes sophisticated-hover {
+  0% {
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+  100% {
+    transform: translate3d(0, -2px, 0) scale3d(1.01, 1.01, 1);
+  }
+}
+
+@keyframes card-dynamic-expansion {
+  0% {
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+  100% {
+    transform: translate3d(4px, -2px, 0) scale3d(1.02, 1.02, 1);
+  }
+}
+
+@keyframes featured-card-expansion {
+  0% {
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+  100% {
+    transform: translate3d(6px, -2px, 0) scale3d(1.03, 1.03, 1);
+  }
+}
+
+/* 🎯 ULTRA-SMOOTH PRODUCT IMAGE ZOOM */
+@keyframes product-image-zoom {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  100% {
+    transform: scale3d(1.08, 1.08, 1);
+  }
+}
+
+@keyframes product-image-zoom-out {
+  0% {
+    transform: scale3d(1.08, 1.08, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+/* 🎯 REFINED BUTTON ANIMATIONS - NO MORE JUMPING */
+@keyframes smooth-button-hover {
+  0% {
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+  100% {
+    transform: translate3d(0, -1px, 0) scale3d(1.02, 1.02, 1);
+  }
+}
+
+@keyframes gentle-pulse {
+  0%, 100% {
+    transform: scale3d(1, 1, 1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale3d(1.03, 1.03, 1);
+    opacity: 0.95;
+  }
+}
+
+@keyframes subtle-glow {
+  0%, 100% {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 6px 15px rgba(88, 37, 239, 0.2);
+  }
+}
+
+/* ==========================================================================
+   🎯 TRENDING TAB BUTTONS - SWITCH ANIMATION & BLUE STYLING
+   ========================================================================== */
+
+/* 🎯 TRENDING TAB CONTAINER - SWITCH-LIKE DESIGN */
+.trending-tabs-container {
+  display: flex;
+  background: rgba(240, 244, 249, 0.8);
+  border-radius: 6px;
+  padding: 4px;
+  position: relative;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-standard-desktop) !important;
+  backdrop-filter: blur(10px);
+  border: var(--border-standard-desktop) !important;
+}
+
+/* 🎯 TRENDING TAB BUTTONS - BLUE BACKGROUND WITH SWITCH ANIMATION */
+.trending-tab-button {
+  flex: 1;
+  padding: 12px 20px;
+  border-radius: 3px !important;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background: transparent !important;
+  color: var(--medium-gray);
+  will-change: transform, color;
+  backface-visibility: hidden;
+}
+
+/* 🎯 ACTIVE TAB BUTTON - BLUE BACKGROUND */
+.trending-tab-button.active {
+  color: var(--pure-white) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+/* 🎯 SWITCH ANIMATION INDICATOR - SLIDING BLUE BACKGROUND */
+.trending-tabs-container::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  height: calc(100% - 8px);
+  background: linear-gradient(135deg, #5825efff 0%, #5825efff 50%, #5825efff 100%);
+  border-radius: 3px !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+  box-shadow: 0 2px 8px rgba(88, 37, 239, 0.3);
+  transform: translateX(0);
+}
+
+/* 🎯 SWITCH TO RIGHT POSITION WHEN TRENDING TAB IS ACTIVE */
+.trending-tabs-container.trending-active::before {
+  transform: translateX(calc(100% + 4px));
+}
+
+/* 🎯 HOVER EFFECTS FOR TAB BUTTONS */
+.trending-tab-button:not(.active):hover {
+  color: var(--primary-blue);
+  transform: translateY(-0.5px);
+}
+
+/* 🎯 SMOOTH ANIMATION KEYFRAMES FOR SWITCH EFFECT */
+@keyframes switch-slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(100% + 4px));
+  }
+}
+
+@keyframes switch-slide-back {
+  0% {
+    transform: translateX(calc(100% + 4px));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* 🎯 ENHANCED SWITCH ANIMATION - BOUNCY EFFECT */
+.trending-tabs-container.animate-to-trending::before {
+  animation: switch-slide 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.trending-tabs-container.animate-to-hot::before {
+  animation: switch-slide-back 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* 🎯 PERFORMANCE OPTIMIZATIONS FOR SWITCH ANIMATION */
+@media (min-width: 768px) {
+  .trending-tabs-container,
+  .trending-tab-button,
+  .trending-tabs-container::before {
+    will-change: transform;
+    backface-visibility: hidden;
+    transform-style: flat;
+    contain: layout style;
+  }
+  
+  /* 🎯 DESKTOP HOVER ENHANCEMENTS */
+  .trending-tab-button:hover:not(.active) {
+    transform: translateY(-1px) scale3d(1.02, 1.02, 1);
+  }
+  
+  .trending-tab-button:active:not(.active) {
+    transform: translateY(0) scale3d(0.98, 0.98, 1);
+    transition-duration: 0.1s;
+  }
+}
+
+/* 🎯 MOBILE OPTIMIZATION - SIMPLER ANIMATION */
+@media (max-width: 767px) {
+  .trending-tabs-container {
+    background: rgba(240, 244, 249, 0.9);
+    backdrop-filter: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid rgba(88, 37, 239, 0.1) !important;
+  }
+  
+  .trending-tab-button {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+  
+  .trending-tabs-container::before {
+    background: #5825efff;
+    box-shadow: 0 1px 4px rgba(88, 37, 239, 0.2);
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS & ENHANCED LAYOUT SYSTEM
+   ========================================================================== */
+
+/* Mobile Layout Variables (< 768px) */
+@media (max-width: 767px) {
+  :root {
+    --shop-mobile-container: flex flex-col gap-5 px-0;
+    --shop-mobile-left-panel: hidden;
+    --shop-mobile-middle-panel: w-full px-5;
+    --shop-mobile-right-panel: w-full px-5 order-first;
+    --shop-mobile-product-grid: grid-cols-1;
+  }
+
+  /* 🎯 NEW: Hide wrapper containers on mobile */
+  .shop-search-filter-container,
+  .shop-trending-container {
+    display: none !important;
+  }
+}
+
+/* Tablet Layout Variables (768px - 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  :root {
+    --shop-tablet-container: flex gap-8 max-w-[1600px] mx-auto px-8;
+    --shop-tablet-left-panel: w-1/3 overflow-y-auto;
+    --shop-tablet-middle-panel: w-2/3 overflow-y-auto;
+    --shop-tablet-right-panel: w-full mt-8;
+    --shop-tablet-product-grid: grid-cols-2;
+    
+    /* Enhanced spacing and typography */
+    --panel-spacing: 2rem;
+    --card-border-radius: 3px; /* 🎯 FIXED: Max 3px border radius */
+    --sophisticated-shadow: 0 8px 32px rgba(88, 37, 239, 0.12);
+  }
+}
+
+/* Desktop Layout Variables (≥ 1200px) */
+@media (min-width: 1200px) {
+  :root {
+    --shop-desktop-container: flex gap-8 px-6;
+    --shop-desktop-left-panel: w-1/5 overflow-y-auto;
+    --shop-desktop-middle-panel: flex-1 overflow-y-auto;
+    --shop-desktop-right-panel: w-1/5 overflow-y-auto;
+    --shop-desktop-product-grid: grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
+    
+    /* Premium desktop spacing */
+    --panel-spacing: 2.5rem;
+    --card-border-radius: 3px; /* 🎯 FIXED: Max 3px border radius */
+    --sophisticated-shadow: 0 12px 48px rgba(88, 37, 239, 0.15);
+  }
+}
+
+/* ==========================================================================
+   SOPHISTICATED SHOP PAGE CONTAINER
+   ========================================================================== */
+
+.shop-page-container {
+  min-height: 100vh;
+  padding: 10px 0 3rem 0; /* 🎯 DESKTOP: Exact 10px top spacing from navigation bar */
+  background: linear-gradient(135deg, #fafcff 0%, #f8f9fc 25%, #fff 50%, #f8f9fc 75%, #fafcff 100%);
+  background-size: 400% 400%;
+  animation: gradient-shift 8s ease infinite;
+  position: relative;
+}
+
+.shop-page-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Mobile Container */
+@media (max-width: 767px) {
+  .shop-page-container {
+    padding: 0;
+    background: #000000;
+  }
+}
+
+/* ==========================================================================
+   ENHANCED PANEL LAYOUTS WITH GLASS MORPHISM
+   ========================================================================== */
+
+/* Layout Containers */
+.shop-layout-container {
+  display: flex;
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+  animation: panel-slide-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  /* 🎯 DESKTOP: Remove any top margin/padding that would interfere with 10px spacing */
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Tablet Layout */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .shop-layout-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 2rem; /* Keep horizontal padding, remove top padding */
+    gap: 2.5rem;
+    margin-top: 0; /* 🎯 Ensure no additional top margin */
+  }
+}
+
+/* Desktop Layout */
+@media (min-width: 1200px) {
+  .shop-layout-container {
+    padding: 0 1.5rem; /* Keep horizontal padding, remove top padding */
+    gap: 3rem;
+    margin-top: 0; /* 🎯 Ensure no additional top margin */
+  }
+}
+
+/* Left Panel - Sophisticated Search & Filter */
+.shop-left-panel {
+  width: 20%; /* Enhanced from 16.666667% */
+  overflow-y: auto;
+  animation: card-entrance 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+  /* 🎯 DESKTOP: Ensure consistent 10px spacing from top navigation */
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* 🎯 DESKTOP: Remove animation delays to ensure panels appear at same time */
+@media (min-width: 1200px) {
+  .shop-left-panel {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .shop-left-panel {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .shop-left-panel {
+    width: 35%; /* Enhanced from 33.333333% */
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 0; /* 🎯 Ensure consistent spacing */
+    padding-top: 0;
+  }
+}
+
+/* Middle Panel - Premium Featured Collection + Products */
+.shop-middle-panel {
+  flex: 1;
+  overflow-y: auto;
+  animation: card-entrance 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+  /* 🎯 DESKTOP: Ensure consistent 10px spacing from top navigation */
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* 🎯 DESKTOP: Remove animation delays to ensure panels appear at same time */
+@media (min-width: 1200px) {
+  .shop-middle-panel {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .shop-middle-panel {
+    width: 100%;
+    padding: 0 1.25rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .shop-middle-panel {
+    width: 65%; /* Enhanced from 66.666667% */
+    margin-top: 0; /* 🎯 Ensure consistent spacing */
+    padding-top: 0;
+  }
+}
+
+/* Right Panel - Elegant Trending */
+.shop-right-panel {
+  width: 20%; /* Enhanced from 16.666667% */
+  overflow-y: auto;
+  animation: card-entrance 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+  /* 🎯 DESKTOP: Ensure consistent 10px spacing from top navigation */
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* 🎯 DESKTOP: Remove animation delays to ensure panels appear at same time */
+@media (min-width: 1200px) {
+  .shop-right-panel {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .shop-right-panel {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .shop-right-panel {
+    width: 100%;
+    margin-top: calc(2rem + 5px); /* 🎯 Add 5px extra space between left and right panel containers */
+    overflow-y: visible;
+    display: block;
+  }
+  
+  /* 🎯 TABLET LAYOUT: Force the spacing through direct targeting */
+  .shop-page-container .shop-layout-container .shop-right-panel {
+    margin-top: calc(2rem + 5px) !important; /* Force 5px extra spacing */
+  }
+  
+  /* 🎯 TABLET LAYOUT: Alternative approach targeting the trending card directly */
+  .shop-trending-card {
+    margin-top: 5px !important; /* Add direct spacing above trending section */
+  }
+}
+
+@media (min-width: 1200px) {
+  .shop-right-panel {
+    display: block;
+    margin-top: 0; /* 🎯 DESKTOP: Ensure consistent 10px spacing from top navigation */
+    padding-top: 0;
+  }
+  
+  /* 🎯 DESKTOP: Ensure all panels have consistent top spacing */
+  .shop-left-panel,
+  .shop-middle-panel,
+  .shop-right-panel {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+
+/* ==========================================================================
+   SOPHISTICATED PANEL CONTENT WITH GLASS MORPHISM
+   ========================================================================== */
+
+/* Enhanced Panel Cards */
+.shop-panel-card {
+  padding: 2rem;
+  border-radius: var(--card-border-radius, 3px);
+  background: transparent;
+  backdrop-filter: none;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.shop-panel-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(88, 37, 239, 0.5), transparent);
+  animation: shimmer-pulse 3s ease-in-out infinite;
+}
+
+.shop-panel-card:hover {
+  transform: translateY(-4px);
+  box-shadow: none;
+  background: transparent;
+}
+
+/* Sophisticated Search & Filter Card */
+.shop-search-filter-card {
+  position: sticky;
+  top: 0; /* 🎯 DESKTOP: Remove top offset to align with middle panel */
+  max-height: calc(100vh - 10px); /* 🎯 Adjust max-height for 10px top spacing */
+  background: transparent;
+  backdrop-filter: none;
+  border: none;
+  box-shadow: none !important;
+  margin-top: 0;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .shop-search-filter-card {
+    position: relative;
+    top: auto;
+    max-height: none;
+    margin-bottom: 0;
+    margin-top: 0;
+    box-shadow: none !important; /* 🎯 FORCE: No shadow on tablet */
+  }
+}
+
+@media (min-width: 1200px) {
+  .shop-search-filter-card {
+    margin-top: 0 !important;
+    top: 0 !important; /* 🎯 DESKTOP: Force alignment with middle panel */
+    box-shadow: none !important; /* 🎯 FORCE: No shadow on desktop */
+  }
+}
+
+/* 🎯 ENHANCED: Search & Filter Container - Desktop/Tablet Only with Matching Width */
+.shop-search-filter-container {
+  background: transparent;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 3px; /* 🎯 FIXED: 3px border radius */
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  display: none; /* Hidden by default, shown on desktop/tablet */
+  /* 🎯 ENSURE CONSISTENT WIDTH WITH TRENDING SECTION */
+  width: 100%;
+  max-width: 100%;
+  flex: 1;
+}
+
+/* 🎯 ENHANCED: Trending Container - Desktop/Tablet Only with Matching Width */
+.shop-trending-container {
+  background: transparent;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 3px; /* 🎯 FIXED: 3px border radius */
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  display: none; /* Hidden by default, shown on desktop/tablet */
+  /* 🎯 ENSURE CONSISTENT WIDTH WITH SEARCH & FILTER SECTION */
+  width: 100%;
+  max-width: 100%;
+  flex: 1;
+}
+
+/* 🎯 Show containers on Desktop/Tablet */
+@media (min-width: 768px) {
+  .shop-search-filter-container,
+  .shop-trending-container {
+    display: block !important;
+  }
+}
+
+/* Premium Trending Card */
+.shop-trending-card {
+  position: sticky;
+  top: 0; /* 🎯 DESKTOP: Remove top offset to align with middle panel */
+  max-height: calc(100vh - 10px); /* 🎯 Adjust max-height for 10px top spacing */
+  overflow-y: auto;
+  background: transparent;
+  backdrop-filter: none;
+  border: none;
+  box-shadow: none !important;
+  margin-top: 0;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  /* 🎯 ENHANCED: Tablet styles for wrapper containers with matching dimensions */
+  .shop-search-filter-container {
+    box-shadow: none !important; /* 🎯 LIVE STREAMS: Remove box-shadow for tablet layout */
+    border: none !important; /* 🎯 LIVE STREAMS: Remove border for tablet layout */
+    border-radius: 3px; /* 🎯 FIXED: 3px border radius */
+    padding: 1.25rem 5px; /* 🎯 LIVE STREAMS: Set left/right padding to 5px for tablet layout */
+    /* 🎯 ENSURE IDENTICAL WIDTH TO TRENDING CONTAINER */
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .shop-trending-container {
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 3px; /* 🎯 FIXED: 3px border radius */
+    padding: 1.25rem 0; /* 🎯 LIVE STREAMS: Remove left/right padding for tablet layout */
+    margin-top: 5px !important;
+    /* 🎯 ENSURE IDENTICAL WIDTH TO SEARCH & FILTER CONTAINER */
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .shop-trending-card {
+    position: relative;
+    top: auto;
+    max-height: none;
+    overflow-y: visible;
+    margin-bottom: 2rem;
+    margin-top: 5px !important; /* Add direct spacing above trending section */
+    box-shadow: none !important; /* 🎯 FORCE: No shadow on tablet */
+  }
+}
+
+@media (min-width: 1200px) {
+  /* 🎯 ENHANCED: Desktop styles for wrapper containers with matching dimensions */
+  .shop-search-filter-container {
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 3px; /* 🎯 FIXED: 3px border radius */
+    padding: 1.5rem 0; /* 🎯 LIVE STREAMS: Remove left/right padding for desktop layout */
+    /* 🎯 ENSURE IDENTICAL WIDTH TO TRENDING CONTAINER */
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .shop-trending-container {
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 3px; /* 🎯 FIXED: 3px border radius */
+    padding: 1.5rem 0; /* 🎯 LIVE STREAMS: Remove left/right padding for desktop layout */
+    /* 🎯 ENSURE IDENTICAL WIDTH TO SEARCH & FILTER CONTAINER */
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .shop-trending-card {
+    margin-top: 0 !important;
+    top: 0 !important; /* 🎯 DESKTOP: Force alignment with middle panel */
+    box-shadow: none !important; /* 🎯 FORCE: No shadow on desktop */
+  }
+}
+
+/* ==========================================================================
+   PREMIUM FEATURED COLLECTION BANNER
+   ========================================================================== */
+
+.shop-featured-banner {
+  padding: 3rem;
+  border-radius: var(--card-border-radius, 3px);
+  background: linear-gradient(135deg, #5825efff 0%, #5825efff 50%, #5825efff 100%);
+  background-size: 200% 200%;
+  animation: gradient-shift 6s ease infinite;
+  box-shadow: 0 16px 64px rgba(88, 37, 239, 0.4);
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  /* 🎯 DESKTOP: Ensure consistent spacing from top navigation */
+  margin-top: 0;
+}
+
+/* 🎯 DESKTOP: Force consistent spacing for featured banner */
+@media (min-width: 1200px) {
+  .shop-featured-banner {
+    margin-top: 0 !important;
+  }
+}
+
+.shop-featured-banner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  animation: panel-float 4s ease-in-out infinite;
+}
+
+.shop-featured-banner h2 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--pure-white);
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  font-size: 2.25rem;
+  letter-spacing: -0.025em;
+}
+
+.shop-featured-banner p {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-body);
+  margin-bottom: 2rem;
+  font-size: 1.125rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
+   ENHANCED PRODUCT GRID SYSTEM
+   ========================================================================== */
+
+/* 🎯 ULTRA-SMOOTH DESKTOP/TABLET ANIMATIONS */
+@media (min-width: 768px) {
+  /* 🚀 PERFORMANCE BASE CLASSES */
+  .group,
+  .shop-panel-card,
+  .shop-trending-card,
+  .shop-search-filter-card,
+  .product-card,
+  button {
+    will-change: transform;
+    backface-visibility: hidden;
+    transform-style: flat;
+    contain: layout;
+  }
+  
+  /* 🎯 SMOOTH PRODUCT CARD CONTAINER */
+  .group {
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform-origin: center center;
+  }
+  
+  .group:hover {
+    transform: translate3d(0, -2px, 0);
+  }
+  
+  /* 🎯 ULTRA-SMOOTH IMAGE ZOOM - NO LAYOUT JUMPING */
+  .group img,
+  .group .aspect-\\[3\\/4\\] img,
+  .group iframe {
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform-origin: center center;
+    will-change: transform;
+    backface-visibility: hidden;
+    filter: none !important;
+    backdrop-filter: none !important;
+  }
+  
+  .group:hover img,
+  .group:hover .aspect-\\[3\\/4\\] img,
+  .group:hover iframe {
+    transform: scale3d(1.06, 1.06, 1);
+    filter: none !important;
+  }
+  
+  /* 🎯 SMOOTH OVERLAY TRANSITIONS */
+  .group .absolute.inset-0 {
+    background: transparent;
+    backdrop-filter: none;
+    transition: background-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    will-change: background-color;
+  }
+  
+  .group:hover .absolute.inset-0 {
+    background: rgba(0, 0, 0, 0.15);
+  }
+  
+  /* 🎯 PANEL HOVER OPTIMIZATIONS */
+  .shop-panel-card {
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform-origin: center center;
+  }
+  
+  .shop-panel-card:hover {
+    transform: translate3d(0, -1px, 0);
+  }
+  
+  /* 🎯 BUTTON HOVER OPTIMIZATIONS */
+  button {
+    transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform-origin: center center;
+  }
+  
+  button:hover:not(:disabled) {
+    transform: translate3d(0, -1px, 0) scale3d(1.01, 1.01, 1);
+  }
+  
+  button:active:not(:disabled) {
+    transform: translate3d(0, 0, 0) scale3d(0.98, 0.98, 1);
+    transition-duration: 0.1s;
+  }
+  
+  /* 🎯 REMOVE ALL BLUR/FILTER EFFECTS THAT CAUSE PERFORMANCE ISSUES */
+  .group *,
+  .product-card *,
+  .aspect-\\[3\\/4\\] * {
+    filter: none !important;
+    backdrop-filter: none !important;
+  }
+}
+
+.shop-products-container {
+  padding: 2.5rem;
+  border-radius: var(--card-border-radius, 3px);
+  background: transparent;
+  backdrop-filter: none;
+  border: none !important;
+  box-shadow: none !important;
+  margin-bottom: 2rem;
+  position: relative;
+  /* 🎯 DESKTOP: Ensure consistent spacing from top navigation */
+  margin-top: 0;
+}
+
+/* 🎯 DESKTOP: Force consistent spacing for products container */
+@media (min-width: 1200px) {
+  .shop-products-container {
+    margin-top: 0 !important;
+  }
+}
+
+.shop-product-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+/* Tablet Grid */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .shop-product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+/* Desktop Grid */
+@media (min-width: 1200px) {
+  .shop-product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+  }
+}
+
+/* ==========================================================================
+   SOPHISTICATED SEARCH & FILTER STYLING
+   ========================================================================== */
+
+.shop-search-header {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--primary-blue);
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.shop-search-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 3rem;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-blue), var(--primary-light-blue));
+  border-radius: 2px;
+}
+
+/* 🎯 SOPHISTICATED TRENDING HEADER - MATCHING SEARCH & FILTER STYLING */
+.shop-trending-header {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--primary-blue);
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.shop-trending-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 3rem;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-blue), var(--primary-light-blue));
+  border-radius: 2px;
+}
+
+.shop-trending-title {
+  color: var(--primary-blue);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.shop-search-input-container {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.shop-search-input {
+  padding: 1rem 1rem 1rem 3rem;
+  font-family: var(--font-body);
+  border-radius: 3px; /* 🎯 FIXED: 3px border radius */
+  border: var(--border-standard-desktop);
+  background: var(--pure-white);
+  color: var(--black);
+  font-size: 0.95rem;
+  width: 100%;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.shop-search-input:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(88, 37, 239, 0.1);
+}
+
+.shop-search-input::placeholder {
+  color: var(--medium-gray);
+  font-style: italic;
+}
+
+.shop-search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--medium-gray);
+  font-size: 1.2rem;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   ENHANCED CATEGORY FILTERS
+   ========================================================================== */
+
+.shop-categories-header {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--primary-blue);
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.shop-categories-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 2rem;
+  height: 2px;
+  background: var(--primary-light-blue);
+  border-radius: 1px;
+}
+
+.shop-category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.shop-category-item {
+  padding: 0.875rem 1.25rem;
+  border-radius: 3px; /* 🎯 FIXED: 3px border radius */
+  background: var(--pure-white);
+  border: var(--border-standard-desktop);
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--dark-gray);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: capitalize;
+}
+
+.shop-category-item:hover {
+  background: rgba(88, 37, 239, 0.02);
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
+  transform: translateX(4px);
+}
+
+.shop-category-item.active {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-light-blue) 100%);
+  border-color: var(--primary-blue);
+  color: var(--pure-white);
+  box-shadow: 0 4px 12px rgba(88, 37, 239, 0.25);
+}
+
+.shop-category-count {
+  background: rgba(255, 255, 255, 0.2);
+  color: inherit;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   ELEGANT PRICE RANGE & FILTERS
+   ========================================================================== */
+
+.shop-price-filter {
+  margin-bottom: 2.5rem;
+}
+
+.shop-price-header {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--primary-blue);
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.shop-price-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 2rem;
+  height: 2px;
+  background: var(--primary-light-blue);
+  border-radius: 1px;
+}
+
+.shop-price-range {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.shop-price-input {
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 3px; /* 🎯 FIXED: 3px border radius */
+  border: var(--border-standard-desktop);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.shop-price-input:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(88, 37, 239, 0.1);
+}
+
+.shop-apply-filter {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-light-blue) 100%);
+  color: var(--pure-white);
+  border: none;
+  border-radius: 3px; /* 🎯 FIXED: 3px border radius */
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  width: 100%;
+}
+
+.shop-apply-filter:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(88, 37, 239, 0.3);
+}
+
+/* ==========================================================================
+   PREMIUM TRENDING SECTION
+   ========================================================================== */
+
+.shop-trending-products {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.shop-trending-product-card {
+  background: var(--pure-white);
+  border-radius: 3px; /* 🎯 FIXED: 3px border radius */
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  position: relative;
+}
+
+.shop-trending-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(88, 37, 239, 0.15);
+}
+
+.shop-trending-product-image-container {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 3px 3px 0 0; /* 🎯 FIXED: 3px border radius */
+}
+
+.shop-trending-product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.shop-trending-product-card:hover .shop-trending-product-image {
+  transform: scale(1.08);
+}
+
+.shop-trending-product-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 3px; /* 🎯 FIXED: 3px border radius */
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 10;
+}
+
+.shop-trending-product-badge.sale {
+  background: var(--error-red);
+  color: var(--pure-white);
+}
+
+.shop-trending-product-badge.new {
+  background: var(--success-green);
+  color: var(--pure-white);
+}
+
+.shop-trending-product-badge.hot {
+  background: var(--primary-blue);
+  color: var(--pure-white);
+}
+
+.shop-trending-product-badge.default {
+  background: var(--primary-blue);
+  color: var(--pure-white);
+}
+
+.shop-trending-product-info {
+  padding: 1.25rem;
+}
+
+.shop-trending-product-name {
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.shop-trending-product-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.shop-trending-product-stars {
+  display: flex;
+  gap: 0.125rem;
+}
+
+.shop-trending-product-rating-text {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--medium-gray);
+}
+
+.shop-trending-product-price {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.shop-trending-product-current-price {
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: var(--primary-blue);
+  font-size: 1.1rem;
+}
+
+.shop-trending-product-original-price {
+  font-family: var(--font-body);
+  color: var(--medium-gray);
+  text-decoration: line-through;
+  font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   ENHANCED FEATURED TABS SYSTEM
+   ========================================================================== */
+
+.shop-featured-tab-container {
+  display: flex;
+  background: rgba(240, 244, 249, 0.6);
+  border-radius: 3px; /* 🎯 FIXED: 3px border radius */
+  padding: 0.25rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.shop-featured-tab-button {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  background: transparent;
+  border: none;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--medium-gray);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 3px; /* 🎯 FIXED: 3px border radius */
+  position: relative;
+  z-index: 2;
+}
+
+.shop-featured-tab-button.active {
+  color: var(--pure-white);
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-light-blue) 100%);
+  box-shadow: 0 4px 12px rgba(88, 37, 239, 0.3);
+}
+
+.shop-featured-tab-button:hover:not(.active) {
+  color: var(--primary-blue);
+  background: rgba(88, 37, 239, 0.05);
+}
+
+/* ==========================================================================
+   SOPHISTICATED PAGINATION
+   ========================================================================== */
+
+.shop-pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.shop-pagination-button {
+  padding: 0.75rem 1rem;
+  border-radius: 3px; /* 🎯 FIXED: 3px border radius */
+  border: var(--border-standard-desktop);
+  background: var(--pure-white);
+  color: var(--dark-gray);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  min-width: 2.5rem;
+  text-align: center;
+}
+
+.shop-pagination-button:hover {
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
+  transform: translateY(-1px);
+}
+
+.shop-pagination-button.active {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-light-blue) 100%);
+  border-color: var(--primary-blue);
+  color: var(--pure-white);
+  box-shadow: 0 4px 12px rgba(88, 37, 239, 0.25);
+}
+
+.shop-pagination-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ==========================================================================
+   🎯 TRENDING PRODUCT CARDS - MATCH PRODUCTCARD STYLING
+   ========================================================================== */
+
+/* 🎯 DESKTOP/TABLET: Apply standardized styling to trending product cards */
+@media (min-width: 768px) {
+  .shop-trending-product-card {
+    background: white;
+    border-radius: 3px !important;
+    box-shadow: var(--shadow-standard-desktop) !important;
+    border: var(--border-standard-desktop) !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform: translateY(0);
+    cursor: pointer;
+    overflow: hidden;
+    will-change: transform;
+    backface-visibility: hidden;
+    margin-bottom: 10px !important;
+  }
+
+  .shop-trending-product-card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: var(--shadow-standard-desktop) !important;
+  }
+
+  .shop-trending-product-image-container {
+    border-radius: 3px !important;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .shop-trending-product-image {
+    border-radius: 3px !important;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform-origin: center center;
+    will-change: transform;
+    backface-visibility: hidden;
+    filter: none !important;
+  }
+
+  .shop-trending-product-card:hover .shop-trending-product-image {
+    transform: scale3d(1.06, 1.06, 1);
+  }
+
+  .shop-trending-product-badge {
+    border-radius: 3px !important;
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 10;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .shop-trending-product-badge.sale {
+    background: #e74c3c;
+    color: white;
+  }
+
+  .shop-trending-product-badge.default {
+    background: var(--primary-blue);
+    color: white;
+  }
+
+  .shop-trending-product-info {
+    padding: 1rem;
+  }
+
+  .shop-trending-product-name {
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+    line-clamp: 2;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 0.875rem;
+    line-height: 1.25;
+  }
+
+  .shop-trending-product-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .shop-trending-product-price {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .shop-trending-product-current-price {
+    font-family: var(--font-body);
+    font-weight: 700;
+    color: #1f2937;
+    font-size: 1rem;
+  }
+
+  .shop-trending-product-original-price {
+    font-family: var(--font-body);
+    color: #6b7280;
+    text-decoration: line-through;
+    font-size: 0.875rem;
+  }
+
+  /* 🎯 ENSURE ALL CHILD ELEMENTS HAVE 3PX BORDER RADIUS */
+  .shop-trending-product-card *,
+  .shop-trending-product-image-container *,
+  .shop-trending-product-badge * {
+    border-radius: 3px !important;
+  }
+
+  /* 🎯 EXCEPTIONS FOR CIRCULAR ELEMENTS IN TRENDING CARDS */
+  .shop-trending-product-card .rounded-full,
+  .shop-trending-product-card [class*="rounded-full"] {
+    border-radius: 50% !important;
+  }
+}
+
+/* 🎯 MOBILE: Add bottom margin to trending product cards */
+@media (max-width: 767px) {
+  .shop-trending-product-card {
+    margin-bottom: 10px !important;
+  }
+}
+
+/* ==========================================================================
+   🎯 COMPREHENSIVE BORDER RADIUS OVERRIDE - FORCE 3PX MAX
+   ========================================================================== */
+
+/* 🎯 FORCE 3PX BORDER RADIUS ON ALL SHOP PAGE ELEMENTS FOR DESKTOP/TABLET */
+@media (min-width: 768px) {
+  /* Override all border radius in shop pages */
+  .shop-page-container *,
+  .shop-layout-container *,
+  .shop-left-panel *,
+  .shop-middle-panel *,
+  .shop-right-panel *,
+  .shop-panel-card *,
+  .shop-search-filter-card *,
+  .shop-trending-card *,
+  .shop-products-container *,
+  .shop-pagination-container *,
+  .shop-featured-banner *,
+  .shop-search-input-container *,
+  .shop-featured-tab-container *,
+  .shop-category-list *,
+  .shop-trending-products *,
+  .shop-trending-product-card *,
+  .shop-trending-product-image-container *,
+  .shop-trending-product-info *,
+  .product-card *,
+  .group *,
+  .aspect-\\[3\\/4\\] *,
+  .badge *,
+  .btn-moema-icon *,
+  .btn-moema-icon-sm *,
+  .btn-moema-rounded-lg *,
+  .SelectTrigger,
+  .SelectContent,
+  .SelectItem {
+    border-radius: 3px !important;
+    border-top-left-radius: 3px !important;
+    border-top-right-radius: 3px !important;
+    border-bottom-right-radius: 3px !important;
+    border-bottom-left-radius: 3px !important;
+  }
+
+  /* 🎯 EXCEPTIONS: Keep circular elements circular */
+  .rounded-full,
+  [class*="rounded-full"],
+  .w-3.h-3.rounded-full,
+  .w-4.h-4.rounded-full,
+  .w-5.h-5.rounded-full,
+  .w-6.h-6.rounded-full,
+  .w-8.h-8.rounded-full,
+  .w-10.h-10.rounded-full,
+  .w-12.h-12.rounded-full,
+  .aspect-square.rounded-full,
+  .notification-pulse,
+  .mobile-floating-chat-notification,
+  .color-selector,
+  .size-indicator,
+  .btn-moema-icon,
+  .btn-moema-icon-sm {
+    border-radius: 50% !important;
+  }
+
+  /* 🎯 OVERRIDE ANY CSS VARIABLES THAT MIGHT SET BORDER RADIUS > 3PX */
+  [style*="var(--card-border-radius)"],
+  [style*="var(--radius-"]:not([style*="var(--radius-full)"]) {
+    border-radius: 3px !important;
+  }
+
+  /* 🎯 OVERRIDE INLINE STYLES - COMMENTED OUT TO PREVENT GLOBAL BORDER-RADIUS OVERRIDE */
+  /* [style*="border-radius"]:not(.rounded-full):not([class*="rounded-full"]),
+  [style*="borderRadius"]:not(.rounded-full):not([class*="rounded-full"]) {
+    border-radius: 3px !important;
+  } */
+
+  /* 🎯 SPECIFIC ELEMENT OVERRIDES */
+  /* ProductCard container */
+  .group {
+    border-radius: 3px !important;
+  }
+
+  /* Image containers */
+  .aspect-\\[3\\/4\\],
+  .relative.aspect-\\[3\\/4\\],
+  .overflow-hidden {
+    border-radius: 3px !important;
+  }
+
+  /* Badge elements */
+  .absolute.top-3,
+  .absolute.top-2,
+  .absolute.top-1,
+  .badge {
+    border-radius: 3px !important;
+  }
+
+  /* Button elements */
+  .btn-moema-rounded-lg {
+    border-radius: 3px !important;
+  }
+
+  /* Form elements */
+  input,
+  textarea,
+  select,
+  .SelectTrigger {
+    border-radius: 3px !important;
+  }
+
+  /* Panel elements */
+  .shop-panel-card,
+  .shop-search-filter-card,
+  .shop-trending-card,
+  .shop-products-container,
+  .shop-featured-banner {
+    border-radius: 3px !important;
+  }
+
+  /* Category and trending elements */
+  .shop-category-item,
+  .shop-trending-product-card,
+  .shop-trending-product-image-container,
+  .shop-trending-product-image,
+  .shop-trending-product-badge,
+  .shop-trending-product-info {
+    border-radius: 3px !important;
+  }
+
+  /* Featured tab elements */
+  .shop-featured-tab-container,
+  .shop-featured-tab-button {
+    border-radius: 3px !important;
+  }
+
+  /* Search elements */
+  .shop-search-input,
+  .shop-search-input-container {
+    border-radius: 3px !important;
+  }
+}

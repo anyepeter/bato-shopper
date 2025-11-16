@@ -1,0 +1,236 @@
+/* 🎯 Mobile Buyer Profile Page Styles */
+
+/* Ensure consistent mobile spacing for profile page */
+@media (max-width: 767px) {
+  .buyer-profile-page {
+    padding-bottom: 120px; /* Account for bottom navigation */
+    min-height: 100vh;
+    background-color: #111827; /* Dark gray background */
+  }
+
+  /* Profile header adjustments for mobile */
+  .buyer-profile-header {
+    margin-top: -15px; /* Account for header overlap */
+    padding-top: 60px; /* Account for fixed header */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    /* Preserve gradient background - override any dark theme rules */
+    background: linear-gradient(180deg, #334eff, #0023ff) !important;
+    background-color: #334eff !important;
+    background-image: linear-gradient(180deg, #334eff, #0023ff) !important;
+  }
+
+  /* Full width profile picture container */
+  .buyer-profile-header > div:first-child {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Profile picture section should span full width */
+  .buyer-profile-header .relative.w-full.h-80 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+  }
+
+  /* Force profile picture to be truly full width */
+  .buyer-profile-header .buyer-profile-picture img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  /* Ensure proper spacing for mobile bottom navigation */
+  .buyer-profile-content {
+    padding-bottom: 28px; /* Extra space for mobile bottom nav */
+  }
+
+  /* Button styling for mobile profile */
+  .buyer-profile-edit-button {
+    min-height: 44px; /* Touch target size */
+    border-radius: 3px !important; /* Consistent with design system */
+  }
+
+  /* Input field styling for mobile */
+  .buyer-profile-input,
+  .buyer-profile-textarea {
+    border-radius: 3px !important; /* Consistent with design system */
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+
+  /* Card styling for mobile */
+  .buyer-profile-card {
+    border-radius: 3px !important;
+    margin-bottom: 1rem;
+  }
+
+  /* Stats grid for mobile */
+  .buyer-profile-stats-grid {
+    gap: 0.75rem;
+  }
+
+  /* Profile picture for mobile - full width */
+  .buyer-profile-picture {
+    border-radius: 3px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+  }
+
+  /* Ensure profile picture container has no padding */
+  .buyer-profile-header .buyer-profile-picture {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  /* Ensure action buttons are properly spaced on mobile */
+  .buyer-profile-actions {
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+
+  /* Smooth transitions for mobile interactions */
+  .buyer-profile-interactive {
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .buyer-profile-interactive:active {
+    transform: scale(0.98);
+  }
+
+  /* Remove box-shadow from profile sections on mobile */
+  main section {
+    box-shadow: none !important;
+  }
+
+  /* Force transparent background for card headers - highest specificity */
+  body .buyer-profile-page .card-header,
+  body .buyer-profile-page .card-title,
+  .buyer-profile-page .card .card-header,
+  .buyer-profile-page .card .card-title,
+  .buyer-profile-page .bio-card .card-header,
+  .buyer-profile-page .bio-card .card-title {
+    background: transparent !important;
+    background-color: transparent !important;
+  }
+}
+
+/* Dark theme consistency */
+.buyer-profile-page {
+  background-color: #111827;
+  color: white;
+}
+
+/* Force blue gradient background on profile header - override all theme rules */
+#buyer-profile-header-gradient,
+html body #buyer-profile-header-gradient,
+.buyer-profile-page .buyer-profile-header,
+body .buyer-profile-page .buyer-profile-header,
+html body .buyer-profile-page .buyer-profile-header,
+html body div.buyer-profile-page div.buyer-profile-header,
+div.buyer-profile-page div.buyer-profile-header {
+  background: linear-gradient(180deg, #334eff, #0023ff) !important;
+  background-color: #334eff !important;
+  background-image: linear-gradient(180deg, #334eff, #0023ff) !important;
+}
+
+/* Force transparent background on header-content to allow parent gradient to show */
+.buyer-profile-page .buyer-profile-header .header-content,
+.buyer-profile-page .header-content,
+#buyer-profile-header-gradient .header-content,
+body .buyer-profile-page .buyer-profile-header .header-content {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Typography overrides for profile page */
+.buyer-profile-page h1,
+.buyer-profile-page h2,
+.buyer-profile-page h3 {
+  font-family: var(--font-heading);
+  color: white;
+}
+
+.buyer-profile-page p,
+.buyer-profile-page label,
+.buyer-profile-page span {
+  font-family: var(--font-body);
+}
+
+/* Button overrides for profile page */
+.buyer-profile-page button {
+  border-radius: 3px !important;
+  font-family: var(--font-body);
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Input overrides for profile page */
+.buyer-profile-page input,
+.buyer-profile-page textarea {
+  border-radius: 3px !important;
+  font-family: var(--font-body);
+}
+
+/* Card overrides for profile page */
+.buyer-profile-page .card,
+.buyer-profile-page [class*="card"] {
+  border-radius: 3px !important;
+}
+
+/* Ensure consistent purple theme */
+.buyer-profile-page [style*="color: rgb(88, 37, 239)"],
+.buyer-profile-page [style*="color: #5825efff"] {
+  color: #5825efff !important;
+}
+
+.buyer-profile-page [style*="background: rgb(88, 37, 239)"],
+.buyer-profile-page [style*="background: #5825efff"] {
+  background: #5825efff !important;
+}
+
+/* Smooth loading animation */
+@keyframes profileFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.buyer-profile-page .animate-fade-in {
+  animation: profileFadeIn 0.6s ease-out;
+}
+
+/* Stagger animation for cards */
+.buyer-profile-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.buyer-profile-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.buyer-profile-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* Profile picture camera button animation */
+.buyer-profile-camera-button {
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.buyer-profile-camera-button:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.buyer-profile-camera-button:active {
+  transform: scale(0.95);
+}

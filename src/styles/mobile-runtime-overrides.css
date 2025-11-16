@@ -1,0 +1,33 @@
+/* Mobile Runtime Overrides - Replaces runtime CSS injection */
+
+@media (max-width: 767px) {
+  /* 🎯 MOBILE BORDER-RADIUS OVERRIDE - 8PX FOR ALL ELEMENTS */
+  html body.mobile *:not(.rounded-full):not(header):not(header *):not(nav):not(nav *):not(.logistics-header-zero-radius):not(.logistics-header-zero-radius *):not([style*="#5825efff"]):not([style*="background: #5825efff"]) {
+    border-radius: 8px !important;
+  }
+  
+  html body.mobile .rounded-full, 
+  html body.mobile .btn-moema-icon, 
+  html body.mobile .btn-moema-icon-sm {
+    border-radius: 50% !important;
+  }
+  
+  html body.mobile header, 
+  html body.mobile header *, 
+  html body.mobile nav, 
+  html body.mobile nav *, 
+  html body.mobile .logistics-header-zero-radius, 
+  html body.mobile .logistics-header-zero-radius *, 
+  html body.mobile div[style*="#5825efff"], 
+  html body.mobile div[style*="background: #5825efff"] {
+    border-radius: 0px !important;
+  }
+
+  /* Ensure mobile class application doesn't interfere with existing styles */
+  html body.mobile {
+    --radius-sm: 8px;
+    --radius-md: 8px;
+    --radius-lg: 8px;
+    --radius-xl: 8px;
+  }
+}

@@ -1,0 +1,621 @@
+/**
+ * 🎯 MOBILE BORDER RADIUS OVERRIDE - DIRECT APPROACH
+ * 
+ * Ultra-high specificity CSS to force 8px border radius on ALL mobile elements.
+ * Uses !important and high specificity to override ALL other styles.
+ * 
+ * Preserves Featured Products thumbnails as requested.
+ */
+
+@media (max-width: 767px) {
+  
+  /* 🎯 ULTRA-HIGH SPECIFICITY UNIVERSAL OVERRIDE */
+  
+  /* Force 8px on ALL elements except featured products and circular elements */
+  html body.mobile *:not(.rounded-full):not([class*="rounded-full"]):not([style*="border-radius: 50%"]):not([style*="borderRadius: '50%'"]):not([class*="featured-product"]):not(.featured-product):not(.featured-product *) {
+    border-radius: 8px !important;
+  }
+  
+  html body *:not(.rounded-full):not([class*="rounded-full"]):not([style*="border-radius: 50%"]):not([style*="borderRadius: '50%'"]):not([class*="featured-product"]):not(.featured-product):not(.featured-product *) {
+    border-radius: 8px !important;
+  }
+  
+  /* Target specific Tailwind classes with maximum specificity */
+  html body .rounded-sm:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body .rounded:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body .rounded-md:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body .rounded-lg:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body .rounded-xl:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body .rounded-2xl:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [class*="rounded-"]:not(.rounded-full):not([class*="rounded-full"]):not([class*="featured-product"]):not(.featured-product):not(.featured-product *) {
+    border-radius: 8px !important;
+  }
+  
+  /* Target inline styles with ultra-high specificity */
+  html body [style*="border-radius: 1px"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="border-radius: 2px"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="border-radius: 3px"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="border-radius: 4px"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="border-radius: 5px"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="border-radius: 6px"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="border-radius: 7px"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="border-radius: 9px"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="border-radius: 10px"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="border-radius: 11px"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="border-radius: 12px"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="border-radius: 13px"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="border-radius: 14px"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="border-radius: 15px"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="border-radius: 16px"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="border-radius: 17px"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="border-radius: 18px"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="border-radius: 19px"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="border-radius: 20px"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="border-radius: 21px"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="border-radius: 22px"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="border-radius: 23px"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *) {
+    border-radius: 8px !important;
+  }
+  
+  /* Target React inline styles */
+  html body [style*="borderRadius: '1px'"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="borderRadius: '2px'"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="borderRadius: '3px'"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="borderRadius: '4px'"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="borderRadius: '5px'"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="borderRadius: '6px'"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="borderRadius: '7px'"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="borderRadius: '9px'"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="borderRadius: '10px'"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="borderRadius: '11px'"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="borderRadius: '12px'"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="borderRadius: '13px'"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="borderRadius: '14px'"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="borderRadius: '15px'"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="borderRadius: '16px'"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="borderRadius: '17px'"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="borderRadius: '18px'"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="borderRadius: '19px'"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="borderRadius: '20px'"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="borderRadius: '21px'"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="borderRadius: '22px'"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body [style*="borderRadius: '23px'"]:not([class*="featured-product"]):not(.featured-product):not(.featured-product *) {
+    border-radius: 8px !important;
+  }
+
+  /* 🎯 SPECIFIC COMPONENT OVERRIDES */
+  
+  /* Buttons - ALL types */
+  button:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  .btn-moema:not(.btn-moema-icon):not(.btn-moema-icon-sm) {
+    border-radius: 8px !important;
+  }
+  
+  /* Input elements */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="search"],
+  textarea,
+  select {
+    border-radius: 8px !important;
+  }
+  
+  /* Cards and containers */
+  .card,
+  .product-card,
+  .stream-card,
+  .chat-message,
+  .modal-content,
+  .dropdown-content,
+  .popover-content,
+  [class*="card-"],
+  [class*="container-"],
+  [class*="wrapper-"] {
+    border-radius: 8px !important;
+  }
+  
+  /* Badges and tags */
+  .badge,
+  .tag,
+  .chip,
+  [class*="badge-"],
+  [class*="tag-"],
+  [class*="chip-"] {
+    border-radius: 8px !important;
+  }
+  
+  /* Navigation elements */
+  .nav-item,
+  .menu-item,
+  .tab,
+  [class*="nav-"],
+  [class*="menu-"],
+  [class*="tab-"] {
+    border-radius: 8px !important;
+  }
+  
+  /* Live Stream specific elements */
+  .mobile-stream-watch-button,
+  .mobile-stream-category-badge,
+  .mobile-stream-products-badge,
+  .mobile-stream-product-nav-button,
+  .mobile-stream-toggle-button,
+  .mobile-stream-floating-button,
+  .mobile-stream-search-input,
+  .mobile-stream-category-button {
+    border-radius: 8px !important;
+  }
+  
+  /* Chat elements */
+  .chat-bubble,
+  .message-bubble,
+  .emoji-picker,
+  .reaction-picker,
+  [class*="chat-"],
+  [class*="message-"] {
+    border-radius: 8px !important;
+  }
+  
+  /* Header and Footer elements */
+  .header-button,
+  .footer-button,
+  .nav-button,
+  [class*="header-"],
+  [class*="footer-"],
+  [class*="nav-"] {
+    border-radius: 8px !important;
+  }
+  
+  /* Shopping cart elements */
+  .cart-item,
+  .cart-button,
+  .checkout-button,
+  [class*="cart-"],
+  [class*="checkout-"] {
+    border-radius: 8px !important;
+  }
+  
+  /* Modal and overlay elements */
+  .modal,
+  .overlay,
+  .popup,
+  .tooltip,
+  [class*="modal-"],
+  [class*="overlay-"],
+  [class*="popup-"],
+  [class*="tooltip-"] {
+    border-radius: 8px !important;
+  }
+  
+  /* Search elements */
+  .search-input,
+  .search-button,
+  .search-container,
+  [class*="search-"] {
+    border-radius: 8px !important;
+  }
+  
+  /* Filter elements */
+  .filter-button,
+  .filter-dropdown,
+  .filter-option,
+  [class*="filter-"] {
+    border-radius: 8px !important;
+  }
+  
+  /* Admin panel elements */
+  .admin-card,
+  .admin-button,
+  .admin-input,
+  [class*="admin-"] {
+    border-radius: 8px !important;
+  }
+  
+  /* Review elements */
+  .review-card,
+  .review-form,
+  .review-button,
+  [class*="review-"] {
+    border-radius: 8px !important;
+  }
+  
+  /* Profile elements */
+  .profile-card,
+  .profile-button,
+  .profile-input,
+  [class*="profile-"] {
+    border-radius: 8px !important;
+  }
+  
+  /* 🎯 SHADCN UI COMPONENTS OVERRIDE */
+  
+  /* ShadCN Button variants */
+  .inline-flex.items-center.justify-center,
+  [class*="inline-flex"][class*="items-center"][class*="justify-center"] {
+    border-radius: 8px !important;
+  }
+  
+  /* ShadCN Input components */
+  .flex.h-10.w-full,
+  [class*="flex"][class*="h-10"][class*="w-full"] {
+    border-radius: 8px !important;
+  }
+  
+  /* ShadCN Card components */
+  .rounded-lg.border,
+  [class*="rounded-lg"][class*="border"] {
+    border-radius: 8px !important;
+  }
+  
+  /* 🎯 SPECIFIC APP COMPONENTS */
+  
+  /* Live Stream Grid */
+  .live-stream-grid *:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* Mobile Shopping Cart */
+  .mobile-cart-page *:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* Mobile Favorites */
+  .mobile-favorites-page *:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* Product Modal */
+  .product-modal *:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* Header components */
+  .header *:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* Footer components */
+  .footer *:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* 🎯 CSS VARIABLES OVERRIDE */
+  
+  :root {
+    --radius-sm: 8px !important;
+    --radius-md: 8px !important;
+    --radius-lg: 8px !important;
+    --radius-xl: 8px !important;
+    --radius: 8px !important;
+  }
+  
+  /* Tailwind CSS variable overrides */
+  * {
+    --tw-rounded-sm: 8px !important;
+    --tw-rounded: 8px !important;
+    --tw-rounded-md: 8px !important;
+    --tw-rounded-lg: 8px !important;
+    --tw-rounded-xl: 8px !important;
+    --tw-rounded-2xl: 8px !important;
+  }
+  
+  /* 🎯 EXCEPTIONS - ELEMENTS THAT SHOULD REMAIN ROUNDED */
+  
+  /* Keep circular elements as circles */
+  .rounded-full,
+  [class*="rounded-full"],
+  [style*="border-radius: 50%"],
+  [style*="borderRadius: '50%'"],
+  .btn-moema-icon,
+  .btn-moema-icon-sm,
+  .avatar,
+  .profile-avatar,
+  .user-avatar,
+  .circular,
+  [class*="circular"],
+  [class*="avatar"] {
+    border-radius: 50% !important;
+  }
+
+  /* 🎯 CRITICAL: TOP NAVIGATION BAR MUST HAVE 0PX BORDER-RADIUS */
+  
+  /* Header container - 0px border-radius */
+  header {
+    border-radius: 0px !important;
+  }
+  
+  /* Header elements - 0px border-radius */
+  header *:not(.rounded-full):not([class*="rounded-full"]):not([style*="border-radius: 50%"]):not([style*="borderRadius: '50%'"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]) {
+    border-radius: 0px !important;
+  }
+  
+  /* Navigation bar - 0px border-radius */
+  nav {
+    border-radius: 0px !important;
+  }
+  
+  /* Navigation elements - 0px border-radius */
+  nav *:not(.rounded-full):not([class*="rounded-full"]):not([style*="border-radius: 50%"]):not([style*="borderRadius: '50%'"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]) {
+    border-radius: 0px !important;
+  }
+  
+  /* Header with sticky positioning - 0px border-radius */
+  .sticky.top-0,
+  [class*="sticky"][class*="top-0"],
+  header.sticky,
+  header[class*="sticky"] {
+    border-radius: 0px !important;
+  }
+  
+  /* Mobile menu dropdown in header - 0px border-radius */
+  header .mobile-menu,
+  header [class*="mobile-menu"],
+  header .dropdown,
+  header [class*="dropdown"] {
+    border-radius: 0px !important;
+  }
+  
+  /* Header navigation items - 0px border-radius */
+  header .nav-item,
+  header .menu-item,
+  header [class*="nav-item"],
+  header [class*="menu-item"] {
+    border-radius: 0px !important;
+  }
+  
+  /* Top-level header containers - 0px border-radius */
+  .header,
+  .top-nav,
+  .main-header,
+  .navigation-header,
+  [class*="header"],
+  [class*="top-nav"] {
+    border-radius: 0px !important;
+  }
+  
+  /* All children of header-like elements - 0px border-radius */
+  .header *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]),
+  .top-nav *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]),
+  .main-header *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]),
+  .navigation-header *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]),
+  [class*="header"] *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]),
+  [class*="top-nav"] *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]) {
+    border-radius: 0px !important;
+  }
+  
+  /* 🎯 FEATURED PRODUCTS EXCEPTION - DO NOT CHANGE */
+  
+  /* Preserve Featured Products thumbnails as requested */
+  .featured-product,
+  .featured-product *,
+  [class*="featured-product"],
+  [class*="featured-product"] *,
+  .product-thumbnail.featured,
+  .product-thumbnail.featured *,
+  .featured-product-card,
+  .featured-product-card *,
+  .featured-product-thumbnail,
+  .featured-product-thumbnail * {
+    /* Do not override - preserve original styling */
+  }
+  
+  /* 🎯 FORCE OVERRIDE FOR STUBBORN ELEMENTS */
+  
+  /* Use higher specificity for elements that resist changes */
+  html body .mobile-view *:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* Target div elements specifically */
+  div:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* Target span elements */
+  span:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* Target section elements */
+  section:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* Target article elements */
+  article:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* 🎯 COMPONENT SPECIFIC OVERRIDES */
+  
+  /* Mobile Live Stream Floating Buttons */
+  .mobile-live-stream-floating-buttons *:not(.rounded-full) {
+    border-radius: 8px !important;
+  }
+  
+  /* Mobile Search Overlay */
+  .mobile-search-overlay *:not(.rounded-full) {
+    border-radius: 8px !important;
+  }
+  
+  /* Mobile Navigation */
+  .mobile-nav *:not(.rounded-full) {
+    border-radius: 8px !important;
+  }
+  
+  /* Mobile Product Cards */
+  .mobile-product-card:not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  .mobile-product-card:not([class*="featured-product"]) * {
+    border-radius: 8px !important;
+  }
+  
+  /* Mobile Category Buttons */
+  .mobile-category-button {
+    border-radius: 8px !important;
+  }
+  
+  /* Mobile Filter Buttons */
+  .mobile-filter-button {
+    border-radius: 8px !important;
+  }
+  
+  /* Mobile Sort Buttons */
+  .mobile-sort-button {
+    border-radius: 8px !important;
+  }
+  
+  /* 🎯 LAYOUT CONTAINER OVERRIDES */
+  
+  /* Main content areas */
+  .main-content,
+  .content-wrapper,
+  .page-container,
+  .mobile-container {
+    border-radius: 8px !important;
+  }
+  
+  /* Sidebar elements */
+  .sidebar,
+  .side-panel,
+  .drawer {
+    border-radius: 8px !important;
+  }
+  
+  /* 🎯 ANIMATION AND TRANSITION OVERRIDES */
+  
+  /* Ensure animations don't override border radius */
+  *[class*="animate-"]:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  *[class*="transition-"]:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* 🎯 PSEUDO ELEMENTS */
+  
+  *:before:not(.rounded-full):not([class*="featured-product"]),
+  *:after:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* 🎯 NUCLEAR OPTION - ABSOLUTE OVERRIDE */
+  
+  /* Force override ALL elements with maximum CSS specificity */
+  html body.mobile div:not(.rounded-full):not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body.mobile span:not(.rounded-full):not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body.mobile button:not(.rounded-full):not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body.mobile input:not(.rounded-full):not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body.mobile section:not(.rounded-full):not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body.mobile article:not(.rounded-full):not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body.mobile aside:not(.rounded-full):not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body.mobile header:not(.rounded-full):not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body.mobile footer:not(.rounded-full):not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body.mobile nav:not(.rounded-full):not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body.mobile main:not(.rounded-full):not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body.mobile form:not(.rounded-full):not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body.mobile textarea:not(.rounded-full):not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body.mobile select:not(.rounded-full):not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body.mobile label:not(.rounded-full):not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body.mobile ul:not(.rounded-full):not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body.mobile li:not(.rounded-full):not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body.mobile p:not(.rounded-full):not([class*="featured-product"]):not(.featured-product):not(.featured-product *),
+  html body.mobile a:not(.rounded-full):not([class*="featured-product"]):not(.featured-product):not(.featured-product *) {
+    border-radius: 8px !important;
+  }
+  
+  /* Ultimate fallback - override any element that has computed border-radius */
+  html body.mobile *:not(.rounded-full):not([class*="rounded-full"]):not([style*="border-radius: 50%"]):not([style*="borderRadius: '50%'"]):not([class*="featured-product"]):not(.featured-product):not(.featured-product *) {
+    border-radius: 8px !important;
+  }
+  
+  /* Force CSS variables to 8px on mobile */
+  html body.mobile {
+    --radius-sm: 8px !important;
+    --radius-md: 8px !important;
+    --radius-lg: 8px !important;
+    --radius-xl: 8px !important;
+    --radius: 8px !important;
+    
+    /* Tailwind CSS variables */
+    --tw-rounded-sm: 8px !important;
+    --tw-rounded: 8px !important;
+    --tw-rounded-md: 8px !important;
+    --tw-rounded-lg: 8px !important;
+    --tw-rounded-xl: 8px !important;
+    --tw-rounded-2xl: 8px !important;
+  }
+}
+
+/* 🎯 UTILITY CLASS FOR MANUAL APPLICATION */
+.mobile-border-radius-8 {
+  border-radius: 8px !important;
+}
+
+.mobile-border-radius-8 * {
+  border-radius: 8px !important;
+}
+
+/* 🎯 SPECIFIC VIEW FULL DETAILS BUTTON OVERRIDE */
+  
+  /* View Full Details button - ensure 8px border radius */
+  button[style*="dark"]:not(.rounded-full),
+  button[style*="grey"]:not(.rounded-full),
+  [style*="dark grey"]:not(.rounded-full),
+  [style*="light grey"]:not(.rounded-full),
+  *[aria-label*="View Full Details"]:not(.rounded-full),
+  *[title*="View Full Details"]:not(.rounded-full),
+  button:has-text("View Full Details"):not(.rounded-full),
+  div:has-text("View Full Details"):not(.rounded-full),
+  .view-full-details:not(.rounded-full),
+  .view-details-button:not(.rounded-full),
+  .product-details-button:not(.rounded-full),
+  .dropdown-toggle:not(.rounded-full),
+  button[class*="bg-gray"]:not(.rounded-full),
+  div[class*="bg-gray"]:not(.rounded-full),
+  button[style*="backgroundColor"][style*="gray"]:not(.rounded-full),
+  div[style*="backgroundColor"][style*="gray"]:not(.rounded-full) {
+    border-radius: 8px !important;
+  }
+  
+  /* Specific targeting for elements with chevron/dropdown arrow */
+  button:has(svg[data-icon="chevron-down"]):not(.rounded-full),
+  div:has(svg[data-icon="chevron-down"]):not(.rounded-full),
+  button:has(.chevron-down):not(.rounded-full),
+  div:has(.chevron-down):not(.rounded-full),
+  *[class*="dropdown"]:not(.rounded-full),
+  *[class*="expand"]:not(.rounded-full) {
+    border-radius: 8px !important;
+  }
+
+/* 🎯 DEBUG CLASS TO IDENTIFY PROBLEMATIC ELEMENTS */
+@media (max-width: 767px) {
+  .debug-border-radius {
+    outline: 2px solid red !important;
+    outline-offset: -2px !important;
+  }
+  
+  /* Add this class to elements to highlight border radius issues */
+  .debug-border-radius:before {
+    content: "BR: " attr(style);
+    position: absolute;
+    top: -20px;
+    left: 0;
+    background: red;
+    color: white;
+    font-size: 10px;
+    padding: 2px 4px;
+    z-index: 9999;
+    border-radius: 2px;
+  }
+}

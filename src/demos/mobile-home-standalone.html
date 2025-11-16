@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bato - Mobile Home (TikTok Style)</title>
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Abel&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === CSS VARIABLES === */
+        :root {
+            /* Primary Colors - Blue Theme */
+            --primary-blue: #5825ef;
+            --primary-dark-blue: #6e29f6;
+            --primary-light-blue: #885cf8;
+            --primary-extra-light-blue: #d6c9fd;
+            
+            /* Secondary Colors */
+            --success-green: #028b31;
+            --error-red: #e74c3c;
+            --warning-yellow: #FFE087;
+            
+            /* Neutrals */
+            --pure-white: #ffffff;
+            --light-gray: #f0f4f9;
+            --medium-gray: #868686;
+            --dark-gray: #848584;
+            --black: #000000;
+            
+            /* Typography */
+            --font-heading: 'Ubuntu', sans-serif;
+            --font-body: 'Abel', sans-serif;
+            
+            /* Spacing */
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+        }
+
+        /* === RESET & BASE === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--pure-white);
+            background: transparent;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            position: fixed;
+            touch-action: pan-y;
+            cursor: default;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+        }
+
+        /* === MAIN CONTAINER === */
+        .mobile-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* === VIDEO BACKGROUND === */
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: -650px;
+            left: -200px;
+            width: 200%;
+            height: 200%;
+            border: none;
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 0%, transparent 50%, rgba(0,0,0,0.6) 100%);
+            z-index: 2;
+        }
+
+        /* === FLOATING ACTION BUTTONS === */
+        .action-buttons {
+            position: absolute;
+            right: 16px;
+            bottom: 240px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .action-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .action-btn button {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .action-btn button:active {
+            transform: scale(0.85);
+        }
+
+        .action-btn.favorite.active button {
+            background: #ff4757;
+        }
+
+        .action-btn.chat button {
+            background: linear-gradient(135deg, #5825ef, #6e29f6);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            animation: float-chat 2s infinite;
+        }
+
+        @keyframes float-chat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        .action-btn span {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.75);
+            font-family: var(--font-body);
+        }
+
+        /* === PRODUCT INFO PANEL === */
+        .product-info {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%);
+            backdrop-filter: blur(5px);
+            border: none;
+            border-bottom: none;
+            box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3);
+            padding: 32px 24px 89px 24px;
+            z-index: 90;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-info.hidden {
+            transform: translateY(100%);
+        }
+
+        .product-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .product-title {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            color: white;
+            flex: 1;
+            margin: 0;
+        }
+
+        .social-badges {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .badge {
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 11px;
+            font-weight: 500;
+            font-family: var(--font-body);
+        }
+
+        .badge.trending {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+            color: white;
+        }
+
+        .badge.verified {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: white;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .stars {
+            display: flex;
+            gap: 4px;
+        }
+
+        .stars i {
+            color: #fbbf24;
+            font-size: 16px;
+        }
+
+        .rating-text {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            font-family: var(--font-body);
+        }
+
+        .price-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .price {
+            font-family: var(--font-heading);
+            font-size: 28px;
+            color: white;
+        }
+
+        .original-price {
+            font-size: 18px;
+            text-decoration: line-through;
+            color: rgba(255, 255, 255, 0.5);
+            font-family: var(--font-body);
+        }
+
+        .sale-badge {
+            background: var(--error-red);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* === ACTION BUTTONS === */
+        .cta-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .btn-primary {
+            flex: 1;
+            height: 56px;
+            border-radius: 8px;
+            border: none;
+            background: #5825ef;
+            color: white;
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(88, 37, 239, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+
+        .btn-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-icon:active {
+            transform: scale(0.95);
+        }
+
+        /* === BOTTOM NAVIGATION === */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(26, 26, 26, 0.95));
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0 8px;
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            padding: 8px 12px;
+            transition: all 0.3s ease;
+        }
+
+
+        .nav-item:hover {
+            color: rgba(88, 37, 239, 0.2);
+            border-top: 2px solid rgb(88, 37, 239);
+        }
+
+        .nav-item.active {
+            color: rgba(88, 37, 239, 0.2);
+            border-top: 2px solid rgb(88, 37, 239);
+        }
+
+        .nav-item i {
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        .nav-item.active i {
+            color: #5825ef;
+        }
+
+        .nav-item span {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.7);
+            font-family: var(--font-body);
+        }
+
+        .nav-item.active span {
+            color: #5825ef;
+        }
+
+        /* === INCENTIVE BALLOON === */
+        .incentive-balloon {
+            position: absolute;
+            top: 12%;
+            left: 25%;
+            transform: translate(-50%, -50%) scale(0);
+            background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+            color: white;
+            opacity: 81%;
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(255, 107, 107, 0.6);
+            z-index: 10000;
+            max-width: 220px;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .incentive-balloon.show {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .incentive-title {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .incentive-text {
+            font-family: var(--font-body);
+            font-size: 14px;
+            margin-bottom: 16px;
+            opacity: 0.9;
+        }
+
+        .incentive-code {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-family: var(--font-heading);
+            font-size: 18px;
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+        }
+
+        .incentive-btn {
+            background: white;
+            color: #ff6b6b;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .incentive-btn:active {
+            transform: scale(0.95);
+        }
+
+        .incentive-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* === SCROLL INDICATORS === */
+        .scroll-indicator {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999;
+            color: white;
+            font-size: 24px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .scroll-up-indicator {
+            top: 20px;
+        }
+
+        .scroll-down-indicator {
+            bottom: 100px;
+        }
+
+        .scroll-indicator.show {
+            opacity: 0.7;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* === UTILITY === */
+        .hidden {
+            display: none;
+        }
+
+        /* === TOP NAVIGATION HEADER === */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+             height: 80px;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(26, 26, 26, 0.95));
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0 8px;
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-logo {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .nav-icon-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-icon-btn:active {
+            transform: scale(0.9);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* === FLOATING MENU TOGGLE BUTTON === */
+        .floating-menu-btn {
+            position: fixed;
+            top: 100px;
+            right: 16px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid rgba(167, 164, 168, 0.4);
+            background: rgba(167, 164, 168, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            z-index: 49;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .floating-menu-btn:active {
+            transform: scale(0.95);
+        }
+
+        .floating-menu-btn i {
+            font-size: 24px;
+        }
+
+        /* Pulse animation for menu button */
+        .floating-menu-btn::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: 50%;
+            border: 2px solid rgba(167, 164, 168, 0.4);
+            animation: pulse-ring 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-ring {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.6;
+            }
+        }
+
+        /* === FLOATING PRODUCT COMMUNITY BUTTON === */
+        .floating-community-btn {
+            position: fixed;
+            top: 156px;
+            right: 16px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid rgba(167, 164, 168, 0.4);
+            background: rgba(167, 164, 168, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .floating-community-btn:active {
+            transform: scale(0.95);
+        }
+
+        .floating-community-btn i {
+            font-size: 20px;
+        }
+
+        /* Online count badge */
+        .online-badge {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            min-width: 18px;
+            height: 18px;
+            background: #10b981;
+            border: 2px solid #000000;
+            border-radius: 50%;
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 4px;
+            animation: pulse-badge 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Pulse animation for community button */
+        .floating-community-btn::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: 50%;
+            border: 2px solid rgba(167, 164, 168, 0.4);
+            animation: pulse-ring 2s ease-in-out infinite;
+        }
+
+        /* === HOVER EFFECTS === */
+        .mobile-container:hover .top-nav,
+        .mobile-container:hover .bottom-nav,
+        .mobile-container:hover .action-buttons,
+        .mobile-container:hover .floating-menu-btn,
+        .mobile-container:hover .floating-community-btn,
+        .mobile-container:hover .product-info {
+            opacity: 1 !important;
+        }
+
+        /* === RESPONSIVE MEDIA QUERIES FOR VIDEO IFRAME === */
+        
+        /* Default iframe style */
+        .video-container iframe {
+            position: absolute;
+            top: -650px;
+            left: -200px;
+            width: 200%;
+            height: 200%;
+            border: none;
+            object-fit: cover;
+        }
+
+/* === RESPONSIVE MEDIA QUERIES FOR VIDEO IFRAME AND INCENTIVE BALLOON === */
+
+/* Default iframe style */
+.video-container iframe {
+    position: absolute;
+    top: -650px;
+    left: -200px;
+    width: 200%;
+    height: 200%;
+    border: none;
+    object-fit: cover;
+}
+
+/* Default incentive balloon style */
+.incentive-balloon {
+    position: absolute;
+    top: 12%;
+    left: 25%;
+    transform: translate(-50%, -50%) scale(0);
+    background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+    color: white;
+    opacity: 81%;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(255, 107, 107, 0.6);
+    z-index: 10000;
+    max-width: 220px;
+    text-align: center;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* 412 x 915 */
+@media (width: 412px) and (height: 915px) {
+    .video-container iframe {
+        top: -180px;
+        left: -120px;
+        width: 150%;
+        height: 150%;
+    }
+    
+    .incentive-balloon {
+        top: 15%;
+        left: 30%;
+        max-width: 200px;
+        padding: 20px;
+    }
+}
+
+/* 360 x 640 */
+@media (width: 360px) and (height: 640px) {
+    .video-container iframe {
+        top: -30px;
+        left: 0px;
+        width: 120%;
+        height: 120%;
+    }
+    
+    .incentive-balloon {
+        top: 10%;
+        left: 20%;
+        max-width: 180px;
+        padding: 16px;
+    }
+    
+    .incentive-title {
+        font-size: 18px;
+    }
+    
+    .incentive-text {
+        font-size: 12px;
+    }
+    
+    .incentive-code {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+    
+    .incentive-btn {
+        padding: 10px 24px;
+        font-size: 12px;
+    }
+}
+
+/* 360 x 740 and 320 x 658 */
+@media (width: 360px) and (height: 740px), 
+       (width: 320px) and (height: 658px) {
+    .video-container iframe {
+        top: -90px;
+        left: -30px;
+        width: 140%;
+        height: 140%;
+    }
+    
+    .incentive-balloon {
+        top: 12%;
+        left: 25%;
+        max-width: 190px;
+        padding: 18px;
+    }
+    
+    .incentive-title {
+        font-size: 18px;
+    }
+    
+    .incentive-text {
+        font-size: 13px;
+    }
+}
+
+/* 712 x 1138 */
+@media (width: 712px) and (height: 1138px) {
+    .video-container iframe {
+        top: -90px;
+        left: -100px;
+        width: 140%;
+        height: 140%;
+    }
+    
+    .incentive-balloon {
+        top: 15%;
+        left: 30%;
+        max-width: 250px;
+        padding: 24px;
+    }
+}
+
+/* 375 x 667 */
+@media (width: 375px) and (height: 667px) {
+    .video-container iframe {
+        top: -50px;
+        left: -80px;
+        width: 130%;
+        height: 130%;
+    }
+    
+    .incentive-balloon {
+        top: 10%;
+        left: 22%;
+        max-width: 190px;
+        padding: 18px;
+    }
+    
+    .incentive-title {
+        font-size: 18px;
+    }
+    
+    .incentive-text {
+        font-size: 13px;
+    }
+}
+
+/* 414 x 896 and 390 x 844 */
+@media (width: 414px) and (height: 896px), 
+       (width: 390px) and (height: 844px) {
+    .video-container iframe {
+        top: -120px;
+        left: -100px;
+        width: 150%;
+        height: 150%;
+    }
+    
+    .incentive-balloon {
+        top: 15%;
+        left: 28%;
+        max-width: 210px;
+        padding: 22px;
+    }
+}
+
+/* 430 x 932 */
+@media (width: 430px) and (height: 932px) {
+    .video-container iframe {
+        top: -130px;
+        left: -100px;
+        width: 150%;
+        height: 150%;
+    }
+    
+    .incentive-balloon {
+        top: 15%;
+        left: 28%;
+        max-width: 220px;
+        padding: 24px;
+    }
+}
+
+/* 412 x 915 (second instance) */
+@media (width: 412px) and (height: 915px) {
+    .video-container iframe {
+        top: -130px;
+        left: -100px;
+        width: 150%;
+        height: 150%;
+    }
+    
+    .incentive-balloon {
+        top: 15%;
+        left: 28%;
+        max-width: 210px;
+        padding: 22px;
+    }
+}
+
+/* 768 x 1024 and 820 x 1180 */
+@media (width: 768px) and (height: 1024px), 
+       (width: 820px) and (height: 1180px) {
+    .video-container iframe {
+        top: -140px;
+        left: -140px;
+        width: 140%;
+        height: 140%;
+    }
+    
+    .incentive-balloon {
+        top: 18%;
+        left: 35%;
+        max-width: 280px;
+        padding: 28px;
+    }
+    
+    .incentive-title {
+        font-size: 22px;
+    }
+    
+    .incentive-text {
+        font-size: 16px;
+    }
+    
+    .incentive-code {
+        font-size: 20px;
+        padding: 10px 18px;
+    }
+    
+    .incentive-btn {
+        padding: 14px 36px;
+        font-size: 16px;
+    }
+}
+
+/* 1024 x 1366 and 912 x 1368 */
+@media (width: 1024px) and (height: 1366px), 
+       (width: 912px) and (height: 1368px) {
+    .video-container iframe {
+        top: -140px;
+        left: -190px;
+        width: 140%;
+        height: 140%;
+    }
+    
+    .incentive-balloon {
+        top: 20%;
+        left: 40%;
+        max-width: 300px;
+        padding: 30px;
+    }
+    
+    .incentive-title {
+        font-size: 24px;
+    }
+    
+    .incentive-text {
+        font-size: 17px;
+    }
+    
+    .incentive-code {
+        font-size: 22px;
+        padding: 12px 20px;
+    }
+    
+    .incentive-btn {
+        padding: 16px 40px;
+        font-size: 17px;
+    }
+}
+
+/* 540 x 720 */
+@media (width: 540px) and (height: 720px) {
+    .video-container iframe {
+        top: -80px;
+        left: -80px;
+        width: 130%;
+        height: 140%;
+    }
+    
+    .incentive-balloon {
+        top: 12%;
+        left: 25%;
+        max-width: 220px;
+        padding: 20px;
+    }
+}
+
+/* 344 x 882 */
+@media (width: 344px) and (height: 882px) {
+    .video-container iframe {
+        top: -300px;
+        left: -90px;
+        width: 180%;
+        height: 180%;
+    }
+    
+    .incentive-balloon {
+        top: 15%;
+        left: 25%;
+        max-width: 180px;
+        padding: 16px;
+    }
+    
+    .incentive-title {
+        font-size: 18px;
+    }
+    
+    .incentive-text {
+        font-size: 12px;
+    }
+    
+    .incentive-code {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+    
+    .incentive-btn {
+        padding: 10px 24px;
+        font-size: 12px;
+    }
+}
+
+/* 853 x 1280 and 412 x 914 */
+@media (width: 853px) and (height: 1280px), 
+       (width: 412px) and (height: 914px) {
+    .video-container iframe {
+        top: -100px;
+        left: -90px;
+        width: 130%;
+        height: 130%;
+    }
+    
+    .incentive-balloon {
+        top: 15%;
+        left: 28%;
+        max-width: 230px;
+        padding: 22px;
+    }
+}
+
+        /* 853 x 1280 and 412 x 914 */
+        @media (width: 853px) and (height: 1280px), 
+               (width: 412px) and (height: 914px) {
+            .video-container iframe {
+                top: -100px;
+                left: -90px;
+                width: 130%;
+                height: 130%;
+            }
+        }
+
+        /* === RESPONSIVE CONTAINER === */
+        @media (min-width: 768px) {
+            .mobile-container {
+                max-width: 480px;
+                margin: 0 auto;
+                border-left: 1px solid rgba(255, 255, 255, 0.1);
+                border-right: 1px solid rgba(255, 255, 255, 0.1);
+            }
+        }
+
+        /* === TOUCH DEVICE SUPPORT === */
+        @media (hover: none) {
+        .mobile-container:hover .top-nav,
+        .mobile-container:hover .bottom-nav,
+        .mobile-container:hover .action-buttons,
+        .mobile-container:hover .floating-menu-btn,
+        .mobile-container:hover .floating-community-btn,
+        .mobile-container:hover .product-info {
+            opacity: 1 !important;
+        }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Container -->
+    <div class="mobile-container">
+    
+    <!-- Top Navigation bar -->
+    <nav class="top-nav">
+        <div class="nav-logo">BATO</div>
+        <div class="nav-icons">
+            <button class="nav-icon-btn" onclick="showNotification('Search coming soon...')" title="Search">
+                <i class="bi bi-search"></i>
+            </button>
+            <button class="nav-icon-btn" onclick="showNotification('Notifications')" title="Notifications">
+                <i class="bi bi-bell"></i>
+            </button>
+            <button class="nav-icon-btn" onclick="showNotification('Shopping Cart')" title="Cart">
+                <i class="bi bi-cart"></i>
+            </button>
+        </div>
+    </nav>
+    
+        <!-- Video Background -->
+        <div class="video-container">
+            <iframe 
+                id="productVideo"
+                src=""
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+            <div class="video-overlay"></div>
+        </div>
+
+        <!-- Scroll Indicators -->
+        <div class="scroll-indicator scroll-up-indicator" id="scrollUpIndicator">
+            <i class="bi bi-chevron-up"></i>
+        </div>
+        <div class="scroll-indicator scroll-down-indicator" id="scrollDownIndicator">
+            <i class="bi bi-chevron-down"></i>
+        </div>
+
+        <!-- Floating Action Buttons -->
+        <div class="action-buttons">
+            <!-- Favorite -->
+            <div class="action-btn favorite" id="favoriteBtn">
+                <button onclick="toggleFavorite()">
+                    <i class="bi bi-heart" id="heartIcon"></i>
+                </button>
+                <span>87</span>
+            </div>
+
+            <!-- Add to Cart -->
+            <div class="action-btn">
+                <button onclick="addToCart()">
+                    <i class="bi bi-cart"></i>
+                </button>
+                <span>Add</span>
+            </div>
+
+            <!-- Quick View -->
+            <div class="action-btn">
+                <button onclick="quickView()">
+                    <i class="bi bi-eye"></i>
+                </button>
+                <span>View</span>
+            </div>
+
+            <!-- Reviews -->
+            <div class="action-btn">
+                <button onclick="showReviews()">
+                    <i class="bi bi-star"></i>
+                </button>
+                <span>32</span>
+            </div>
+
+            <!-- Share -->
+            <div class="action-btn">
+                <button onclick="shareProduct()">
+                    <i class="bi bi-share"></i>
+                </button>
+                <span>Share</span>
+            </div>
+
+            <!-- Chat -->
+            <div class="action-btn chat">
+                <button onclick="openChat()">
+                    <i class="bi bi-chat-dots-fill"></i>
+                </button>
+                <span>Chat</span>
+            </div>
+        </div>
+
+        <!-- Product Info Panel -->
+        <div class="product-info" id="productInfo">
+            <div class="product-header">
+                <h3 class="product-title" id="productTitle">African Print Maxi Dress</h3>
+            </div>
+
+            <!-- Social Proof Badges -->
+            <div class="social-badges">
+                <span class="badge trending">🔥 Trending</span>
+                <span class="badge verified">✓ Verified</span>
+            </div>
+
+            <!-- Rating -->
+            <div class="rating">
+                <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-half"></i>
+                </div>
+                <span class="rating-text">(4.5)</span>
+            </div>
+
+            <!-- Price -->
+            <div class="price-row">
+                <span class="price" id="productPrice">$45.00</span>
+                <span class="original-price">$65.00</span>
+                <span class="sale-badge">Sale</span>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="cta-buttons">
+                <button class="btn-primary" onclick="addToCart()">
+                    <i class="bi bi-cart"></i>
+                    ADD TO CART
+                </button>
+                <button class="btn-icon" onclick="showSizeGuide()">
+                    <i class="bi bi-rulers"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <div class="nav-item active" onclick="navigateTo('home')">
+                <i class="bi bi-house-fill"></i>
+                <span>Home</span>
+            </div>
+            <div class="nav-item" onclick="navigateTo('live')">
+                <i class="bi bi-play-circle"></i>
+                <span>Live</span>
+            </div>
+            <div class="nav-item" onclick="navigateTo('orders')">
+                <i class="bi bi-box"></i>
+                <span>Orders</span>
+            </div>
+            <div class="nav-item" onclick="navigateTo('shop')">
+                <i class="bi bi-bag"></i>
+                <span>Shop</span>
+            </div>
+            <div class="nav-item" onclick="navigateTo('account')">
+                <i class="bi bi-person"></i>
+                <span>Account</span>
+            </div>
+        </nav>
+
+        <!-- Incentive Balloon -->
+        <div class="incentive-balloon" id="incentiveBalloon">
+            <button class="incentive-close" onclick="closeIncentive()">
+                <i class="bi bi-x"></i>
+            </button>
+            <h3 class="incentive-title">Limited Time Offer!</h3>
+            <p class="incentive-text">Get 30% off your first order with code:</p>
+            <div class="incentive-code">FLASH30</div>
+            <button class="incentive-btn" onclick="claimOffer()">Claim Offer</button>
+        </div>
+    </div>
+
+    <!-- Floating Menu Toggle Button -->
+    <button class="floating-menu-btn" onclick="toggleMenu()" title="Toggle Menu" id="menuToggleBtn">
+        <i class="bi bi-list" id="menuIcon"></i>
+    </button>
+
+    <!-- Floating Product Community Button -->
+    <button class="floating-community-btn" onclick="openCommunity()" title="Product Community">
+        <i class="bi bi-people-fill"></i>
+        <span class="online-badge">12</span>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // === STATE MANAGEMENT ===
+        let isFavorited = false;
+        let currentProductIndex = 0;
+        let touchStartY = 0;
+        let touchEndY = 0;
+        let scrollCooldown = false;
+
+        // Sample Products Data with all 10 YouTube videos
+        const products = [
+            {
+                id: 1,
+                name: "African Print Maxi Dress",
+                price: 45.00,
+                originalPrice: 65.00,
+                rating: 4.5,
+                videoId: "ru2TMiqEvl0",
+                badge: "Sale"
+            },
+            {
+                id: 2,
+                name: "Ankara Wrap Skirt",
+                price: 35.00,
+                originalPrice: 50.00,
+                rating: 4.8,
+                videoId: "LtAmxtfv_e4",
+                badge: "New"
+            },
+            {
+                id: 3,
+                name: "Dashiki Top Collection",
+                price: 28.00,
+                originalPrice: 40.00,
+                rating: 4.6,
+                videoId: "z-Ad2xMUtPY",
+                badge: "Sale"
+            },
+            {
+                id: 4,
+                name: "Kente Print Handbag",
+                price: 38.00,
+                originalPrice: 55.00,
+                rating: 4.7,
+                videoId: "QdKGO7FF5WY",
+                badge: "Hot"
+            },
+            {
+                id: 5,
+                name: "African Beaded Jewelry Set",
+                price: 22.00,
+                originalPrice: 35.00,
+                rating: 4.9,
+                videoId: "CqM9SDIsKek",
+                badge: "Sale"
+            },
+            {
+                id: 6,
+                name: "Mudcloth Throw Pillow",
+                price: 28.00,
+                originalPrice: 42.00,
+                rating: 4.4,
+                videoId: "jcuR0j-quLo",
+                badge: "New"
+            },
+            {
+                id: 7,
+                name: "Batik Print Scarf",
+                price: 18.00,
+                originalPrice: 28.00,
+                rating: 4.6,
+                videoId: "Hoy-JrygxSU",
+                badge: "Sale"
+            },
+            {
+                id: 8,
+                name: "African Print Headwrap",
+                price: 15.00,
+                originalPrice: 25.00,
+                rating: 4.8,
+                videoId: "xf_E7j4nQks",
+                badge: "Trending"
+            },
+            {
+                id: 9,
+                name: "Tribal Print Backpack",
+                price: 42.00,
+                originalPrice: 60.00,
+                rating: 4.5,
+                videoId: "dr65gDX-RpI",
+                badge: "Sale"
+            },
+            {
+                id: 10,
+                name: "African Print Jumpsuit",
+                price: 52.00,
+                originalPrice: 75.00,
+                rating: 4.7,
+                videoId: "zt5VH--BhEI",
+                badge: "New"
+            }
+        ];
+
+        // === FAVORITE TOGGLE ===
+        function toggleFavorite() {
+            isFavorited = !isFavorited;
+            const btn = document.getElementById('favoriteBtn');
+            const icon = document.getElementById('heartIcon');
+            
+            if (isFavorited) {
+                btn.classList.add('active');
+                icon.className = 'bi bi-heart-fill';
+                showNotification('Added to favorites ❤️');
+            } else {
+                btn.classList.remove('active');
+                icon.className = 'bi bi-heart';
+                showNotification('Removed from favorites');
+            }
+        }
+
+        // === ADD TO CART ===
+        function addToCart() {
+            showNotification('Added to cart! 🛒');
+            // Animate the cart button
+            const cartBtns = document.querySelectorAll('.action-btn:nth-child(2) button, .btn-primary');
+            cartBtns.forEach(btn => {
+                btn.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    btn.style.transform = 'scale(1)';
+                }, 200);
+            });
+        }
+
+        // === QUICK VIEW ===
+        function quickView() {
+            showNotification('Opening quick view...');
+        }
+
+        // === SHOW REVIEWS ===
+        function showReviews() {
+            showNotification('Loading reviews...');
+        }
+
+        // === SHARE PRODUCT ===
+        async function shareProduct() {
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: products[currentProductIndex].name,
+                        text: `Check out this ${products[currentProductIndex].name} from Bato!`,
+                        url: window.location.href
+                    });
+                } catch (error) {
+                    console.log('Share canceled');
+                }
+            } else {
+                showNotification('Share feature not supported');
+            }
+        }
+
+        // === OPEN CHAT ===
+        function openChat() {
+            showNotification('Opening live chat...');
+        }
+
+        // === SIZE GUIDE ===
+        function showSizeGuide() {
+            showNotification('Opening size guide...');
+        }
+
+        // === NAVIGATION ===
+        function navigateTo(section) {
+            // Remove active class from all nav items
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Add active class to clicked item
+            event.currentTarget.classList.add('active');
+            
+            showNotification(`Navigating to ${section}...`);
+        }
+
+        // === INCENTIVE BALLOON ===
+        function showIncentiveBalloon() {
+            const balloon = document.getElementById('incentiveBalloon');
+            balloon.classList.add('show');
+        }
+
+        function closeIncentive() {
+            const balloon = document.getElementById('incentiveBalloon');
+            balloon.classList.remove('show');
+        }
+
+        function claimOffer() {
+            showNotification('🎉 Discount applied! FLASH30');
+            closeIncentive();
+            addToCart();
+        }
+
+        // === NOTIFICATIONS ===
+        function showNotification(message) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 80px;
+                left: 50%;
+                transform: translateX(-50%) translateY(-100px);
+                background: rgba(0, 0, 0, 0.9);
+                color: white;
+                padding: 16px 24px;
+                border-radius: 24px;
+                font-family: var(--font-body);
+                font-size: 14px;
+                z-index: 10001;
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+                transition: transform 0.3s ease;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(-50%) translateY(0)';
+            }, 10);
+            
+            // Remove after 2 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(-50%) translateY(-100px)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 2000);
+        }
+
+        // === SWIPE NAVIGATION ===
+        function handleTouchStart(e) {
+            touchStartY = e.touches[0].clientY;
+        }
+
+        function handleTouchEnd(e) {
+            touchEndY = e.changedTouches[0].clientY;
+            handleSwipe();
+        }
+
+        function handleSwipe() {
+            const swipeDistance = touchStartY - touchEndY;
+            const minSwipeDistance = 50;
+            
+            if (Math.abs(swipeDistance) > minSwipeDistance) {
+                if (swipeDistance > 0) {
+                    // Swipe up - next product
+                    nextProduct();
+                } else {
+                    // Swipe down - previous product
+                    previousProduct();
+                }
+            }
+        }
+
+        // === SCROLL NAVIGATION ===
+        function handleWheel(e) {
+            if (scrollCooldown) return;
+            
+            // Prevent default scrolling behavior
+            e.preventDefault();
+            
+            // Set cooldown to prevent rapid scrolling
+            scrollCooldown = true;
+            setTimeout(() => {
+                scrollCooldown = false;
+            }, 500);
+            
+            if (e.deltaY < 0) {
+                // Scrolling up - next product
+                nextProduct();
+            } else {
+                // Scrolling down - previous product
+                previousProduct();
+            }
+        }
+
+        function nextProduct() {
+            // Show scroll indicator
+            const scrollUpIndicator = document.getElementById('scrollUpIndicator');
+            scrollUpIndicator.classList.add('show');
+            setTimeout(() => {
+                scrollUpIndicator.classList.remove('show');
+            }, 500);
+            
+            currentProductIndex = (currentProductIndex + 1) % products.length;
+            updateProduct();
+        }
+
+        function previousProduct() {
+            // Show scroll indicator
+            const scrollDownIndicator = document.getElementById('scrollDownIndicator');
+            scrollDownIndicator.classList.add('show');
+            setTimeout(() => {
+                scrollDownIndicator.classList.remove('show');
+            }, 500);
+            
+            currentProductIndex = (currentProductIndex - 1 + products.length) % products.length;
+            updateProduct();
+        }
+
+        function updateProduct() {
+            const product = products[currentProductIndex];
+            
+            // Update video - using YouTube embed
+            const iframe = document.getElementById('productVideo');
+            iframe.src = `https://www.youtube.com/embed/${product.videoId}?autoplay=1&mute=1&loop=1&playlist=${product.videoId}&controls=0&showinfo=0&modestbranding=1&rel=0`;
+            
+            // Update product info
+            document.getElementById('productTitle').textContent = product.name;
+            document.getElementById('productPrice').textContent = `$${product.price.toFixed(2)}`;
+            
+            // Fade animation
+            const productInfo = document.getElementById('productInfo');
+            productInfo.style.opacity = '0';
+            setTimeout(() => {
+                productInfo.style.opacity = '1';
+            }, 100);
+        }
+
+        // === VIEWER COUNT ANIMATION ===
+        function updateViewerCount() {
+            const viewerElement = document.getElementById('viewerCount');
+            const currentCount = parseInt(viewerElement.textContent.replace(',', ''));
+            const change = Math.floor(Math.random() * 20) - 10;
+            const newCount = Math.max(1000, currentCount + change);
+            viewerElement.textContent = newCount.toLocaleString();
+        }
+
+        // === INITIALIZATION ===
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize the first product
+            updateProduct();
+            
+            // Add touch event listeners for swipe
+            const container = document.querySelector('.mobile-container');
+            container.addEventListener('touchstart', handleTouchStart);
+            container.addEventListener('touchend', handleTouchEnd);
+            
+            // Add wheel event listener for scroll
+            container.addEventListener('wheel', handleWheel, { passive: false });
+            
+            // Show incentive balloon after 10 seconds
+            setTimeout(showIncentiveBalloon, 10000);
+            
+            // Update viewer count every 3 seconds
+            setInterval(updateViewerCount, 3000);
+            
+            // Prevent default pull-to-refresh
+            document.body.addEventListener('touchmove', (e) => {
+                if (e.touches.length > 1) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
+        });
+
+        // === PREVENT ZOOM ===
+        document.addEventListener('gesturestart', function (e) {
+            e.preventDefault();
+        });
+
+        // === FLOATING MENU TOGGLE ===
+        let isMenuOpen = false;
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            const menuIcon = document.getElementById('menuIcon');
+            
+            if (isMenuOpen) {
+                menuIcon.className = 'bi bi-x';
+                showNotification('Menu opened - Categories available');
+            } else {
+                menuIcon.className = 'bi bi-list';
+                showNotification('Menu closed');
+            }
+        }
+
+        // === PRODUCT COMMUNITY ===
+        function openCommunity() {
+            showNotification('Opening product community chat... 👥');
+        }
+    </script>
+</body>
+</html>

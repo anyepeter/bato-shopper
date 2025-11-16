@@ -1,0 +1,417 @@
+/*
+ * Independent Panel Scrolling System
+ * Allows Left, Middle, and Right panels to scroll independently
+ * without affecting each other or the overall page layout
+ */
+
+/* ============================================
+   DESKTOP & TABLET: Three-Panel Layout
+   ============================================ */
+
+/* Main container - Fixed height, no scrolling */
+@media (min-width: 768px) {
+  .shop-page-container {
+    height: calc(100vh - 80px); /* Full viewport height minus header */
+    overflow: hidden; /* Prevent main container scroll */
+    position: relative;
+  }
+
+  /* Three-panel container layout */
+  .shop-page-container > .flex {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  /* Left Panel - Independent scrolling with INVISIBLE scrollbar */
+  .shop-page-container .w-1\/3,
+  .shop-page-container .w-1\/6 {
+    height: 100%;
+    overflow-y: scroll; /* Enable vertical scrolling */
+    overflow-x: hidden;
+    position: relative;
+    /* Smooth scrolling */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    
+    /* Firefox - Hide scrollbar */
+    scrollbar-width: none;
+    
+    /* Internet Explorer and Edge - Hide scrollbar */
+    -ms-overflow-style: none;
+  }
+
+  /* Middle Panel - Independent scrolling with INVISIBLE scrollbar */
+  .shop-page-container .flex-1,
+  .shop-page-container .w-2\/3 {
+    height: 100%;
+    overflow-y: scroll; /* Enable vertical scrolling */
+    overflow-x: hidden;
+    position: relative;
+    /* Smooth scrolling */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    
+    /* Firefox - Hide scrollbar */
+    scrollbar-width: none;
+    
+    /* Internet Explorer and Edge - Hide scrollbar */
+    -ms-overflow-style: none;
+  }
+
+  /* Right Panel - Independent scrolling (Desktop only) with INVISIBLE scrollbar */
+  .shop-page-container .w-1\/6:last-child {
+    height: 100%;
+    overflow-y: scroll; /* Enable vertical scrolling */
+    overflow-x: hidden;
+    position: relative;
+    /* Smooth scrolling */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    
+    /* Firefox - Hide scrollbar */
+    scrollbar-width: none;
+    
+    /* Internet Explorer and Edge - Hide scrollbar */
+    -ms-overflow-style: none;
+  }
+
+  /* WebKit browsers (Chrome, Safari, Opera) - Hide scrollbar */
+  .shop-page-container .w-1\/3::-webkit-scrollbar,
+  .shop-page-container .w-1\/6::-webkit-scrollbar,
+  .shop-page-container .flex-1::-webkit-scrollbar,
+  .shop-page-container .w-2\/3::-webkit-scrollbar {
+    width: 0; /* Make scrollbar width zero */
+    height: 0; /* Make scrollbar height zero */
+    display: none; /* Hide scrollbar completely */
+  }
+
+  /* Panel content padding adjustment to prevent content cutoff */
+  .shop-page-container .w-1\/3 > *:last-child,
+  .shop-page-container .w-1\/6 > *:last-child,
+  .shop-page-container .flex-1 > *:last-child,
+  .shop-page-container .w-2\/3 > *:last-child {
+    margin-bottom: 2rem;
+  }
+
+  /* Ensure panel cards don't stick to edges */
+  .shop-page-container .w-1\/3,
+  .shop-page-container .w-1\/6 {
+    padding-right: 0.5rem;
+  }
+
+  .shop-page-container .flex-1,
+  .shop-page-container .w-2\/3 {
+    padding-right: 0.5rem;
+  }
+}
+
+/* ============================================
+   TABLET SPECIFIC: Two-Panel Layout
+   ============================================ */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  /* Tablet: Left and Middle panels only */
+  .shop-page-container {
+    height: calc(100vh - 70px); /* Slightly shorter header on tablet */
+  }
+
+  /* Left panel (1/3 width) */
+  .shop-page-container .w-1\/3 {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  /* Middle panel (2/3 width) */
+  .shop-page-container .w-2\/3 {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+/* ============================================
+   DESKTOP SPECIFIC: Three-Panel Layout
+   ============================================ */
+
+@media (min-width: 1200px) {
+  /* Desktop: All three panels */
+  .shop-page-container {
+    height: calc(100vh - 80px);
+  }
+
+  /* Left panel (1/6 width) */
+  .shop-page-container > .flex > div:first-child {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  /* Middle panel (flex-1) */
+  .shop-page-container > .flex > div:nth-child(2) {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  /* Right panel (1/6 width) */
+  .shop-page-container > .flex > div:last-child {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+/* ============================================
+   SCROLL BEHAVIOR ENHANCEMENTS
+   ============================================ */
+
+/* Smooth scroll snap for better UX (optional) */
+@media (min-width: 768px) {
+  .shop-page-container .w-1\/3,
+  .shop-page-container .w-1\/6,
+  .shop-page-container .flex-1,
+  .shop-page-container .w-2\/3 {
+    /* Smooth momentum scrolling on iOS */
+    -webkit-overflow-scrolling: touch;
+    
+    /* Prevent overscroll glow */
+    overscroll-behavior: contain;
+  }
+}
+
+/* ============================================
+   PANEL SHADOW EFFECTS
+   ============================================ */
+
+/* Add subtle shadow to indicate scrollable area */
+@media (min-width: 768px) {
+  /* Left panel shadow */
+  .shop-page-container > .flex > div:first-child::after {
+    content: '';
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2rem;
+    background: linear-gradient(to top, rgba(240, 244, 249, 1), transparent);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Middle panel shadow */
+  .shop-page-container > .flex > div:nth-child(2)::after {
+    content: '';
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2rem;
+    background: linear-gradient(to top, rgba(240, 244, 249, 1), transparent);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Right panel shadow */
+  .shop-page-container > .flex > div:last-child::after {
+    content: '';
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2rem;
+    background: linear-gradient(to top, rgba(240, 244, 249, 1), transparent);
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+/* ============================================
+   FOCUS & ACTIVE STATES
+   ============================================ */
+
+/* Visual indicator when panel is being scrolled */
+@media (min-width: 768px) {
+  .shop-page-container .w-1\/3:focus-within,
+  .shop-page-container .w-1\/6:focus-within,
+  .shop-page-container .flex-1:focus-within,
+  .shop-page-container .w-2\/3:focus-within {
+    /* Subtle highlight when panel is active */
+    box-shadow: inset 0 0 0 1px rgba(88, 37, 239, 0.1);
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+/* Keyboard navigation focus indicators */
+@media (min-width: 768px) {
+  .shop-page-container .w-1\/3:focus,
+  .shop-page-container .w-1\/6:focus,
+  .shop-page-container .flex-1:focus,
+  .shop-page-container .w-2\/3:focus {
+    outline: 2px solid #5825efff;
+    outline-offset: -2px;
+  }
+
+  /* Tab focus should be visible */
+  .shop-page-container .w-1\/3:focus-visible,
+  .shop-page-container .w-1\/6:focus-visible,
+  .shop-page-container .flex-1:focus-visible,
+  .shop-page-container .w-2\/3:focus-visible {
+    outline: 2px solid #5825efff;
+    outline-offset: -2px;
+  }
+}
+
+/* ============================================
+   PERFORMANCE OPTIMIZATIONS
+   ============================================ */
+
+/* GPU acceleration for smooth scrolling */
+@media (min-width: 768px) {
+  .shop-page-container .w-1\/3,
+  .shop-page-container .w-1\/6,
+  .shop-page-container .flex-1,
+  .shop-page-container .w-2\/3 {
+    will-change: scroll-position;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION SUPPORT
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .shop-page-container .w-1\/3,
+  .shop-page-container .w-1\/6,
+  .shop-page-container .flex-1,
+  .shop-page-container .w-2\/3 {
+    scroll-behavior: auto;
+  }
+}
+
+/* ============================================
+   MOBILE: No independent scrolling needed
+   ============================================ */
+
+@media (max-width: 767px) {
+  /* Mobile uses standard page scrolling */
+  .shop-page-container {
+    height: auto;
+    overflow: visible;
+  }
+
+  .shop-page-container > .flex {
+    height: auto;
+    overflow: visible;
+  }
+
+  .shop-page-container .w-full {
+    height: auto;
+    overflow: visible;
+  }
+}
+
+/* ============================================
+   SCROLLBAR CUSTOMIZATION (Advanced)
+   ============================================ */
+
+/* Scrollbars are completely invisible - no need for hover states */
+/* The invisible scrollbar styling is handled above in the main panel sections */
+
+/* ============================================
+   PANEL SEPARATOR LINES (Optional)
+   ============================================ */
+
+/* Visual separator between panels */
+@media (min-width: 768px) {
+  .shop-page-container > .flex > div:not(:last-child) {
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+  }
+}
+
+/* ============================================
+   STICKY PANEL HEADERS (Optional Enhancement)
+   ============================================ */
+
+/* Make panel headers sticky while scrolling */
+@media (min-width: 768px) {
+  .shop-panel-card {
+    position: relative;
+  }
+
+  .shop-search-header,
+  .shop-trending-header {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 10;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* ============================================
+   CONTENT FADE INDICATORS
+   ============================================ */
+
+/* Top fade indicator when content is scrolled */
+@media (min-width: 768px) {
+  .shop-page-container > .flex > div::before {
+    content: '';
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1rem;
+    background: linear-gradient(to bottom, rgba(240, 244, 249, 1), transparent);
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Show fade when scrolled */
+  .shop-page-container > .flex > div[data-scrolled="true"]::before {
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   PANEL SPACING ADJUSTMENTS
+   ============================================ */
+
+/* Ensure content doesn't get cut off at bottom */
+@media (min-width: 768px) {
+  .shop-page-container .w-1\/3 > div:last-child,
+  .shop-page-container .w-1\/6 > div:last-child,
+  .shop-page-container .flex-1 > div:last-child,
+  .shop-page-container .w-2\/3 > div:last-child {
+    padding-bottom: 2rem;
+  }
+}
+
+/* ============================================
+   DEBUGGING HELPERS (Remove in production)
+   ============================================ */
+
+/* Visual debugging - uncomment to see panel boundaries
+@media (min-width: 768px) {
+  .shop-page-container > .flex > div:nth-child(1) {
+    background: rgba(255, 0, 0, 0.05);
+  }
+
+  .shop-page-container > .flex > div:nth-child(2) {
+    background: rgba(0, 255, 0, 0.05);
+  }
+
+  .shop-page-container > .flex > div:nth-child(3) {
+    background: rgba(0, 0, 255, 0.05);
+  }
+}
+*/

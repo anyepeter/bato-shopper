@@ -1,0 +1,89 @@
+/* Button Border Radius Enforcement - 3px for buttons only */
+/* 🔥 FIXED: Removed aggressive universal selector that was breaking Radix UI components */
+
+/* ✅ BUTTONS ONLY - 3px border radius */
+button:not(.rounded-full):not(.btn-moema-icon):not(.btn-moema-icon-sm):not([class*="rounded-full"]):not([data-radix-select-trigger]):not([data-radix-dropdown-trigger]) {
+  border-radius: 3px !important;
+}
+
+/* Moema button classes */
+.btn-moema,
+.btn-moema-primary,
+.btn-moema-secondary,
+.btn-moema-success,
+.btn-moema-gradient-orange,
+.btn-moema-outline,
+.btn-moema-rounded-lg {
+  border-radius: 3px !important;
+}
+
+/* ✅ Preserve circular buttons */
+.btn-moema-icon,
+.btn-moema-icon-sm,
+.rounded-full,
+[class*="rounded-full"],
+.floating-button,
+.fab,
+.circular-button,
+[data-shape="circle"],
+[data-circular="true"] {
+  border-radius: 50% !important;
+}
+
+/* ✅ Preserve avatar/profile elements */
+.avatar,
+[class*="avatar"],
+.profile-pic,
+[class*="profile"] {
+  border-radius: 50% !important;
+}
+
+/* ✅ Mobile button enforcement */
+@media (max-width: 767px) {
+  button:not(.rounded-full):not(.btn-moema-icon):not(.btn-moema-icon-sm):not([class*="rounded-full"]):not([data-radix-select-trigger]):not([data-radix-dropdown-trigger]) {
+    border-radius: 3px !important;
+  }
+  
+  .btn-moema,
+  .btn-moema-primary,
+  .btn-moema-secondary,
+  .btn-moema-success,
+  .btn-moema-gradient-orange,
+  .btn-moema-outline,
+  .btn-moema-rounded-lg {
+    border-radius: 3px !important;
+  }
+  
+  .btn-moema-icon,
+  .btn-moema-icon-sm,
+  .rounded-full,
+  [class*="rounded-full"] {
+    border-radius: 50% !important;
+  }
+}
+
+/* ✅ Desktop button enforcement */
+@media (min-width: 768px) {
+  button:not(.rounded-full):not(.btn-moema-icon):not(.btn-moema-icon-sm):not([class*="rounded-full"]):not([data-radix-select-trigger]):not([data-radix-dropdown-trigger]) {
+    border-radius: 3px !important;
+  }
+}
+
+/* ✅ CSS custom properties */
+:root {
+  --enforced-button-radius: 3px;
+}
+
+/* 🔥 REMOVED: Universal selector that was breaking everything */
+/* Old broken rule:
+ * *:not(.rounded-full)... {
+ *   border-radius: 3px !important;
+ * }
+ */
+
+/* ✅ Logistics portal buttons */
+.logistics-dashboard button:not(.rounded-full):not(.btn-moema-icon):not(.btn-moema-icon-sm):not([data-radix-select-trigger]),
+.logistics-content button:not(.rounded-full):not(.btn-moema-icon):not(.btn-moema-icon-sm):not([data-radix-select-trigger]),
+.mobile-logistics-content button:not(.rounded-full):not(.btn-moema-icon):not(.btn-moema-icon-sm):not([data-radix-select-trigger]) {
+  border-radius: 3px !important;
+}

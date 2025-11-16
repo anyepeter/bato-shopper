@@ -1,0 +1,363 @@
+/**
+ * 🎯 MOBILE HEADER ZERO BORDER-RADIUS OVERRIDE
+ * 
+ * Ultra-high priority CSS to ensure the top navigation bar
+ * has 0px border-radius on mobile, overriding all other mobile
+ * border-radius rules.
+ * 
+ * This file has the highest specificity to force header elements
+ * to have 0px border-radius on mobile viewport.
+ * 
+ * Also enforces solid black background without any opacity.
+ */
+
+@media (max-width: 767px) {
+  
+  /* 🔥 ULTRA-HIGH PRIORITY: TOP NAVIGATION BAR = 0PX BORDER-RADIUS + BLACK BACKGROUND */
+  
+  /* Header tag - maximum specificity */
+  html body.mobile header,
+  html body header,
+  header {
+    border-radius: 0px !important;
+    background-color: #000000 !important;
+  }
+  
+  /* All header children - maximum specificity for 0px except circular elements */
+  html body.mobile header *:not(.rounded-full):not([class*="rounded-full"]):not([style*="border-radius: 50%"]):not([style*="borderRadius: '50%'"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]):not([class*="profile"]),
+  html body header *:not(.rounded-full):not([class*="rounded-full"]):not([style*="border-radius: 50%"]):not([style*="borderRadius: '50%'"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]):not([class*="profile"]),
+  header *:not(.rounded-full):not([class*="rounded-full"]):not([style*="border-radius: 50%"]):not([style*="borderRadius: '50%'"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]):not([class*="profile"]) {
+    border-radius: 0px !important;
+  }
+  
+  /* Navigation tag - maximum specificity */
+  html body.mobile nav,
+  html body nav,
+  nav {
+    border-radius: 0px !important;
+  }
+  
+  /* All navigation children - maximum specificity for 0px */
+  html body.mobile nav *:not(.rounded-full):not([class*="rounded-full"]):not([style*="border-radius: 50%"]):not([style*="borderRadius: '50%'"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]):not([class*="profile"]),
+  html body nav *:not(.rounded-full):not([class*="rounded-full"]):not([style*="border-radius: 50%"]):not([style*="borderRadius: '50%'"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]):not([class*="profile"]),
+  nav *:not(.rounded-full):not([class*="rounded-full"]):not([style*="border-radius: 50%"]):not([style*="borderRadius: '50%'"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]):not([class*="profile"]) {
+    border-radius: 0px !important;
+  }
+  
+  /* Header with sticky positioning - maximum specificity */
+  html body.mobile .sticky.top-0,
+  html body .sticky.top-0,
+  .sticky.top-0,
+  html body.mobile [class*="sticky"][class*="top-0"],
+  html body [class*="sticky"][class*="top-0"],
+  [class*="sticky"][class*="top-0"],
+  html body.mobile header.sticky,
+  html body header.sticky,
+  header.sticky,
+  html body.mobile header[class*="sticky"],
+  html body header[class*="sticky"],
+  header[class*="sticky"] {
+    border-radius: 0px !important;
+    background-color: #000000 !important;
+  }
+  
+  /* Header class containers - maximum specificity */
+  html body.mobile .header,
+  html body .header,
+  .header,
+  html body.mobile .header-main,
+  html body .header-main,
+  .header-main,
+  html body.mobile .top-nav,
+  html body .top-nav,
+  .top-nav,
+  html body.mobile .main-header,
+  html body .main-header,
+  .main-header,
+  html body.mobile .navigation-header,
+  html body .navigation-header,
+  .navigation-header,
+  html body.mobile [class*="header"],
+  html body [class*="header"],
+  [class*="header"],
+  html body.mobile [class*="top-nav"],
+  html body [class*="top-nav"],
+  [class*="top-nav"] {
+    border-radius: 0px !important;
+    background-color: #000000 !important;
+  }
+  
+  /* All children of header class containers - maximum specificity for 0px */
+  html body.mobile .header *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]):not([class*="profile"]),
+  html body .header *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]):not([class*="profile"]),
+  .header *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]):not([class*="profile"]),
+  html body.mobile .top-nav *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]):not([class*="profile"]),
+  html body .top-nav *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]):not([class*="profile"]),
+  .top-nav *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]):not([class*="profile"]),
+  html body.mobile .main-header *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]):not([class*="profile"]),
+  html body .main-header *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]):not([class*="profile"]),
+  .main-header *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]):not([class*="profile"]),
+  html body.mobile .navigation-header *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]):not([class*="profile"]),
+  html body .navigation-header *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]):not([class*="profile"]),
+  .navigation-header *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]):not([class*="profile"]),
+  html body.mobile [class*="header"] *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]):not([class*="profile"]),
+  html body [class*="header"] *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]):not([class*="profile"]),
+  [class*="header"] *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]):not([class*="profile"]),
+  html body.mobile [class*="top-nav"] *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]):not([class*="profile"]),
+  html body [class*="top-nav"] *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]):not([class*="profile"]),
+  [class*="top-nav"] *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]):not([class*="profile"]) {
+    border-radius: 0px !important;
+  }
+  
+  /* Mobile menu dropdown in header - maximum specificity for 0px */
+  html body.mobile header .mobile-menu,
+  html body header .mobile-menu,
+  header .mobile-menu,
+  html body.mobile header [class*="mobile-menu"],
+  html body header [class*="mobile-menu"],
+  header [class*="mobile-menu"],
+  html body.mobile header .dropdown,
+  html body header .dropdown,
+  header .dropdown,
+  html body.mobile header [class*="dropdown"],
+  html body header [class*="dropdown"],
+  header [class*="dropdown"] {
+    border-radius: 0px !important;
+  }
+  
+  /* Header navigation items - maximum specificity for 0px */
+  html body.mobile header .nav-item,
+  html body header .nav-item,
+  header .nav-item,
+  html body.mobile header .menu-item,
+  html body header .menu-item,
+  header .menu-item,
+  html body.mobile header [class*="nav-item"],
+  html body header [class*="nav-item"],
+  header [class*="nav-item"],
+  html body.mobile header [class*="menu-item"],
+  html body header [class*="menu-item"],
+  header [class*="menu-item"] {
+    border-radius: 0px !important;
+  }
+  
+  /* Header buttons (except circular ones) - maximum specificity for 0px */
+  html body.mobile header button:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]),
+  html body header button:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]),
+  header button:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]) {
+    border-radius: 0px !important;
+  }
+  
+  /* Header divs (except circular ones) - maximum specificity for 0px */
+  html body.mobile header div:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]),
+  html body header div:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]),
+  header div:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]) {
+    border-radius: 0px !important;
+  }
+  
+  /* Header spans (except circular ones) - maximum specificity for 0px */
+  html body.mobile header span:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]),
+  html body header span:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]),
+  header span:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]) {
+    border-radius: 0px !important;
+  }
+  
+  /* Header sections (except circular ones) - maximum specificity for 0px */
+  html body.mobile header section:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]),
+  html body header section:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]),
+  header section:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]) {
+    border-radius: 0px !important;
+  }
+  
+  /* 🎯 PRESERVE CIRCULAR ELEMENTS IN HEADER */
+  
+  /* Keep header circular elements as circles */
+  html body.mobile header .rounded-full,
+  html body header .rounded-full,
+  header .rounded-full,
+  html body.mobile header [class*="rounded-full"],
+  html body header [class*="rounded-full"],
+  header [class*="rounded-full"],
+  html body.mobile header [style*="border-radius: 50%"],
+  html body header [style*="border-radius: 50%"],
+  header [style*="border-radius: 50%"],
+  html body.mobile header [style*="borderRadius: '50%'"],
+  html body header [style*="borderRadius: '50%'"],
+  header [style*="borderRadius: '50%'"],
+  html body.mobile header .btn-moema-icon,
+  html body header .btn-moema-icon,
+  header .btn-moema-icon,
+  html body.mobile header .btn-moema-icon-sm,
+  html body header .btn-moema-icon-sm,
+  header .btn-moema-icon-sm,
+  html body.mobile header .avatar,
+  html body header .avatar,
+  header .avatar,
+  html body.mobile header [class*="avatar"],
+  html body header [class*="avatar"],
+  header [class*="avatar"] {
+    border-radius: 50% !important;
+  }
+  
+  /* 🎯 FORCE OVERRIDE ANY INLINE STYLES ON HEADER ELEMENTS */
+  
+  /* Override inline border-radius styles on header elements (except circular ones) */
+  html body.mobile header [style*="borderRadius: '1px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body.mobile header [style*="borderRadius: '2px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body.mobile header [style*="borderRadius: '3px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body.mobile header [style*="borderRadius: '4px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body.mobile header [style*="borderRadius: '5px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body.mobile header [style*="borderRadius: '6px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body.mobile header [style*="borderRadius: '7px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body.mobile header [style*="borderRadius: '8px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body.mobile header [style*="borderRadius: '9px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body.mobile header [style*="borderRadius: '10px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body.mobile header [style*="borderRadius: '12px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body.mobile header [style*="borderRadius: '15px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body.mobile header [style*="borderRadius: '16px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body.mobile header [style*="borderRadius: '20px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body.mobile header [style*="borderRadius: '24px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body.mobile header [style*="borderRadius: '100%'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body header [style*="borderRadius: '1px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body header [style*="borderRadius: '2px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body header [style*="borderRadius: '3px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body header [style*="borderRadius: '4px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body header [style*="borderRadius: '5px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body header [style*="borderRadius: '6px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body header [style*="borderRadius: '7px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body header [style*="borderRadius: '8px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body header [style*="borderRadius: '9px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body header [style*="borderRadius: '10px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body header [style*="borderRadius: '12px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body header [style*="borderRadius: '15px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body header [style*="borderRadius: '16px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body header [style*="borderRadius: '20px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body header [style*="borderRadius: '24px'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full),
+  html body header [style*="borderRadius: '100%'"]:not(.avatar):not([class*="avatar"]):not(.rounded-full) {
+    border-radius: 0px !important;
+  }
+  
+}
+
+/* 🎯 UTILITY CLASS FOR MANUAL APPLICATION */
+.mobile-header-zero-radius,
+.logistics-header-zero-radius {
+  border-radius: 0px !important;
+  background-color: #000000 !important;
+}
+
+.mobile-header-zero-radius *,
+.logistics-header-zero-radius * {
+  border-radius: 0px !important;
+}
+
+@media (max-width: 767px) {
+  .mobile-header-zero-radius,
+  .logistics-header-zero-radius {
+    border-radius: 0px !important;
+    background-color: #000000 !important;
+  }
+  
+  .mobile-header-zero-radius *,
+  .logistics-header-zero-radius * {
+    border-radius: 0px !important;
+  }
+  
+  /* Preserve circular elements even with utility class */
+  .mobile-header-zero-radius .rounded-full,
+  .mobile-header-zero-radius [class*="rounded-full"],
+  .mobile-header-zero-radius .btn-moema-icon,
+  .mobile-header-zero-radius .btn-moema-icon-sm,
+  .mobile-header-zero-radius .avatar,
+  .mobile-header-zero-radius [class*="avatar"],
+  .logistics-header-zero-radius .rounded-full,
+  .logistics-header-zero-radius [class*="rounded-full"],
+  .logistics-header-zero-radius .btn-moema-icon,
+  .logistics-header-zero-radius .btn-moema-icon-sm,
+  .logistics-header-zero-radius .avatar,
+  .logistics-header-zero-radius [class*="avatar"] {
+    border-radius: 50% !important;
+  }
+  
+  /* 🔥 ULTRA-SPECIFIC OVERRIDE FOR LOGISTICS HEADER */
+  body.mobile .mobile-logistics-content .logistics-header-zero-radius,
+  body.tiktok-mobile-logistics .logistics-header-zero-radius,
+  .mobile-logistics-content .logistics-header-zero-radius,
+  .tiktok-mobile-page .logistics-header-zero-radius {
+    border-radius: 0px !important;
+  }
+  
+  /* 🎯 LOGISTICS PORTAL TAB HEADERS - PURPLE BARS - MAXIMUM SPECIFICITY OVERRIDE */
+  
+  /* Target any div with purple background in logistics context */
+  html body.mobile .logistics-content > div > div.p-4.mb-6,
+  html body.mobile .logistics-content div.p-4.mb-6,
+  html body.mobile div.logistics-content > div > div.p-4.mb-6,
+  html body.mobile div.logistics-content div.p-4.mb-6,
+  body.mobile .logistics-content > div > div.p-4.mb-6,
+  body.mobile .logistics-content div.p-4.mb-6,
+  body.mobile div.logistics-content > div > div.p-4.mb-6,
+  body.mobile div.logistics-content div.p-4.mb-6,
+  .logistics-content > div > div.p-4.mb-6,
+  .logistics-content div.p-4.mb-6,
+  div.logistics-content > div > div.p-4.mb-6,
+  div.logistics-content div.p-4.mb-6,
+  
+  /* Target by purple background color with various CSS selectors */
+  html body.mobile div[style*="background: rgb(88, 37, 239)"],
+  html body.mobile div[style*="background: #5825efff"],
+  html body.mobile div[style*="background: #5825ef"],
+  html body.mobile div[style*="background-color: #5825efff"],
+  html body.mobile div[style*="background-color: #5825ef"],
+  body.mobile div[style*="background: rgb(88, 37, 239)"],
+  body.mobile div[style*="background: #5825efff"],
+  body.mobile div[style*="background: #5825ef"],
+  body.mobile div[style*="background-color: #5825efff"],
+  body.mobile div[style*="background-color: #5825ef"],
+  div[style*="background: rgb(88, 37, 239)"],
+  div[style*="background: #5825efff"],
+  div[style*="background: #5825ef"],
+  div[style*="background-color: #5825efff"],
+  div[style*="background-color: #5825ef"],
+  
+  /* Target the logistics header utility class with maximum specificity */
+  html body.mobile .logistics-header-zero-radius,
+  html body.mobile .logistics-header-zero-radius > *,
+  html body.mobile .logistics-header-zero-radius * *,
+  html body.mobile .logistics-header-zero-radius > * > *,
+  body.mobile .logistics-header-zero-radius,
+  body.mobile .logistics-header-zero-radius > *,
+  body.mobile .logistics-header-zero-radius * *,
+  body.mobile .logistics-header-zero-radius > * > *,
+  .logistics-header-zero-radius,
+  .logistics-header-zero-radius > *,
+  .logistics-header-zero-radius * *,
+  .logistics-header-zero-radius > * > * {
+    border-radius: 0px !important;
+  }
+  
+  /* 🔥 NUCLEAR OPTION - MAXIMUM SPECIFICITY LOGISTICS HEADER OVERRIDE */
+  /* Force 0px border-radius on logistics headers with maximum CSS specificity */
+  html body[class*="mobile"] div.logistics-header-zero-radius[class*="p-4"][class*="mb-6"],
+  html body.mobile div.logistics-header-zero-radius[class*="p-4"][class*="mb-6"],
+  body[class*="mobile"] div.logistics-header-zero-radius[class*="p-4"][class*="mb-6"],
+  body.mobile div.logistics-header-zero-radius[class*="p-4"][class*="mb-6"],
+  
+  /* Force any div with purple background to have 0px border-radius */
+  html body[class*="mobile"] div[style*="#5825efff"],
+  html body.mobile div[style*="#5825efff"],
+  body[class*="mobile"] div[style*="#5825efff"],
+  body.mobile div[style*="#5825efff"],
+  
+  /* Force logistics utility class */
+  html body[class*="mobile"] .logistics-header-zero-radius,
+  html body.mobile .logistics-header-zero-radius,
+  body[class*="mobile"] .logistics-header-zero-radius,
+  body.mobile .logistics-header-zero-radius {
+    border-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+  }
+}

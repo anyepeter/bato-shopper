@@ -1,0 +1,381 @@
+/*
+ * Incentive Cards Fly-In Animation
+ * Modern, captivating animation that flies cards from left to right
+ * With staggered delays for each card
+ */
+
+/* Main fly-in animation - flies from left with smooth easing */
+@keyframes incentiveFlyIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%) scale(0.8) rotate(-5deg);
+    filter: blur(4px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(10px) scale(1.05) rotate(2deg);
+    filter: blur(0px);
+  }
+  80% {
+    transform: translateX(-5px) scale(0.98) rotate(-1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1) rotate(0deg);
+    filter: blur(0px);
+  }
+}
+
+/* Floating animation after cards have loaded */
+@keyframes incentiveFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Subtle pulse effect */
+@keyframes incentivePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* Glow effect animation */
+@keyframes incentiveGlow {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(88, 37, 239, 0.15),
+                0 0 30px rgba(88, 37, 239, 0.1);
+  }
+  50% {
+    box-shadow: 0 8px 30px rgba(88, 37, 239, 0.25),
+                0 0 50px rgba(88, 37, 239, 0.2);
+  }
+}
+
+/* Shimmer effect for highlights */
+@keyframes incentiveShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Individual card animation classes with staggered delays */
+.incentive-card-animated {
+  animation: incentiveFlyIn 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+             incentiveFloat 3s ease-in-out 1s infinite;
+  opacity: 0;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform-style: flat;
+  position: relative;
+}
+
+/* Staggered animation delays for each card */
+.incentive-card-1 {
+  animation-delay: 0s, 1s;
+}
+
+.incentive-card-2 {
+  animation-delay: 0.15s, 1.15s;
+}
+
+.incentive-card-3 {
+  animation-delay: 0.3s, 1.3s;
+}
+
+.incentive-card-4 {
+  animation-delay: 0.45s, 1.45s;
+}
+
+.incentive-card-5 {
+  animation-delay: 0.6s, 1.6s;
+}
+
+/* Enhanced hover effect with glow */
+.incentive-card-animated:hover {
+  animation: incentiveGlow 1.5s ease-in-out infinite;
+  z-index: 10;
+}
+
+/* Shimmer overlay for premium feel */
+.incentive-card-shimmer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: incentiveShimmer 3s ease-in-out infinite;
+  pointer-events: none;
+  border-radius: 3px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.incentive-card-animated:hover .incentive-card-shimmer {
+  opacity: 1;
+}
+
+/* Particle effect container */
+.incentive-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  pointer-events: none;
+  border-radius: 3px;
+}
+
+/* Individual particles */
+.incentive-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  animation: particleFloat 3s ease-in-out infinite;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) translateX(20px);
+    opacity: 0;
+  }
+}
+
+/* Different particle positions and delays */
+.incentive-particle:nth-child(1) {
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.incentive-particle:nth-child(2) {
+  left: 40%;
+  animation-delay: 0.5s;
+}
+
+.incentive-particle:nth-child(3) {
+  left: 60%;
+  animation-delay: 1s;
+}
+
+.incentive-particle:nth-child(4) {
+  left: 80%;
+  animation-delay: 1.5s;
+}
+
+/* Section container animation */
+.incentive-section-container {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Grid layout enhancements */
+.incentive-grid-animated {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  perspective: 1000px;
+}
+
+/* 3D tilt effect on hover */
+.incentive-card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.incentive-card-3d:hover {
+  transform: rotateY(5deg) rotateX(5deg);
+}
+
+/* Button enhancement within cards */
+.incentive-card-animated .incentive-button {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: center;
+}
+
+.incentive-card-animated:hover .incentive-button {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Badge animations */
+.incentive-badge-pulse {
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.9;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .incentive-card-animated {
+    animation: incentiveFlyIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+               incentiveFloat 3s ease-in-out 0.8s infinite;
+  }
+  
+  .incentive-grid-animated {
+    gap: 0.75rem;
+  }
+}
+
+/* Performance optimizations */
+.incentive-card-animated,
+.incentive-card-shimmer,
+.incentive-particle {
+  will-change: transform, opacity;
+  contain: layout style paint;
+}
+
+/* Loading skeleton for cards */
+.incentive-skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(200, 200, 200, 0.2) 0%,
+    rgba(200, 200, 200, 0.3) 50%,
+    rgba(200, 200, 200, 0.2) 100%
+  );
+  background-size: 200% 100%;
+  animation: incentiveShimmer 1.5s ease-in-out infinite;
+  border-radius: 3px;
+  min-height: 200px;
+}
+
+/* Spotlight effect */
+.incentive-spotlight {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.2) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  border-radius: 3px;
+}
+
+.incentive-card-animated:hover .incentive-spotlight {
+  opacity: 1;
+  animation: spotlightMove 2s ease-in-out infinite;
+}
+
+@keyframes spotlightMove {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-10px, -10px);
+  }
+  50% {
+    transform: translate(10px, -10px);
+  }
+  75% {
+    transform: translate(10px, 10px);
+  }
+}
+
+/* Magnetic cursor effect */
+.incentive-magnetic {
+  transition: transform 0.2s ease-out;
+}
+
+/* Icon animations within cards */
+.incentive-icon-bounce {
+  animation: iconBounce 1.5s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes iconBounce {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-5px) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-3px) rotate(5deg);
+  }
+}
+
+/* Countdown timer pulse */
+.incentive-countdown-pulse {
+  animation: countdownPulse 1s ease-in-out infinite;
+}
+
+@keyframes countdownPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(0.95);
+  }
+}
+
+/* Attention grabber - initial load */
+.incentive-attention-grabber {
+  animation: attentionGrabber 2s ease-out 0.5s;
+}
+
+@keyframes attentionGrabber {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30%, 50% {
+    transform: scale(1.05);
+  }
+  20%, 40% {
+    transform: scale(0.95);
+  }
+}

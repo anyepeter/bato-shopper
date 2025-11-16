@@ -1,0 +1,342 @@
+/**
+ * 🎯 MOBILE-SPECIFIC BORDER RADIUS FIXES
+ * 
+ * Targeted fixes for specific components and common problematic elements
+ * in the mobile layout of the Bato application.
+ */
+
+@media (max-width: 767px) {
+  
+  /* 🎯 LIVE STREAM FLOATING BUTTONS SPECIFIC FIX */
+  .mobile-live-stream-floating-buttons button,
+  .mobile-live-stream-floating-buttons input,
+  .mobile-live-stream-floating-buttons div {
+    border-radius: 8px !important;
+  }
+  
+  /* Keep circular elements circular */
+  .mobile-live-stream-floating-buttons .btn-moema-icon,
+  .mobile-live-stream-floating-buttons .btn-moema-icon-sm,
+  .mobile-live-stream-floating-buttons .rounded-full {
+    border-radius: 50% !important;
+  }
+  
+  /* 🎯 SHOPPING CART MOBILE FIXES */
+  .mobile-cart-page *:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* 🎯 HEADER MOBILE FIXES - CRITICAL: TOP NAVIGATION BAR MUST HAVE 0PX BORDER-RADIUS */
+  
+  /* Header container - 0px border-radius */
+  header {
+    border-radius: 0px !important;
+  }
+  
+  /* Header elements - 0px border-radius */
+  header *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]) {
+    border-radius: 0px !important;
+  }
+  
+  /* Navigation bar - 0px border-radius */
+  nav {
+    border-radius: 0px !important;
+  }
+  
+  /* Navigation elements - 0px border-radius */
+  nav *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]) {
+    border-radius: 0px !important;
+  }
+  
+  /* Header class containers - 0px border-radius */
+  .header,
+  .top-nav,
+  .main-header,
+  .navigation-header,
+  [class*="header"],
+  [class*="top-nav"] {
+    border-radius: 0px !important;
+  }
+  
+  /* All children of header-like elements - 0px border-radius */
+  .header *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]),
+  .top-nav *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]),
+  .main-header *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]),
+  .navigation-header *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]),
+  [class*="header"] *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]),
+  [class*="top-nav"] *:not(.rounded-full):not([class*="rounded-full"]):not(.btn-moema-icon):not(.btn-moema-icon-sm):not(.avatar):not([class*="avatar"]) {
+    border-radius: 0px !important;
+  }
+  
+  /* 🎯 FOOTER MOBILE FIXES */
+  .footer *:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* 🎯 PRODUCT CARDS MOBILE FIXES */
+  .product-card:not([class*="featured-product"]) *:not(.rounded-full) {
+    border-radius: 8px !important;
+  }
+  
+  /* 🎯 MOBILE NAVIGATION FIXES */
+  .mobile-nav *:not(.rounded-full):not(.mobile-bottom-nav):not(.mobile-bottom-nav *):not(header *) {
+    border-radius: 8px !important;
+  }
+  
+  /* 🎯 MODAL MOBILE FIXES */
+  .modal *:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* 🎯 BUTTON MOBILE FIXES */
+  button:not(.rounded-full):not(.btn-moema-icon):not(.btn-moema-icon-sm):not([class*="featured-product"]):not(.mobile-bottom-nav-item):not(header button) {
+    border-radius: 8px !important;
+  }
+
+  /* 🎯 MOBILE BLUE BUTTON STANDARDIZATION - COMPREHENSIVE */
+  button[style*="#5825ef"]:not(.rounded-full):not([class*="featured-product"]),
+  button[style*="var(--primary-blue)"]:not(.rounded-full):not([class*="featured-product"]),
+  button[class*="primary"]:not(.rounded-full):not([class*="featured-product"]),
+  .btn-moema-primary:not(.rounded-full):not([class*="featured-product"]),
+  .mobile-blue-button:not(.rounded-full):not([class*="featured-product"]),
+  button[style*="linear-gradient"][style*="primary-blue"]:not(.rounded-full):not([class*="featured-product"]),
+  button[style*="background: linear-gradient"][style*="#5825ef"]:not(.rounded-full):not([class*="featured-product"]) {
+    color: white !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+    border: none !important;
+    height: 3.5rem !important;
+    background-color: #4040f8ff !important;
+    background: #4040f8ff !important;
+    font-family: var(--font-body) !important;
+    border-radius: 8px !important;
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  }
+
+  /* Hover states for mobile blue buttons */
+  button[style*="#5825ef"]:hover:not(.rounded-full):not([class*="featured-product"]),
+  button[style*="var(--primary-blue)"]:hover:not(.rounded-full):not([class*="featured-product"]),
+  button[class*="primary"]:hover:not(.rounded-full):not([class*="featured-product"]),
+  .btn-moema-primary:hover:not(.rounded-full):not([class*="featured-product"]),
+  .mobile-blue-button:hover:not(.rounded-full):not([class*="featured-product"]),
+  button[style*="linear-gradient"][style*="primary-blue"]:hover:not(.rounded-full):not([class*="featured-product"]),
+  button[style*="background: linear-gradient"][style*="#5825ef"]:hover:not(.rounded-full):not([class*="featured-product"]) {
+    transform: translateY(-1px) scale(1.01) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  /* Active states for mobile blue buttons */
+  button[style*="#5825ef"]:active:not(.rounded-full):not([class*="featured-product"]),
+  button[style*="var(--primary-blue)"]:active:not(.rounded-full):not([class*="featured-product"]),
+  button[class*="primary"]:active:not(.rounded-full):not([class*="featured-product"]),
+  .btn-moema-primary:active:not(.rounded-full):not([class*="featured-product"]),
+  .mobile-blue-button:active:not(.rounded-full):not([class*="featured-product"]),
+  button[style*="linear-gradient"][style*="primary-blue"]:active:not(.rounded-full):not([class*="featured-product"]),
+  button[style*="background: linear-gradient"][style*="#5825ef"]:active:not(.rounded-full):not([class*="featured-product"]) {
+    transform: translateY(0) scale(0.98) !important;
+  }
+  
+  /* 🎯 INPUT MOBILE FIXES */
+  input:not([class*="featured-product"]),
+  textarea:not([class*="featured-product"]),
+  select:not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* 🎯 CARD MOBILE FIXES */
+  .card:not([class*="featured-product"]) *:not(.rounded-full),
+  [class*="card-"]:not([class*="featured-product"]) *:not(.rounded-full) {
+    border-radius: 8px !important;
+  }
+  
+  /* 🎯 BADGE MOBILE FIXES */
+  .badge:not([class*="featured-product"]),
+  [class*="badge-"]:not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* 🎯 CHAT MOBILE FIXES */
+  .chat-room *:not(.rounded-full):not([class*="featured-product"]),
+  .admin-chat-room *:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* 🎯 SEARCH OVERLAY MOBILE FIXES */
+  .mobile-search-overlay *:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* 🎯 FLOATING CATEGORIES MOBILE FIXES */
+  .floating-categories *:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* 🎯 SHADCN UI COMPONENTS MOBILE FIXES */
+  
+  /* Button component */
+  .inline-flex.items-center.justify-center:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* Input component */
+  .flex.h-10.w-full:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* Card component */
+  .rounded-lg.border:not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* Dialog component */
+  [data-state]:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* 🎯 COMMON TAILWIND PATTERNS */
+  
+  /* Flexbox containers */
+  .flex:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* Grid containers */
+  .grid:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* Background colored elements */
+  [class*="bg-"]:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* Border colored elements */
+  [class*="border-"]:not(.rounded-full):not([class*="featured-product"]):not([class*="border-0"]):not([class*="border-none"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* 🎯 MOTION/ANIMATION COMPONENTS */
+  
+  /* Motion components */
+  [style*="transform"]:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* Animated elements */
+  [class*="animate-"]:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* Transition elements */
+  [class*="transition-"]:not(.rounded-full):not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* 🎯 INLINE STYLE OVERRIDES */
+  
+  /* Common inline border radius values */
+  [style*="borderRadius: '1px'"]:not([class*="featured-product"]),
+  [style*="borderRadius: '2px'"]:not([class*="featured-product"]),
+  [style*="borderRadius: '3px'"]:not([class*="featured-product"]),
+  [style*="borderRadius: '4px'"]:not([class*="featured-product"]),
+  [style*="borderRadius: '5px'"]:not([class*="featured-product"]),
+  [style*="borderRadius: '6px'"]:not([class*="featured-product"]),
+  [style*="borderRadius: '7px'"]:not([class*="featured-product"]),
+  [style*="borderRadius: '9px'"]:not([class*="featured-product"]),
+  [style*="borderRadius: '10px'"]:not([class*="featured-product"]),
+  [style*="borderRadius: '12px'"]:not([class*="featured-product"]),
+  [style*="borderRadius: '15px'"]:not([class*="featured-product"]),
+  [style*="borderRadius: '16px'"]:not([class*="featured-product"]),
+  [style*="borderRadius: '20px'"]:not([class*="featured-product"]) {
+    border-radius: 8px !important;
+  }
+  
+  /* 🎯 MAKE SURE CIRCULAR ELEMENTS STAY CIRCULAR */
+  
+  /* Preserve all circular elements */
+  .rounded-full,
+  [class*="rounded-full"],
+  .btn-moema-icon,
+  .btn-moema-icon-sm,
+  [style*="border-radius: 50%"],
+  [style*="borderRadius: '50%'"],
+  [style*="border-radius:50%"],
+  [style*="borderRadius:'50%'"],
+  .avatar,
+  [class*="avatar"],
+  .profile-image,
+  [class*="profile-image"],
+  .circular,
+  [class*="circular"] {
+    border-radius: 50% !important;
+  }
+  
+  /* 🎯 PRESERVE FEATURED PRODUCTS (DO NOT CHANGE) */
+  
+  /* Explicitly preserve featured products as requested */
+  .featured-product,
+  .featured-product *,
+  [class*="featured-product"],
+  [class*="featured-product"] *,
+  .product-thumbnail.featured,
+  .product-thumbnail.featured *,
+  .featured-products .product-card,
+  .featured-products .product-card *,
+  .featured-products .product-thumbnail,
+  .featured-products .product-thumbnail * {
+    /* Preserve original border radius - do not override */
+  }
+}
+
+/* 🎯 HIGH PRIORITY OVERRIDE CLASS */
+.mobile-force-8px-radius:not(.rounded-full):not([class*="featured-product"]) {
+  border-radius: 8px !important;
+}
+
+.mobile-force-8px-radius *:not(.rounded-full):not([class*="featured-product"]) {
+  border-radius: 8px !important;
+}
+
+/* 🔥 FLOATING COMMUNITY BUTTON - SPECIAL OVERRIDES */
+@media (max-width: 767px) {
+  .floating-community-button {
+    pointer-events: auto !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -webkit-touch-callout: none !important;
+    border-radius: 16px !important;
+    min-width: 56px !important;
+    min-height: 56px !important;
+    z-index: 9999 !important;
+  }
+  
+  .floating-community-button:active {
+    transform: scale(0.95) !important;
+  }
+  
+  .floating-community-button:hover {
+    transform: scale(1.05) !important;
+  }
+}
+
+/* 🎯 DEBUG CLASS FOR TESTING */
+.debug-mobile-border-radius {
+  outline: 2px dashed red !important;
+  outline-offset: 2px !important;
+}
+
+.debug-mobile-border-radius::before {
+  content: "Mobile BR Fix";
+  position: absolute;
+  background: red;
+  color: white;
+  font-size: 10px;
+  padding: 2px 4px;
+  z-index: 10000;
+  border-radius: 2px;
+  top: -20px;
+  left: 0;
+}

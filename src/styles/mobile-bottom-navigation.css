@@ -1,0 +1,467 @@
+/* Mobile Bottom Navigation Styles */
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9998; /* Match header z-index */
+  background: #000000; /* Solid black to match header */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Match header border */
+  padding: 8px 0 calc(8px + env(safe-area-inset-bottom));
+  /* Show by default and let media query control visibility */
+  display: block;
+  will-change: transform;
+  transform: translateZ(0);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3); /* Inverted header shadow */
+  /* 🎯 FORCE 0PX BORDER-RADIUS ON BOTTOM NAVIGATION BAR */
+  border-radius: 0px !important;
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.mobile-bottom-nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+  /* 🎯 FORCE 0PX BORDER-RADIUS ON BOTTOM NAVIGATION CONTAINER */
+  border-radius: 0px !important;
+}
+
+.mobile-bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  position: relative;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: var(--font-body);
+  will-change: transform, color;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-bottom-nav-item:active {
+  transform: scale(0.95);
+  background: rgba(88, 37, 239, 0.1);
+}
+
+.mobile-bottom-nav-item.active {
+  color: #5825efff;
+  background: rgba(88, 37, 239, 0.08);
+}
+
+.mobile-bottom-nav-item.active .mobile-bottom-nav-icon-container {
+  transform: translateY(-1px);
+}
+
+/* Active indicator line at top instead of bottom */
+.mobile-bottom-nav-item.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 24px;
+  height: 2px;
+  background: #5825efff;
+  border-radius: 0 0 8px 8px;
+  transform: translateX(-50%);
+}
+
+/* Enhanced touch feedback for mobile */
+@media (max-width: 767px) {
+  .mobile-bottom-nav-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-1px);
+  }
+  
+  .mobile-bottom-nav-item:active {
+    background: rgba(88, 37, 239, 0.15);
+    transform: scale(0.95);
+  }
+  
+  .mobile-bottom-nav-item.active:hover {
+    background: rgba(88, 37, 239, 0.12);
+  }
+}
+
+.mobile-bottom-nav-icon-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2px;
+  transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.mobile-bottom-nav-icon {
+  transition: color 0.2s ease;
+}
+
+.mobile-bottom-nav-badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background: #e74c3c;
+  color: white;
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: 10px;
+  min-width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  font-family: var(--font-body);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  animation: pulse-badge 2s infinite;
+}
+
+.mobile-bottom-nav-label {
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1;
+  margin-top: 2px;
+  transition: color 0.2s ease;
+  text-align: center;
+}
+
+/* Badge pulse animation */
+@keyframes pulse-badge {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Responsive behavior - only show on mobile */
+@media (max-width: 767px) {
+  .mobile-bottom-nav {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* Add bottom padding to main content to prevent overlap - 8px overlap with nav bar */
+  body.mobile {
+    padding-bottom: calc(80px - 8px + env(safe-area-inset-bottom));
+  }
+  
+  body.mobile .min-h-screen {
+    padding-bottom: calc(80px - 8px + env(safe-area-inset-bottom));
+  }
+  
+  /* Ensure all page containers have proper bottom spacing */
+  body.mobile main,
+  body.mobile .page-container,
+  body.mobile .mobile-page-content {
+    padding-bottom: calc(80px - 8px + env(safe-area-inset-bottom));
+  }
+  
+  /* Special handling for specific pages - 8px overlap */
+  body.mobile.stream-viewer-page,
+  body.mobile.live-streams-page {
+    padding-bottom: calc(70px - 8px + env(safe-area-inset-bottom));
+  }
+  
+  /* Ensure floating elements don't overlap - positioned above overlapping content */
+  body.mobile .floating-toggle-button,
+  body.mobile .floating-chat-button {
+    bottom: calc(80px + 8px + env(safe-area-inset-bottom));
+  }
+}
+
+/* Hide on desktop */
+@media (min-width: 768px) {
+  .mobile-bottom-nav {
+    display: none !important;
+  }
+}
+
+/* Enhanced touch feedback for iOS */
+@supports (-webkit-touch-callout: none) {
+  .mobile-bottom-nav-item {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+
+/* Force visibility on mobile */
+@media (max-width: 767px) {
+  .mobile-bottom-nav {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9998 !important; /* Match header */
+    pointer-events: auto !important;
+    background: #000000 !important; /* Solid black to match header */
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important; /* Match header border */
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3) !important; /* Inverted header shadow */
+  }
+  
+  .mobile-bottom-nav-container {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .mobile-bottom-nav-item {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+}
+
+/* Additional body class-based targeting for more specificity */
+body.mobile-bottom-nav-enabled .mobile-bottom-nav {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9998 !important; /* Match header */
+  pointer-events: auto !important;
+  background: #000000 !important; /* Solid black to match header */
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important; /* Match header border */
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3) !important; /* Inverted header shadow */
+  padding: 8px 0 calc(8px + env(safe-area-inset-bottom)) !important;
+}
+
+body.mobile-bottom-nav-enabled .mobile-bottom-nav-container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-around !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 16px !important;
+}
+
+body.mobile-bottom-nav-enabled .mobile-bottom-nav-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 8px 12px !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
+  border-radius: 8px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  position: relative !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-family: var(--font-body) !important;
+  pointer-events: auto !important;
+}
+
+/* Hide when certain modals or overlays are open */
+.mobile-splash-visible .mobile-bottom-nav,
+.modal-open .mobile-bottom-nav {
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Partially hide when chat is open to show chat button */
+.chat-open .mobile-bottom-nav {
+  transform: translateY(50%);
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Hide completely when admin chat is open */
+.admin-chat-open .mobile-bottom-nav {
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Special handling for stream viewer page */
+.stream-viewer-page .mobile-bottom-nav {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* Integration with TikTok-style mobile experience */
+@media (max-width: 767px) {
+  /* Adjust floating elements to work with bottom nav - positioned above overlapping content */
+  .floating-categories {
+    bottom: calc(80px + 8px + env(safe-area-inset-bottom));
+  }
+  
+  .mobile-incentive-balloon {
+    bottom: calc(80px + 8px + env(safe-area-inset-bottom));
+  }
+  
+  .floating-product-community-button {
+    bottom: calc(80px + 8px + env(safe-area-inset-bottom));
+  }
+  
+  /* Ensure proper z-index stacking */
+  .mobile-bottom-nav {
+    z-index: 9998; /* Match header */
+  }
+  
+  .floating-toggle-button {
+    z-index: 9999;
+  }
+  
+  .mobile-search-overlay {
+    z-index: 10001;
+  }
+  
+  /* Handle mobile splash screen interaction */
+  .mobile-splash-screen {
+    z-index: 10002;
+  }
+}
+
+/* Performance optimizations for mobile */
+.mobile-bottom-nav * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth appearance animation on app load */
+.mobile-bottom-nav {
+  animation: slideUpBottomNav 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+@keyframes slideUpBottomNav {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .mobile-bottom-nav {
+    background: #000000;
+    border-top: 2px solid #5825efff;
+  }
+  
+  .mobile-bottom-nav-item {
+    color: #ffffff;
+  }
+  
+  .mobile-bottom-nav-item.active {
+    color: #5825efff;
+    background: rgba(88, 37, 239, 0.2);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .mobile-bottom-nav-item,
+  .mobile-bottom-nav-icon-container,
+  .mobile-bottom-nav-badge {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+  .mobile-bottom-nav {
+    background: rgba(0, 0, 0, 0.98);
+    border-top-color: rgba(88, 37, 239, 0.3);
+  }
+}
+
+/* 🎯 FINAL ENFORCEMENT: 0PX BORDER-RADIUS FOR NAVIGATION BARS */
+/* Ultra-high specificity rules to ensure both top and bottom navigation bars have 0px border-radius */
+
+@media (max-width: 767px) {
+  /* 🔥 BOTTOM NAVIGATION BAR - MAXIMUM SPECIFICITY 0PX BORDER-RADIUS */
+  html body.mobile .mobile-bottom-nav,
+  html body .mobile-bottom-nav,
+  body.mobile .mobile-bottom-nav,
+  body .mobile-bottom-nav,
+  .mobile-bottom-nav,
+  html body.mobile-bottom-nav-enabled .mobile-bottom-nav,
+  body.mobile-bottom-nav-enabled .mobile-bottom-nav {
+    border-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+  }
+  
+  /* 🔥 BOTTOM NAVIGATION CONTAINER - MAXIMUM SPECIFICITY 0PX BORDER-RADIUS */
+  html body.mobile .mobile-bottom-nav-container,
+  html body .mobile-bottom-nav-container,
+  body.mobile .mobile-bottom-nav-container,
+  body .mobile-bottom-nav-container,
+  .mobile-bottom-nav-container,
+  html body.mobile-bottom-nav-enabled .mobile-bottom-nav-container,
+  body.mobile-bottom-nav-enabled .mobile-bottom-nav-container {
+    border-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+  }
+  
+  /* 🔥 TOP NAVIGATION BAR (HEADER) - MAXIMUM SPECIFICITY 0PX BORDER-RADIUS */
+  html body.mobile header,
+  html body header,
+  body.mobile header,
+  body header,
+  header,
+  html body.mobile .header,
+  html body .header,
+  body.mobile .header,
+  body .header,
+  .header,
+  html body.mobile nav,
+  html body nav,
+  body.mobile nav,
+  body nav,
+  nav {
+    border-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+  }
+}
+
+/* 🎯 UTILITY CLASSES FOR MANUAL APPLICATION */
+.force-navigation-zero-radius,
+.mobile-navigation-zero-radius {
+  border-radius: 0px !important;
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
